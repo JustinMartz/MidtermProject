@@ -21,7 +21,7 @@ USE `parkpalsdb` ;
 DROP TABLE IF EXISTS `address` ;
 
 CREATE TABLE IF NOT EXISTS `address` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(45) NOT NULL,
   `street_2` VARCHAR(45) NULL,
   `city` VARCHAR(45) NOT NULL,
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `park` ;
 
 CREATE TABLE IF NOT EXISTS `park` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
   `notable_features` TEXT NULL,
@@ -91,7 +91,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `trail` ;
 
 CREATE TABLE IF NOT EXISTS `trail` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
   `longitude` VARCHAR(45) NULL,
