@@ -6,6 +6,8 @@
     
     <!-- begin entities -->
     <class>com.skilldistillery.parkpals.entities.User</class>
+    <class>com.skilldistillery.parkpals.entities.TrailRating</class>
+    <class>com.skilldistillery.parkpals.entities.TrailRatingId</class>
     
     
     <!-- end entities -->
