@@ -94,9 +94,9 @@ CREATE TABLE IF NOT EXISTS `trail` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
-  `longitude` DOUBLE NULL,
-  `latitude` DOUBLE NULL,
-  `length_in_miles` DECIMAL NULL,
+  `longitude` VARCHAR(45) NULL,
+  `latitude` VARCHAR(45) NULL,
+  `length_in_miles` DOUBLE NULL,
   `park_id` INT NOT NULL,
   `active` TINYINT NULL,
   `image_url` VARCHAR(2000) NULL,
@@ -387,7 +387,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 Main st', NULL, 'Smith', 'va', '23333', NULL);
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 Main st', NULL, 'Smith', 'va', '23333', '9999999999');
 
 COMMIT;
 
@@ -397,7 +397,127 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (1, 'admin', '1234', 'Cortnie', 'Wirtanen', 1, 'ADMIN', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (1, 'admin', '1234', 'Cortnie', 'Wirtanen', 1, 'ADMIN', 1, 'cool calm collected', 'http://fakeurl.com', '2020-01-01 10:10:10', '2020-03-01 10:11:20');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `park`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `park` (`id`, `name`, `description`, `notable_features`, `image_url`, `address_id`, `active`, `website_url`) VALUES (1, 'Big Cypress', 'wonderful park with lots of bathrooms', 'old growth cypress', 'https://www.nps.gov/bicy/planyourvisit/images/birdon-road-sunset1_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp', 1, 1, 'https://www.nps.gov/bicy/index.htm');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `trail`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (1, 'Gator hook trail', 'long trail, goes around a lake', '25.8315n', '81.1005w', 4.7, 1, 1, 'http://anotherfakeurl.com');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `meetup`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `creator_id`, `description`, `image_url`) VALUES (1, 'hike at goldminors trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'long and rough, bring water', 'http://fakefakeurl.com');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `meetup_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (1, 1, 'blah blah blah', 2, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `trail_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `trail_rating` (`user_id`, `trail_id`, `rating`, `comment`, `create_date`, `last_update`) VALUES (1, 1, 5, 'it was great', '2020-01-01 10:10:10', '2020-02-01 10:10:10');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `park_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `park_rating` (`user_id`, `park_id`, `rating`, `comment`, `image_url`, `create_date`, `last_update`) VALUES (1, 1, 5, 'this was nice', 'https://www.nps.gov/bicy/planyourvisit/images/birdon-road-sunset1_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp', '2020-01-01 10:10:10', '2020-02-01 10:10:10');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `park_visit`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `park_visit` (`id`, `title`, `description`, `arrival_date`, `depart_date`, `user_id`, `park_id`, `wildlife_seen`) VALUES (1, 'My first time', 'it was a great visit', '2020-01-01 ', '2020-01-01 ', 1, 1, 'I did not see anything out there');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `visit_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `visit_image` (`id`, `image_url`, `caption`, `park_visit_id`) VALUES (1, 'https://www.nps.gov/bicy/planyourvisit/images/birdon-road-sunset1_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp', 'beautiful scene', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `amenity`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (1, 'restroom', 'indoor restroom ');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `amenity_has_trail`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `meetup_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `meetup_comment` (`id`, `comment_date`, `comment`, `reply_id`, `user_id`, `meetup_id`, `active`) VALUES (1, '2020-01-01 10:10:10', 'great hike!', 1, 1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_friend`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `parkpalsdb`;
+INSERT INTO `user_friend` (`user_id`, `user_id1`) VALUES (1, 1);
 
 COMMIT;
 
