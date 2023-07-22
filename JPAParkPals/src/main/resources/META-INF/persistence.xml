@@ -13,6 +13,8 @@
 	<class>com.skilldistillery.parkpals.entities.MeetupRating</class>
 	<class>com.skilldistillery.parkpals.entities.MeetupRatingId</class>
 	<class>com.skilldistillery.parkpals.entities.Trail</class>
+	<class>com.skilldistillery.parkpals.entities.Park</class>
+	<class>com.skilldistillery.parkpals.entities.ParkVisit</class>
 	
 	
 	 

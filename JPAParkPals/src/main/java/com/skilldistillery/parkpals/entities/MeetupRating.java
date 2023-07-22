@@ -12,7 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "meeetup_rating")
+@Table(name = "meetup_rating")
 public class MeetupRating {
 	
 	@EmbeddedId
