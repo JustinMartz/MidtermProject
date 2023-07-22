@@ -5,22 +5,18 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 
-public class TrailRatingId implements Serializable {
-
-	private static final long serialVersionUID = 7586833326728930828L;
+public class ParkRatingId implements Serializable{
+	private static final long serialVersionUID = -4589850709117804258L;
 	
 	@Column(name = "user_id")
 	private int userId;
 	
-	@Column(name = "trail_id")
-	private int trailId;
-
-	public TrailRatingId() {
-	}
-
-	public TrailRatingId(int userId, int trailId) {
-		this.userId = userId;
-		this.trailId = trailId;
+	@Column(name = "park_id")
+	private int parkId;
+	
+	public ParkRatingId(int userId, int parkId) {
+		this.userId =userId;
+		this.parkId =parkId;
 	}
 
 	public int getUserId() {
@@ -31,12 +27,12 @@ public class TrailRatingId implements Serializable {
 		this.userId = userId;
 	}
 
-	public int getTrailId() {
-		return trailId;
+	public int getParkId() {
+		return parkId;
 	}
 
-	public void setTrailId(int trailId) {
-		this.trailId = trailId;
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
 	}
 
 	public static long getSerialversionuid() {
@@ -45,12 +41,12 @@ public class TrailRatingId implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TrailRatingId [userId=" + userId + ", trailId=" + trailId + "]";
+		return "ParkRatingId [userId=" + userId + ", parkId=" + parkId + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(trailId, userId);
+		return Objects.hash(parkId, userId);
 	}
 
 	@Override
@@ -61,11 +57,15 @@ public class TrailRatingId implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TrailRatingId other = (TrailRatingId) obj;
-		return trailId == other.trailId && userId == other.userId;
+		ParkRatingId other = (ParkRatingId) obj;
+		return parkId == other.parkId && userId == other.userId;
 	}
 	
+
 	
+
+
+
 	
 
 }

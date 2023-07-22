@@ -8,7 +8,8 @@
     <class>com.skilldistillery.parkpals.entities.User</class>
     <class>com.skilldistillery.parkpals.entities.TrailRating</class>
     <class>com.skilldistillery.parkpals.entities.TrailRatingId</class>
-    
+	<class>com.skilldistillery.parkpals.entities.ParkRating</class> 
+	<class>com.skilldistillery.parkpals.entities.ParkRatingId</class>   
     
     <!-- end entities -->
 

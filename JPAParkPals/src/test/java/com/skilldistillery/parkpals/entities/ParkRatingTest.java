@@ -1,7 +1,6 @@
 package com.skilldistillery.parkpals.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,11 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class TrailRatingTest {
-	
+class ParkRatingTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private TrailRating trailRating;
+	private ParkRating parkRating;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,25 +30,24 @@ class TrailRatingTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		TrailRatingId trailRatingId = new TrailRatingId(1, 1);
-		trailRating = em.find(TrailRating.class, trailRatingId);
+		ParkRatingId parkRatingId = new ParkRatingId(1, 1);
+		parkRating = em.find(ParkRating.class, parkRatingId);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		trailRating = null;
+		parkRating = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(trailRating);
-		assertEquals(5, trailRating.getRating());
+		assertNotNull(parkRating);
+		assertEquals(5, parkRating.getRating());
 	}
 
+	
 }
-
-
 
 
 
