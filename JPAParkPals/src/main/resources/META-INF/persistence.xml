@@ -15,6 +15,9 @@
 	<class>com.skilldistillery.parkpals.entities.Trail</class>
 	<class>com.skilldistillery.parkpals.entities.Park</class>
 	<class>com.skilldistillery.parkpals.entities.ParkVisit</class>
+	<class>com.skilldistillery.parkpals.entities.Address</class>
+	<class>com.skilldistillery.parkpals.entities.MeetupComment</class>
+	<class>com.skilldistillery.parkpals.entities.VisitImage</class>
 	
 	
 	 
