@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class TrailRatingId implements Serializable {
 
 	private static final long serialVersionUID = 7586833326728930828L;
