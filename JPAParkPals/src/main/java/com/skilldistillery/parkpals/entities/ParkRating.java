@@ -30,6 +30,10 @@ public class ParkRating {
 		@Column(name = "last_update")
 		@UpdateTimestamp
 		private LocalDateTime lastUpdate;
+		
+		public ParkRating() {
+			
+		}
 
 		public ParkRatingId getId() {
 			return id;

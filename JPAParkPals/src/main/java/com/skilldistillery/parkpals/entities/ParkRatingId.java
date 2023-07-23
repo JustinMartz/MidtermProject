@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class ParkRatingId implements Serializable{
 	private static final long serialVersionUID = -4589850709117804258L;
 	
@@ -17,6 +19,10 @@ public class ParkRatingId implements Serializable{
 	public ParkRatingId(int userId, int parkId) {
 		this.userId =userId;
 		this.parkId =parkId;
+	}
+	
+	public ParkRatingId() {
+		
 	}
 
 	public int getUserId() {
