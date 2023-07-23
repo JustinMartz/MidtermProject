@@ -388,6 +388,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '123 Main st', NULL, 'Smith', 'va', '23333', '9999999999');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (2, '555 Jump st', NULL, 'cooldown', 'ca', '45621', '5555555555');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (3, '785 Place st', NULL, 'jumpup', 'va', '48631', '4444444444');
+INSERT INTO `address` (`id`, `street`, `street_2`, `city`, `state`, `zip_code`, `phone`) VALUES (4, '456 Street ln', NULL, 'runaround', 'ga', '78532', '3333333333');
 
 COMMIT;
 
@@ -398,6 +401,9 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (1, 'admin', '1234', 'Cortnie', 'Wirtanen', 1, 'ADMIN', 1, 'cool calm collected', 'http://fakeurl.com', '2020-01-01 10:10:10', '2020-03-01 10:11:20');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (2, 'Sam2', '4567', 'Sam', 'Fath', 1, NULL, 2, 'cool calm collected', 'http://fakeurl.com', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (3, 'Justin3', '8910', 'Justin ', 'Martz', 1, NULL, 3, 'cool calm collected', 'http://fakeurl.com', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (4, 'Dean4', '1112', 'Dean', 'Coffman', 1, NULL, 4, 'cool calm collected', 'http://fakeurl.com', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
 
 COMMIT;
 
@@ -518,6 +524,9 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `user_friend` (`user_id`, `friend_id`) VALUES (1, 1);
+INSERT INTO `user_friend` (`user_id`, `friend_id`) VALUES (2, 1);
+INSERT INTO `user_friend` (`user_id`, `friend_id`) VALUES (3, 1);
+INSERT INTO `user_friend` (`user_id`, `friend_id`) VALUES (4, 1);
 
 COMMIT;
 
