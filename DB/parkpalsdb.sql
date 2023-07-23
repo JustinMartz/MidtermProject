@@ -355,9 +355,9 @@ DROP TABLE IF EXISTS `user_friend` ;
 
 CREATE TABLE IF NOT EXISTS `user_friend` (
   `user_id` INT NOT NULL,
-  `user_id1` INT NOT NULL,
-  PRIMARY KEY (`user_id`, `user_id1`),
-  INDEX `fk_user_has_user_user2_idx` (`user_id1` ASC),
+  `friend_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `friend_id`),
+  INDEX `fk_user_has_user_user2_idx` (`friend_id` ASC),
   INDEX `fk_user_has_user_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_has_user_user1`
     FOREIGN KEY (`user_id`)
@@ -365,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `user_friend` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_user_user2`
-    FOREIGN KEY (`user_id1`)
+    FOREIGN KEY (`friend_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -517,7 +517,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `user_friend` (`user_id`, `user_id1`) VALUES (1, 1);
+INSERT INTO `user_friend` (`user_id`, `friend_id`) VALUES (1, 1);
 
 COMMIT;
 
