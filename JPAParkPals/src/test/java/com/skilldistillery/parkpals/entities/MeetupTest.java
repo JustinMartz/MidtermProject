@@ -1,7 +1,5 @@
 package com.skilldistillery.parkpals.entities;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -15,10 +13,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AddressTest {
+class MeetupTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Address address;
+	private Meetup meetup;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,21 +31,30 @@ class AddressTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		meetup = em.find(Meetup.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		meetup = null;
 	}
 
 	@Test
-	void test_Address_basic() {
-		assertNotNull(address);
-		assertEquals("123 Main st", address.getStreet());
-		assertEquals("Smith", address.getCity());
+	void test_Meetup_basic() {
+		assertNotNull(meetup);
+		assertEquals("long and rough, bring water", meetup.getDescription());
+		
+	}
+	@Test
+	void test_Meetup_mapping_to_trail_ManyToOne() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getTrail());
+		assertEquals("25.8315n", meetup.getTrail().getLongitude());
+		
 	}
 
+
+	
 
 }

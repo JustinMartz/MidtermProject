@@ -46,5 +46,6 @@ class MeetupRatingTest {
 		assertNotNull(meetupRating);
 		assertEquals(2, meetupRating.getRating());
 	}
+
 	
 }

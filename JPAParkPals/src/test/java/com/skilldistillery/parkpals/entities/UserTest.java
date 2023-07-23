@@ -56,4 +56,11 @@ class UserTest {
 		assertTrue(user.getFriends().size() > 0);
 		assertEquals("Sam", user.getFriends().get(1).getFirstName());
 	}
+
+//	@Test
+//	void test_User_mapping_to_meetupRating_OneToMany() {
+//		assertNotNull(user);
+//		assertNotNull(user.getRatings());
+//		assertTrue(user.getRatings().size() > 0);
+//	}
 }

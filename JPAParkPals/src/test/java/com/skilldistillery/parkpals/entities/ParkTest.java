@@ -45,6 +45,14 @@ class ParkTest {
 		assertEquals("Big Cypress", park.getName());
 		assertEquals("old growth cypress", park.getNotableFeatures());
 	}
+	@Test
+	void test_Park_mapping_to_Address() {
+		assertNotNull(park);
+		assertNotNull(park.getAddress());
+		assertEquals("Smith", park.getAddress().getCity());
+				
+	}
+
 
 	
 

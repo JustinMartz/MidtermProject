@@ -12,14 +12,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String username;
@@ -34,7 +37,7 @@ public class User {
 	private String aboutme;
 	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 	@Column(name = "date_created")
 	@CreationTimestamp
 	private LocalDateTime createDate;
@@ -42,164 +45,117 @@ public class User {
 	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
-	
+
 	@ManyToMany
-	  @JoinTable(name="user_friend",						/* SQL association table to join */
-	    joinColumns=@JoinColumn(name="user_id"),		/* column name in user_friend that matches PK in User */
-	    inverseJoinColumns=@JoinColumn(name="friend_id")	/* identifies column in user_friend that matches PK in Actor */
-	  )
+	@JoinTable(name = "user_friend", /* SQL association table to join */
+			joinColumns = @JoinColumn(name = "user_id"), /* column name in user_friend that matches PK in User */
+			inverseJoinColumns = @JoinColumn(name = "friend_id") /*
+																	 * identifies column in user_friend that matches PK
+																	 * in Actor
+																	 */
+	)
 	private List<User> friends;
 
 
 	public User() {
-		
-	}
 
-	
+	}
 
 	public int getId() {
 		return id;
 	}
 
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	public String getUsername() {
 		return username;
 	}
 
-
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
 
 	public String getLastName() {
 		return lastName;
 	}
 
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 
 	public Boolean getActive() {
 		return active;
 	}
 
-
-
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-
-
 
 	public String getRole() {
 		return role;
 	}
 
-
-
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-
 
 	public String getAboutme() {
 		return aboutme;
 	}
 
-
-
 	public void setAboutme(String aboutme) {
 		this.aboutme = aboutme;
 	}
-
-
 
 	public String getImageUrl() {
 		return imageUrl;
 	}
 
-
-
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
-
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
 
-
-
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-
-
 
 	public LocalDateTime getLastUpdate() {
 		return lastUpdate;
 	}
 
-
-
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-
-
 
 	public List<User> getFriends() {
 		return friends;
 	}
 
-
-
 	public void setFriends(List<User> friends) {
 		this.friends = friends;
 	}
-
-
 
 	@Override
 	public String toString() {
