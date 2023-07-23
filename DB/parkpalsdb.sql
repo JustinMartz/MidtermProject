@@ -494,6 +494,10 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (1, 'restroom', 'indoor restroom ');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (2, 'food station', 'snacks and drinks');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (3, 'campground', 'many camping stations');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (4, 'playgrounds', 'play station for all ages ');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (5, 'pinic tables', 'pinic tables in many areas');
 
 COMMIT;
 
@@ -504,6 +508,10 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 1);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 1);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (3, 1);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (4, 1);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (5, 1);
 
 COMMIT;
 
