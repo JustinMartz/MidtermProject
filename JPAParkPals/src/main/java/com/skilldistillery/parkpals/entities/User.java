@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -39,7 +43,12 @@ public class User {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 	
-
+	@ManyToMany
+	  @JoinTable(name="user_friend",						/* SQL association table to join */
+	    joinColumns=@JoinColumn(name="user_id"),		/* column name in user_friend that matches PK in User */
+	    inverseJoinColumns=@JoinColumn(name="friend_id")	/* identifies column in user_friend that matches PK in Actor */
+	  )
+	private List<User> friends;
 
 
 	public User() {
@@ -176,6 +185,18 @@ public class User {
 
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+
+
+	public List<User> getFriends() {
+		return friends;
+	}
+
+
+
+	public void setFriends(List<User> friends) {
+		this.friends = friends;
 	}
 
 

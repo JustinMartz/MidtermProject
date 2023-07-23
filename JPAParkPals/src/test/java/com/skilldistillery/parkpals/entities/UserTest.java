@@ -2,6 +2,7 @@ package com.skilldistillery.parkpals.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -48,4 +49,11 @@ class UserTest {
 		assertEquals("Cortnie", user.getFirstName());
 	}
 
+	@Test
+	void test_User_to_list_of_User() {
+		assertNotNull(user);
+		assertNotNull(user.getFriends());
+		assertTrue(user.getFriends().size() > 0);
+		assertEquals("Sam", user.getFriends().get(1).getFirstName());
+	}
 }
