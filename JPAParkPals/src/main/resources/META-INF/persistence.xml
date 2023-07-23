@@ -19,6 +19,8 @@
 	<class>com.skilldistillery.parkpals.entities.MeetupComment</class>
 	<class>com.skilldistillery.parkpals.entities.VisitImage</class>
 	<class>com.skilldistillery.parkpals.entities.Amenity</class>
+	<class>com.skilldistillery.parkpals.entities.UserFriend</class>
+	
 	
 	
 	 
