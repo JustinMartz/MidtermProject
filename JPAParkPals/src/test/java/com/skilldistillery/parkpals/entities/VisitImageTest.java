@@ -44,4 +44,10 @@ class VisitImageTest {
 		assertNotNull(visitImage.getCaption());
         assertEquals("beautiful scene", visitImage.getCaption());
 	}
+	
+	@Test
+	void test_VisitImage_to_parkvisit() {
+		assertNotNull(visitImage);
+        assertNotNull(visitImage.getParkVisit());
+	}
 }

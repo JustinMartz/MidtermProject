@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class VisitImage {
 	@Column(name = "image_url")
 	private String imageUrl;
 	private String caption;
+	
+	@ManyToOne
+	@JoinColumn(name = "park_visit_id")
+	private ParkVisit parkVisit;
 
 	public VisitImage() {
 
@@ -45,6 +51,15 @@ public class VisitImage {
 
 	public void setCaption(String caption) {
 		this.caption = caption;
+	}
+	
+	
+	public ParkVisit getParkVisit() {
+		return parkVisit;
+	}
+
+	public void setParkVisit(ParkVisit parkVisit) {
+		this.parkVisit = parkVisit;
 	}
 
 	@Override
