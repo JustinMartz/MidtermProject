@@ -65,5 +65,12 @@ class ParkVisitTest {
 		
 		
 	}
+	
+	@Test
+	void test_ParkVisit_to_Park() {
+		assertNotNull(parkVisit);
+		assertNotNull(parkVisit.getPark());
+		assertEquals("Big Cypress", parkVisit.getPark().getName());
+	}
 
 }

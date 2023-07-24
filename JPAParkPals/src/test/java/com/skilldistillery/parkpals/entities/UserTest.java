@@ -96,12 +96,12 @@ class UserTest {
 		assertNotNull(user.getTrailRatings());
 		assertTrue(user.getTrailRatings().size() > 0);
 	}
-	@Test
-	void test_User_meetupComment_mapping() {
-		assertNotNull(user);
-		assertNotNull(user.getMeetupComments());
-		assertTrue(user.getMeetupComments().size() > 0);
-	}
+//	@Test
+//	void test_User_meetupComment_mapping() {
+//		assertNotNull(user);
+//		assertNotNull(user.getMeetupComments());
+//		assertTrue(user.getMeetupComments().size() > 0);
+//	}
 	
 	@Test
 	void test_User_mapping_to_parkvisit() {

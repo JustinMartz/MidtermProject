@@ -1,5 +1,6 @@
 package com.skilldistillery.parkpals.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -37,9 +39,51 @@ public class Trail {
 	
 	@OneToMany(mappedBy = "trail")
 	private List<TrailRating> trailRatings;
+	
+	@ManyToOne
+	@JoinColumn(name="park_id")
+	private Park park;
 
 	public Trail() {
 
+	}
+	
+	public void addAmenity(Amenity amenity) {
+		// FIXME
+		if (amenities == null) {
+			amenities = new ArrayList<>();
+		}
+		
+		if (!amenities.contains(amenity)) {
+			amenities.add(amenity);
+			amenity.addTrail(null);
+		}
+	}
+	
+	public void removeAmenity(Amenity amenity) {
+		// FIXME
+		if (amenities != null && amenities.contains(amenity)) {
+			amenities.remove(amenity);
+			amenity.removeTrail(this);
+		}
+	}
+	
+	public void addTrailRating(TrailRating trailRating) {
+		if (trailRatings == null) {
+			trailRatings = new ArrayList<>();
+		}
+		
+		if (!trailRatings.contains(trailRating)) {
+			trailRatings.add(trailRating);
+			trailRating.setTrail(this);
+		}
+	}
+	
+	public void removeTrailRating(TrailRating trailRating) {
+		if (trailRatings != null && trailRatings.contains(trailRating)) {
+			trailRatings.remove(trailRating);
+			trailRating.setTrail(null);
+		}
 	}
 
 	public int getId() {
@@ -129,6 +173,14 @@ public class Trail {
 
 	public void setTrailRatings(List<TrailRating> trailRatings) {
 		this.trailRatings = trailRatings;
+	}
+
+	public Park getPark() {
+		return park;
+	}
+
+	public void setPark(Park park) {
+		this.park = park;
 	}
 
 	@Override
