@@ -52,6 +52,13 @@ class MeetupCommentTest {
 		assertEquals(1, meetupComment.getReply().getId());
 		
 	}
+	@Test
+	void test_MeetupComment_to_user_mapping() {
+		assertNotNull(meetupComment);
+		assertNotNull(meetupComment.getUser());
+		assertEquals("Cortnie",meetupComment.getUser().getFirstName());
+		
+	}
 }
 
 	

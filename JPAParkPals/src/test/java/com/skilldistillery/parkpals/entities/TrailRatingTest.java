@@ -47,6 +47,13 @@ class TrailRatingTest {
 		assertNotNull(trailRating);
 		assertEquals(5, trailRating.getRating());
 	}
+	
+	@Test
+	void test_mapping_trailrating_to_user() {
+		assertNotNull(trailRating);
+		assertNotNull(trailRating.getUser());
+		assertEquals("Cortnie", trailRating.getUser().getFirstName());
+	}
 
 }
 

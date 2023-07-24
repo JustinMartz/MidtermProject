@@ -45,6 +45,12 @@ class ParkRatingTest {
 		assertNotNull(parkRating);
 		assertEquals(5, parkRating.getRating());
 	}
+	
+	@Test
+	void test_mapping_parkrating_to_user() {
+		assertNotNull(parkRating);
+		assertEquals("Cortnie", parkRating.getUser().getFirstName());
+	}
 
 	
 }

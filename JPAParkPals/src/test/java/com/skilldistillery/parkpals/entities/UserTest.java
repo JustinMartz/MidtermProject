@@ -57,12 +57,12 @@ class UserTest {
 		assertEquals("Sam", user.getFriends().get(1).getFirstName());
 	}
 
-//	@Test
-//	void test_User_mapping_to_meetupRating_OneToMany() {
-//		assertNotNull(user);
-//		assertNotNull(user.getRatings());
-//		assertTrue(user.getRatings().size() > 0);
-//	}
+	@Test
+	void test_User_mapping_to_meetupRating_OneToMany() {
+		assertNotNull(user);
+		assertNotNull(user.getMeetupRatings());
+		assertTrue(user.getMeetupRatings().size() > 0);
+	}
 	@Test
 	void test_User_mapping_to_isActive() {
 		assertNotNull(user.getActive());
@@ -77,7 +77,38 @@ class UserTest {
 		assertNotNull(user.getMeetups());
 		assertTrue(user.getMeetups().size()>0);
 	}
+	@Test
+	void test_User_meetuprating_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getMeetupRatings());
+		assertTrue(user.getMeetupRatings().size() > 0);
+	}
 	
+	@Test
+	void test_User_parkrating_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getParkRatings());
+		assertTrue(user.getParkRatings().size() > 0);
+	}
+	@Test
+	void test_User_trailrating_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getTrailRatings());
+		assertTrue(user.getTrailRatings().size() > 0);
+	}
+	@Test
+	void test_User_meetupComment_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getMeetupComments());
+		assertTrue(user.getMeetupComments().size() > 0);
+	}
+	
+	@Test
+	void test_User_mapping_to_parkvisit() {
+		assertNotNull(user);
+		assertNotNull(user.getParkVisits());
+		assertTrue(user.getParkVisits().size() > 0);
+	}
 	
 }
 		

@@ -8,6 +8,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,9 +33,15 @@ public class MeetupRating {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
-//	@ManyToOne
-//	@JoinColumn(name = "meetup_id")
-//	private Meetup meetup;
+	@ManyToOne
+	@JoinColumn(name = "meetup_id")
+	@MapsId(value = "meetupId")
+	private Meetup meetup;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
 
 	public MeetupRating() {
 
@@ -80,13 +87,21 @@ public class MeetupRating {
 		this.lastUpdate = lastUpdate;
 	}
 
-//	public Meetup getMeetup() {
-//		return meetup;
-//	}
-//
-//	public void setMeetup(Meetup meetup) {
-//		this.meetup = meetup;
-//	}
+	public Meetup getMeetup() {
+		return meetup;
+	}
+
+	public void setMeetup(Meetup meetup) {
+		this.meetup = meetup;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	@Override
 	public String toString() {

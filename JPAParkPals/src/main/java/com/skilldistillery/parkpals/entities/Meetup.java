@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Meetup {
@@ -33,11 +35,11 @@ public class Meetup {
 	private Trail trail;
 
 	@ManyToOne
-	@JoinColumn(name = "creator_id")
+	@JoinColumn(name = "user_id")
 	private User creator;
 
-//	@OneToMany(mappedBy = "meetup")
-//	private List<MeetupRating> meetupRatings;
+	@OneToMany(mappedBy = "meetup")
+	private List<MeetupRating> meetupRatings;
 
 	public Meetup() {
 

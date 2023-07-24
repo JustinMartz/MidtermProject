@@ -63,7 +63,21 @@ public class User {
 	
 	@OneToMany(mappedBy = "creator")
 	private List<Meetup> meetups;
-
+	
+	@OneToMany(mappedBy = "user")
+	private List<MeetupRating> meetupRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ParkRating> parkRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<TrailRating> trailRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<MeetupComment> meetupComments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ParkVisit> parkVisits;
 
 	public User() {
 
@@ -183,6 +197,56 @@ public class User {
 
 	public void setMeetups(List<Meetup> meetups) {
 		this.meetups = meetups;
+	}
+
+
+	public List<MeetupRating> getMeetupRatings() {
+		return meetupRatings;
+	}
+
+
+	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
+		this.meetupRatings = meetupRatings;
+	}
+
+
+	public List<ParkRating> getParkRatings() {
+		return parkRatings;
+	}
+
+
+	public void setParkRatings(List<ParkRating> parkRatings) {
+		this.parkRatings = parkRatings;
+	}
+
+
+	public List<TrailRating> getTrailRatings() {
+		return trailRatings;
+	}
+
+
+	public void setTrailRatings(List<TrailRating> trailRatings) {
+		this.trailRatings = trailRatings;
+	}
+
+
+	public List<MeetupComment> getMeetupComments() {
+		return meetupComments;
+	}
+
+
+	public void setMeetupComments(List<MeetupComment> meetupComments) {
+		this.meetupComments = meetupComments;
+	}
+
+
+	public List<ParkVisit> getParkVisits() {
+		return parkVisits;
+	}
+
+
+	public void setParkVisits(List<ParkVisit> parkVisits) {
+		this.parkVisits = parkVisits;
 	}
 
 
