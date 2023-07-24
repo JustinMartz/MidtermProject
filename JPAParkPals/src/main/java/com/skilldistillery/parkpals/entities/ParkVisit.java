@@ -21,7 +21,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name = "park_visit")
 public class ParkVisit {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private String description;
@@ -33,16 +33,16 @@ public class ParkVisit {
 	@Column(name = "depart_date")
 	@UpdateTimestamp
 	private LocalDateTime departDate;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@OneToMany(mappedBy = "parkVisit")
 	private List<VisitImage> visitImages;
-	
+
 	public ParkVisit() {
-		
+
 	}
 
 	public int getId() {
@@ -92,8 +92,7 @@ public class ParkVisit {
 	public void setDepartDate(LocalDateTime departDate) {
 		this.departDate = departDate;
 	}
-	
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -132,6 +131,5 @@ public class ParkVisit {
 		ParkVisit other = (ParkVisit) obj;
 		return id == other.id;
 	}
-	
 
 }
