@@ -59,5 +59,12 @@ class TrailTest {
 			assertNotNull(trail.getMeetups());
 			assertTrue(trail.getMeetups().size() > 0);
 		}
+		
+		@Test
+		void test_Trail_to_rating_mapping_OnToMany() {
+			assertNotNull(trail);
+			assertNotNull(trail.getTrailRatings());
+			assertTrue(trail.getTrailRatings().size() > 0);
+		}
 
 }

@@ -57,5 +57,13 @@ class ParkVisitTest {
 		
 		
 	}
+	@Test
+	void test_ParkVisit_mapping_to_visitImage() {
+		assertNotNull(parkVisit);
+		assertNotNull(parkVisit.getVisitImages());
+		assertEquals("beautiful scene", parkVisit.getVisitImages().get(0).getCaption());
+		
+		
+	}
 
 }

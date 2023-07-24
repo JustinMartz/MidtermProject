@@ -1,5 +1,6 @@
 package com.skilldistillery.parkpals.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,6 +30,9 @@ public class Park {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+	
+	@OneToMany(mappedBy = "park")
+	private List<ParkRating> parkRatings;
 	
 	public Park() {
 		
@@ -95,6 +100,14 @@ public class Park {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public List<ParkRating> getParkRatings() {
+		return parkRatings;
+	}
+
+	public void setParkRatings(List<ParkRating> parkRatings) {
+		this.parkRatings = parkRatings;
 	}
 
 	@Override

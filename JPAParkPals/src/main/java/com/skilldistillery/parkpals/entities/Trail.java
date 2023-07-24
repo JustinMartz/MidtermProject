@@ -34,6 +34,9 @@ public class Trail {
 	@ManyToMany
 	@JoinTable(name = "amenity_has_trail", joinColumns = @JoinColumn(name = "trail_id"), inverseJoinColumns = @JoinColumn(name = " amenity_id"))
 	private List<Amenity> amenities;
+	
+	@OneToMany(mappedBy = "trail")
+	private List<TrailRating> trailRatings;
 
 	public Trail() {
 
@@ -118,6 +121,14 @@ public class Trail {
 
 	public void setMeetups(List<Meetup> meetups) {
 		this.meetups = meetups;
+	}
+
+	public List<TrailRating> getTrailRatings() {
+		return trailRatings;
+	}
+
+	public void setTrailRatings(List<TrailRating> trailRatings) {
+		this.trailRatings = trailRatings;
 	}
 
 	@Override
