@@ -33,12 +33,10 @@ public class MeetupComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "meetup_id")
-	@MapsId(value = "meetupId")
 	private Meetup meetup;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	@MapsId(value = "userId")
 	private User user;
 	
 
