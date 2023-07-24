@@ -1,11 +1,13 @@
 package com.skilldistillery.parkpals.data;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.parkpals.entities.Address;
 import com.skilldistillery.parkpals.entities.User;
 
 @Service
@@ -30,6 +32,29 @@ public class UserDaoImpl implements UserDAO {
 		
 		return user;
 	}
+
+	@Override
+	public User addUser(User user) {
+		try {
+			   em.persist(user);
+			   
+			  } catch (EntityExistsException e) {
+			   System.err.print(e);
+			   return null;
+			  }
+			  return user;
+	}
+
+	@Override
+	public Address addAddress(Address address){
+		try {
+			   em.persist(address);
+			   
+			  } catch (EntityExistsException e) {
+			   System.err.print(e);
+			   return null;
+			  }
+			  return address;	}
 	
 	
 }
