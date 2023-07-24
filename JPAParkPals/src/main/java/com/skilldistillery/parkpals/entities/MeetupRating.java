@@ -46,6 +46,8 @@ public class MeetupRating {
 	public MeetupRating() {
 
 	}
+	
+	
 
 	public MeetupRatingId getId() {
 		return id;
