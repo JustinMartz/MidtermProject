@@ -1,6 +1,5 @@
 package com.skilldistillery.parkpals.entities;
 
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -23,8 +22,13 @@ public class Address {
 	@Column(name = "zip_code")
 	private String zipCode;
 	private String phone;
-	
+	@OneToOne(mappedBy ="address")
+	private User user;
+	@OneToOne(mappedBy ="address")
+	private Park park;
 
+	
+	
 	public Address() {
 		
 	}
@@ -83,6 +87,22 @@ public class Address {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Park getPark() {
+		return park;
+	}
+
+	public void setPark(Park park) {
+		this.park = park;
 	}
 
 	@Override

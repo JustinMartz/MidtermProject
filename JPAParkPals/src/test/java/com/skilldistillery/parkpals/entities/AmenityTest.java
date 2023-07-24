@@ -47,12 +47,12 @@ class AmenityTest {
 		assertEquals("restroom", amenity.getName());
 		assertEquals("indoor restroom ", amenity.getDescription());
 	}
+
 	@Test
 	void test_Amenity_to_Trail_mapping() {
 		assertNotNull(amenity);
 		assertNotNull(amenity.getTrails());
 		assertTrue(amenity.getTrails().size() > 0);
-		
+
 	}
 }
-	

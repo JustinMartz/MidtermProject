@@ -57,7 +57,7 @@ class TrailTest {
 		void test_Trail_to_meetup_mapping_OnToMany() {
 			assertNotNull(trail);
 			assertNotNull(trail.getMeetups());
-			assertTrue(trail.getAmenities().size() > 0);
+			assertTrue(trail.getMeetups().size() > 0);
 		}
 
 }

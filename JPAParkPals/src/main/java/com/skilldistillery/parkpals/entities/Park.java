@@ -21,7 +21,7 @@ public class Park {
 	private String notableFeatures;
 	@Column(name = "image_url")
 	private String imageUrl;
-	private boolean active;
+	private Boolean active;
 	@Column(name = "website_url")
 	private String websiteUrl;
 	
@@ -73,11 +73,11 @@ public class Park {
 		this.imageUrl = imageUrl;
 	}
 
-	public boolean isActive() {
+	public Boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 

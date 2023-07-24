@@ -8,6 +8,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,7 +17,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "meetup_rating")
 public class MeetupRating {
-	
+
 	@EmbeddedId
 	private MeetupRatingId id;
 	private int rating;
@@ -31,6 +32,13 @@ public class MeetupRating {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
+//	@ManyToOne
+//	@JoinColumn(name = "meetup_id")
+//	private Meetup meetup;
+
+	public MeetupRating() {
+
+	}
 
 	public MeetupRatingId getId() {
 		return id;
@@ -72,6 +80,13 @@ public class MeetupRating {
 		this.lastUpdate = lastUpdate;
 	}
 
+//	public Meetup getMeetup() {
+//		return meetup;
+//	}
+//
+//	public void setMeetup(Meetup meetup) {
+//		this.meetup = meetup;
+//	}
 
 	@Override
 	public String toString() {
@@ -95,7 +110,5 @@ public class MeetupRating {
 		MeetupRating other = (MeetupRating) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }

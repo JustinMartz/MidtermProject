@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -55,11 +56,29 @@ public class User {
 																	 */
 	)
 	private List<User> friends;
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	
+	@OneToMany(mappedBy = "creator")
+	private List<Meetup> meetups;
 
 
 	public User() {
 
 	}
+	
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 
 	public int getId() {
 		return id;
@@ -157,11 +176,22 @@ public class User {
 		this.friends = friends;
 	}
 
+	public List<Meetup> getMeetups() {
+		return meetups;
+	}
+
+
+	public void setMeetups(List<Meetup> meetups) {
+		this.meetups = meetups;
+	}
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", active=" + active + ", role=" + role + ", aboutme=" + aboutme
-				+ ", imageUrl=" + imageUrl + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
+				+ ", imageUrl=" + imageUrl + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", friends="
+				+ friends + ", address=" + address + "]";
 	}
 
 	@Override

@@ -63,4 +63,23 @@ class UserTest {
 //		assertNotNull(user.getRatings());
 //		assertTrue(user.getRatings().size() > 0);
 //	}
+	@Test
+	void test_User_mapping_to_isActive() {
+		assertNotNull(user.getActive());
+	}
+	@Test
+	void test_User_address_mapping() {
+		assertNotNull(user.getAddress());
+		assertEquals("Smith",user.getAddress().getCity());
+	}
+	@Test
+	void test_User_meetup_mapping() {
+		assertNotNull(user.getMeetups());
+		assertTrue(user.getMeetups().size()>0);
+	}
+	
+	
 }
+		
+		
+				

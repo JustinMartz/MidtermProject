@@ -53,7 +53,13 @@ class MeetupTest {
 		assertEquals("25.8315n", meetup.getTrail().getLongitude());
 		
 	}
-
+	@Test
+	void test_Meetup_mapping_to_user() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getCreator());
+		assertEquals("Cortnie",meetup.getCreator().getFirstName());
+		
+	}
 
 	
 

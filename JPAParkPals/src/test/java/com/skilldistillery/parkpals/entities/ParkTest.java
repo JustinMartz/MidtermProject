@@ -52,6 +52,13 @@ class ParkTest {
 		assertEquals("Smith", park.getAddress().getCity());
 				
 	}
+	@Test
+	void test_Park_mapping_to_isActive() {
+		assertNotNull(park.getActive());
+		
+				
+	}
+	
 
 
 	

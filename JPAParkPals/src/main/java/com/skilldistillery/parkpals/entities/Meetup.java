@@ -31,7 +31,13 @@ public class Meetup {
 	@ManyToOne
 	@JoinColumn(name = "trail_id")
 	private Trail trail;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "creator_id")
+	private User creator;
+
+//	@OneToMany(mappedBy = "meetup")
+//	private List<MeetupRating> meetupRatings;
 
 	public Meetup() {
 
@@ -101,10 +107,27 @@ public class Meetup {
 		this.trail = trail;
 	}
 
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+//	public List<MeetupRating> getMeetupRatings() {
+//		return meetupRatings;
+//	}
+//
+//	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
+//		this.meetupRatings = meetupRatings;
+//	}
+
 	@Override
 	public String toString() {
 		return "Meetup [id=" + id + ", name=" + name + ", meetupDate=" + meetupDate + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl + "]";
+				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl + ", trail="
+				+ trail + ", creator=" + creator + "]";
 	}
 
 	@Override

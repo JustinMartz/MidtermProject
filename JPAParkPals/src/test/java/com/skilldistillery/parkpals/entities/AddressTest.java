@@ -48,6 +48,17 @@ class AddressTest {
 		assertEquals("123 Main st", address.getStreet());
 		assertEquals("Smith", address.getCity());
 	}
+	@Test
+	void test_address_to_user_mapping() {
+		assertNotNull(address);
+		assertEquals(1,address.getId());
+	}
+	@Test
+	void test_address_to_park_mapping() {
+		assertNotNull(address);
+		assertEquals("Big Cypress",address.getPark().getName());
+	}
+	
 
 
 }

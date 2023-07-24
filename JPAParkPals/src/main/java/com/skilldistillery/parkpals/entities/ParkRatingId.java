@@ -16,14 +16,15 @@ public class ParkRatingId implements Serializable{
 	@Column(name = "park_id")
 	private int parkId;
 	
+	public ParkRatingId() {
+		
+	}
+	
 	public ParkRatingId(int userId, int parkId) {
 		this.userId =userId;
 		this.parkId =parkId;
 	}
 	
-	public ParkRatingId() {
-		
-	}
 
 	public int getUserId() {
 		return userId;

@@ -12,66 +12,61 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "visit_image")
 public class VisitImage {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id; 
-@Column(name = "image_url")
-private String imageUrl;
-private String caption;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name = "image_url")
+	private String imageUrl;
+	private String caption;
 
-public VisitImage() {
+	public VisitImage() {
 
-}
+	}
 
-public int getId() {
-	return id;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public String getImageUrl() {
-	return imageUrl;
-}
+	public String getImageUrl() {
+		return imageUrl;
+	}
 
-public void setImageUrl(String imageUrl) {
-	this.imageUrl = imageUrl;
-}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
-public String getCaption() {
-	return caption;
-}
+	public String getCaption() {
+		return caption;
+	}
 
-public void setCaption(String caption) {
-	this.caption = caption;
-}
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
 
-@Override
-public int hashCode() {
-	return Objects.hash(id);
-}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 
-@Override
-public boolean equals(Object obj) {
-	if (this == obj)
-		return true;
-	if (obj == null)
-		return false;
-	if (getClass() != obj.getClass())
-		return false;
-	VisitImage other = (VisitImage) obj;
-	return id == other.id;
-}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VisitImage other = (VisitImage) obj;
+		return id == other.id;
+	}
 
-@Override
-public String toString() {
-	return "VisitImage [id=" + id + ", imageUrl=" + imageUrl + ", caption=" + caption + "]";
-}
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "VisitImage [id=" + id + ", imageUrl=" + imageUrl + ", caption=" + caption + "]";
+	}
 
 }
