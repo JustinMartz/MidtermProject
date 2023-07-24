@@ -1,6 +1,8 @@
 package com.skilldistillery.parkpals.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,6 +45,19 @@ class MeetupCommentTest {
 		assertNotNull(meetupComment);
 		assertEquals(2020, meetupComment.getCommentDate().getYear());
 		assertEquals("great hike!", meetupComment.getComment());
+	}
+	@Test
+	void test_MeetupComment_basic_reply() {
+		assertNotNull(meetupComment.getReply());
+		assertEquals(1, meetupComment.getReply().getId());
+		
+	}
+	@Test
+	void test_MeetupComment_to_user_mapping() {
+		assertNotNull(meetupComment);
+		assertNotNull(meetupComment.getUser());
+		assertEquals("Cortnie",meetupComment.getUser().getFirstName());
+		
 	}
 }
 

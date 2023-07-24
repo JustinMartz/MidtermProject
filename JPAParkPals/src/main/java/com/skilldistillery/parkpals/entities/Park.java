@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Park {
@@ -19,9 +21,13 @@ public class Park {
 	private String notableFeatures;
 	@Column(name = "image_url")
 	private String imageUrl;
-	private boolean active;
+	private Boolean active;
 	@Column(name = "website_url")
 	private String websiteUrl;
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 	
 	public Park() {
 		
@@ -67,11 +73,11 @@ public class Park {
 		this.imageUrl = imageUrl;
 	}
 
-	public boolean isActive() {
+	public Boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 
@@ -81,6 +87,14 @@ public class Park {
 
 	public void setWebsiteUrl(String websiteUrl) {
 		this.websiteUrl = websiteUrl;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override

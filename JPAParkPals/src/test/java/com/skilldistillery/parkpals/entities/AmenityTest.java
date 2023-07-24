@@ -1,6 +1,8 @@
 package com.skilldistillery.parkpals.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,5 +47,12 @@ class AmenityTest {
 		assertEquals("restroom", amenity.getName());
 		assertEquals("indoor restroom ", amenity.getDescription());
 	}
+
+	@Test
+	void test_Amenity_to_Trail_mapping() {
+		assertNotNull(amenity);
+		assertNotNull(amenity.getTrails());
+		assertTrue(amenity.getTrails().size() > 0);
+
+	}
 }
-	

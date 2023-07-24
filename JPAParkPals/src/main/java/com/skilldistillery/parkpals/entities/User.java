@@ -12,14 +12,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String username;
@@ -34,7 +38,7 @@ public class User {
 	private String aboutme;
 	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 	@Column(name = "date_created")
 	@CreationTimestamp
 	private LocalDateTime createDate;
@@ -42,170 +46,216 @@ public class User {
 	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
-	
-	@ManyToMany
-	  @JoinTable(name="user_friend",						/* SQL association table to join */
-	    joinColumns=@JoinColumn(name="user_id"),		/* column name in user_friend that matches PK in User */
-	    inverseJoinColumns=@JoinColumn(name="friend_id")	/* identifies column in user_friend that matches PK in Actor */
-	  )
-	private List<User> friends;
 
+	@ManyToMany
+	@JoinTable(name = "user_friend", /* SQL association table to join */
+			joinColumns = @JoinColumn(name = "user_id"), /* column name in user_friend that matches PK in User */
+			inverseJoinColumns = @JoinColumn(name = "friend_id") /*
+																	 * identifies column in user_friend that matches PK
+																	 * in Actor
+																	 */
+	)
+	private List<User> friends;
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	
+	@OneToMany(mappedBy = "creator")
+	private List<Meetup> meetups;
+	
+	@OneToMany(mappedBy = "user")
+	private List<MeetupRating> meetupRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ParkRating> parkRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<TrailRating> trailRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private List<MeetupComment> meetupComments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ParkVisit> parkVisits;
 
 	public User() {
-		
+
+	}
+	
+
+	public Address getAddress() {
+		return address;
 	}
 
-	
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 
 	public int getId() {
 		return id;
 	}
 
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	public String getUsername() {
 		return username;
 	}
 
-
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
 
 	public String getLastName() {
 		return lastName;
 	}
 
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 
 	public Boolean getActive() {
 		return active;
 	}
 
-
-
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-
-
 
 	public String getRole() {
 		return role;
 	}
 
-
-
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-
 
 	public String getAboutme() {
 		return aboutme;
 	}
 
-
-
 	public void setAboutme(String aboutme) {
 		this.aboutme = aboutme;
 	}
-
-
 
 	public String getImageUrl() {
 		return imageUrl;
 	}
 
-
-
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
-
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
 
-
-
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-
-
 
 	public LocalDateTime getLastUpdate() {
 		return lastUpdate;
 	}
 
-
-
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-
-
 
 	public List<User> getFriends() {
 		return friends;
 	}
 
-
-
 	public void setFriends(List<User> friends) {
 		this.friends = friends;
 	}
 
+	public List<Meetup> getMeetups() {
+		return meetups;
+	}
+
+
+	public void setMeetups(List<Meetup> meetups) {
+		this.meetups = meetups;
+	}
+
+
+	public List<MeetupRating> getMeetupRatings() {
+		return meetupRatings;
+	}
+
+
+	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
+		this.meetupRatings = meetupRatings;
+	}
+
+
+	public List<ParkRating> getParkRatings() {
+		return parkRatings;
+	}
+
+
+	public void setParkRatings(List<ParkRating> parkRatings) {
+		this.parkRatings = parkRatings;
+	}
+
+
+	public List<TrailRating> getTrailRatings() {
+		return trailRatings;
+	}
+
+
+	public void setTrailRatings(List<TrailRating> trailRatings) {
+		this.trailRatings = trailRatings;
+	}
+
+
+	public List<MeetupComment> getMeetupComments() {
+		return meetupComments;
+	}
+
+
+	public void setMeetupComments(List<MeetupComment> meetupComments) {
+		this.meetupComments = meetupComments;
+	}
+
+
+	public List<ParkVisit> getParkVisits() {
+		return parkVisits;
+	}
+
+
+	public void setParkVisits(List<ParkVisit> parkVisits) {
+		this.parkVisits = parkVisits;
+	}
 
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", active=" + active + ", role=" + role + ", aboutme=" + aboutme
-				+ ", imageUrl=" + imageUrl + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
+				+ ", imageUrl=" + imageUrl + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", friends="
+				+ friends + ", address=" + address + "]";
 	}
 
 	@Override

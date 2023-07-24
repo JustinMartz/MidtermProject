@@ -122,19 +122,19 @@ CREATE TABLE IF NOT EXISTS `meetup` (
   `start_time` TIME NOT NULL,
   `end_time` TIME NULL,
   `trail_id` INT NOT NULL,
-  `creator_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   `description` TEXT NULL,
   `image_url` VARCHAR(2000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_meet_up_trail1_idx` (`trail_id` ASC),
-  INDEX `fk_meet_up_user1_idx` (`creator_id` ASC),
+  INDEX `fk_meet_up_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_meet_up_trail1`
     FOREIGN KEY (`trail_id`)
     REFERENCES `trail` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_meet_up_user1`
-    FOREIGN KEY (`creator_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -414,6 +414,7 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `park` (`id`, `name`, `description`, `notable_features`, `image_url`, `address_id`, `active`, `website_url`) VALUES (1, 'Big Cypress', 'wonderful park with lots of bathrooms', 'old growth cypress', 'https://www.nps.gov/bicy/planyourvisit/images/birdon-road-sunset1_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp', 1, 1, 'https://www.nps.gov/bicy/index.htm');
+INSERT INTO `park` (`id`, `name`, `description`, `notable_features`, `image_url`, `address_id`, `active`, `website_url`) VALUES (2, 'Yellowstone', 'very yellow', 'yellow rocks', 'http://fakeyellowurl.com', 2, NULL, 'https://www.nps.gov/yell/index.htm');
 
 COMMIT;
 
@@ -433,7 +434,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `creator_id`, `description`, `image_url`) VALUES (1, 'hike at goldminors trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'long and rough, bring water', 'http://fakefakeurl.com');
+INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `user_id`, `description`, `image_url`) VALUES (1, 'hike at goldminors trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'long and rough, bring water', 'http://fakefakeurl.com');
 
 COMMIT;
 

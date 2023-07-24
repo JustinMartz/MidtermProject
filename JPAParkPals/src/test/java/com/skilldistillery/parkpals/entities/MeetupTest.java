@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,10 +13,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ParkRatingTest {
+class MeetupTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private ParkRating parkRating;
+	private Meetup meetup;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,34 +31,36 @@ class ParkRatingTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		ParkRatingId parkRatingId = new ParkRatingId(1, 1);
-		parkRating = em.find(ParkRating.class, parkRatingId);
+		meetup = em.find(Meetup.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		parkRating = null;
+		meetup = null;
 	}
 
 	@Test
-	void test() {
-		assertNotNull(parkRating);
-		assertEquals(5, parkRating.getRating());
+	void test_Meetup_basic() {
+		assertNotNull(meetup);
+		assertEquals("long and rough, bring water", meetup.getDescription());
+		
 	}
-	
 	@Test
-	void test_mapping_parkrating_to_user() {
-		assertNotNull(parkRating);
-		assertEquals("Cortnie", parkRating.getUser().getFirstName());
+	void test_Meetup_mapping_to_trail_ManyToOne() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getTrail());
+		assertEquals("25.8315n", meetup.getTrail().getLongitude());
+		
+	}
+	@Test
+	void test_Meetup_mapping_to_user() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getCreator());
+		assertEquals("Cortnie",meetup.getCreator().getFirstName());
+		
 	}
 
 	
+
 }
-
-
-
-
-
-
-

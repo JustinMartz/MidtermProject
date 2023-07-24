@@ -1,5 +1,6 @@
 package com.skilldistillery.parkpals.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,11 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Trail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String description;
@@ -23,8 +28,15 @@ public class Trail {
 	@Column(name = "image_url")
 	private String imageUrl;
 	
+	@OneToMany(mappedBy = "trail")
+	private List<Meetup> meetups;
+
+	@ManyToMany
+	@JoinTable(name = "amenity_has_trail", joinColumns = @JoinColumn(name = "trail_id"), inverseJoinColumns = @JoinColumn(name = " amenity_id"))
+	private List<Amenity> amenities;
+
 	public Trail() {
-		
+
 	}
 
 	public int getId() {
@@ -50,8 +62,6 @@ public class Trail {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
 
 	public String getLongitude() {
 		return longitude;
@@ -93,6 +103,23 @@ public class Trail {
 		this.imageUrl = imageUrl;
 	}
 
+	public List<Amenity> getAmenities() {
+		return amenities;
+	}
+
+	public void setAmenities(List<Amenity> amenities) {
+		this.amenities = amenities;
+	}
+	
+
+	public List<Meetup> getMeetups() {
+		return meetups;
+	}
+
+	public void setMeetups(List<Meetup> meetups) {
+		this.meetups = meetups;
+	}
+
 	@Override
 	public String toString() {
 		return "Trail [id=" + id + ", name=" + name + ", description=" + description + ", longitude=" + longitude
@@ -116,8 +143,5 @@ public class Trail {
 		Trail other = (Trail) obj;
 		return id == other.id;
 	}
-	
-	
-	
 
 }

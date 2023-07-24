@@ -6,6 +6,10 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,7 +18,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "meetup_rating")
 public class MeetupRating {
-	
+
 	@EmbeddedId
 	private MeetupRatingId id;
 	private int rating;
@@ -28,6 +32,20 @@ public class MeetupRating {
 	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
+
+	@ManyToOne
+	@JoinColumn(name = "meetup_id")
+	@MapsId(value = "meetupId")
+	private Meetup meetup;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
+
+	public MeetupRating() {
+
+	}
 
 	public MeetupRatingId getId() {
 		return id;
@@ -69,6 +87,22 @@ public class MeetupRating {
 		this.lastUpdate = lastUpdate;
 	}
 
+	public Meetup getMeetup() {
+		return meetup;
+	}
+
+	public void setMeetup(Meetup meetup) {
+		this.meetup = meetup;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "MeetupRating [id=" + id + ", rating=" + rating + ", comment=" + comment + ", createDate=" + createDate
@@ -91,7 +125,5 @@ public class MeetupRating {
 		MeetupRating other = (MeetupRating) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }

@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +24,26 @@ public class MeetupComment {
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
 	private String comment;
-	private boolean active;
+	private Boolean active;
+	@ManyToOne
+	@JoinColumn(name = "reply_id")
+	private MeetupComment reply;
+	@OneToMany(mappedBy = "reply")
+	private List<MeetupComment> replies;
+	
+	@ManyToOne
+	@JoinColumn(name = "meetup_id")
+	@MapsId(value = "meetupId")
+	private Meetup meetup;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
+	
 
 	public MeetupComment() {
-		super();
+		
 	}
 
 	public int getId() {
@@ -49,12 +70,44 @@ public class MeetupComment {
 		this.comment = comment;
 	}
 
-	public boolean isActive() {
+	public Boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public MeetupComment getReply() {
+		return reply;
+	}
+
+	public void setReply(MeetupComment reply) {
+		this.reply = reply;
+	}
+
+	public List<MeetupComment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<MeetupComment> replies) {
+		this.replies = replies;
+	}
+
+	public Meetup getMeetup() {
+		return meetup;
+	}
+
+	public void setMeetup(Meetup meetup) {
+		this.meetup = meetup;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

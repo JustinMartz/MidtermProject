@@ -48,5 +48,14 @@ class ParkVisitTest {
 		assertEquals("I did not see anything out there", parkVisit.getWildlifeSeen());
 		assertEquals(2020, parkVisit.getArrivalDate().getYear());
 	}
+	
+	@Test
+	void test_ParkVisit_mapping_to_user() {
+		assertNotNull(parkVisit);
+		assertNotNull(parkVisit.getUser());
+		assertEquals("Cortnie", parkVisit.getUser().getFirstName());
+		
+		
+	}
 
 }

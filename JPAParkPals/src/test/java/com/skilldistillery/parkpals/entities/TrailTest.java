@@ -2,6 +2,7 @@ package com.skilldistillery.parkpals.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +46,18 @@ class TrailTest {
 			assertNotNull(trail);
 			assertEquals("25.8315n", trail.getLongitude());
 			assertEquals("Gator hook trail", trail.getName());
+		}
+		@Test
+		void test_Trail_to_Amenity_mapping() {
+			assertNotNull(trail);
+			assertNotNull(trail.getAmenities());
+			assertTrue(trail.getAmenities().size() > 0);
+		}
+		@Test
+		void test_Trail_to_meetup_mapping_OnToMany() {
+			assertNotNull(trail);
+			assertNotNull(trail.getMeetups());
+			assertTrue(trail.getMeetups().size() > 0);
 		}
 
 }

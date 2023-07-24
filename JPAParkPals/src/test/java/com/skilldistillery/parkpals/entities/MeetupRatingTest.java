@@ -46,5 +46,18 @@ class MeetupRatingTest {
 		assertNotNull(meetupRating);
 		assertEquals(2, meetupRating.getRating());
 	}
+	@Test
+	void test_meetupRating_to_meetup_mapping() {
+		assertNotNull(meetupRating.getMeetup());
+		assertEquals(1, meetupRating.getMeetup().getId());
+	}
+	
+	@Test
+	void test_meetupRating_to_meetup_user() {
+		assertNotNull(meetupRating);
+		assertNotNull(meetupRating.getUser());
+		assertEquals("Cortnie", meetupRating.getUser().getFirstName());
+	}
+
 	
 }

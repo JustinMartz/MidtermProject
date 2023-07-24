@@ -6,6 +6,9 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -28,6 +31,17 @@ public class TrailRating {
 	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
+	
+	@ManyToOne
+	@JoinColumn(name = "trail_id")
+	@MapsId(value = "trailId")
+	private Trail trail;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
+
 
 	public TrailRating() {
 
@@ -71,6 +85,22 @@ public class TrailRating {
 
 	public void setId(TrailRatingId id) {
 		this.id = id;
+	}
+
+	public Trail getTrail() {
+		return trail;
+	}
+
+	public void setTrail(Trail trail) {
+		this.trail = trail;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
