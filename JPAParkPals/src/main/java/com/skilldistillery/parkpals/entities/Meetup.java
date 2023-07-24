@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,6 +44,24 @@ public class Meetup {
 
 	@OneToMany(mappedBy = "meetup")
 	private List<MeetupComment> meetupComments;
+	
+	public void addMeetupComment(MeetupComment meetupComment) {
+		if (meetupComments == null) {
+			meetupComments = new ArrayList<>();
+		}
+		
+		if (!meetupComments.contains(meetupComment)) {
+			meetupComments.add(meetupComment);
+			meetupComment.setMeetup(this);
+		}
+	}
+	
+	public void removeMeetupComment(MeetupComment meetupComment) {
+		if (meetupComments != null && meetupComments.contains(meetupComment)) {
+			meetupComments.remove(meetupComment);
+			meetupComment.setMeetup(null);
+		}
+	}
 
 	public Meetup() {
 

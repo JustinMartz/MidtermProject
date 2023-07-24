@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,14 +74,124 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<TrailRating> trailRatings;
 	
-	@OneToMany(mappedBy = "user")
-	private List<MeetupComment> meetupComments;
+//	@OneToMany(mappedBy = "user")
+//	private List<MeetupComment> meetupComments;
 	
 	@OneToMany(mappedBy = "user")
 	private List<ParkVisit> parkVisits;
 
 	public User() {
 
+	}
+	
+//	public void addMeetupComment(MeetupComment meetupComment) {
+// FIXME
+//		if (meetupComments == null) {
+//			meetupComments = new ArrayList<>();
+//		}
+//		
+//		if (!meetupComments.contains(meetupComment)) {
+//			meetupComments.add(meetupComment);
+//			meetupComment.setMeetup(this);
+//		}
+//	}
+//	
+//	public void removeMeetupComment(MeetupComment meetupComment) {
+	// FIXME
+//		if (meetupComments != null && meetupComments.contains(meetupComment)) {
+//			meetupComments.remove(meetupComment);
+//			meetupComment.setMeetup(null);
+//		}
+//	}
+	
+	public void addMeetupRating(MeetupRating meetupRating) {
+		if (meetupRatings == null) {
+			meetupRatings = new ArrayList<>();
+		}
+		
+		if (!meetupRatings.contains(meetupRating)) {
+			meetupRatings.add(meetupRating);
+			meetupRating.setUser(this);
+		}
+	}
+	
+	public void removeMeetupRating(MeetupRating meetupRating) {
+		if (meetupRatings != null && meetupRatings.contains(meetupRating)) {
+			meetupRatings.remove(meetupRating);
+			meetupRating.setUser(null);
+		}
+	}
+	
+	public void addParkRating(ParkRating parkRating) {
+		if (parkRatings == null) {
+			parkRatings = new ArrayList<>();
+		}
+		
+		if (!parkRatings.contains(parkRating)) {
+			parkRatings.add(parkRating);
+			parkRating.setUser(this);
+		}
+	}
+	
+	public void removeParkRating(ParkRating parkRating) {
+		if (parkRatings != null && parkRatings.contains(parkRating)) {
+			parkRatings.remove(parkRating);
+			parkRating.setUser(null);
+		}
+	}
+	
+	public void addTrailRating(TrailRating trailRating) {
+		if (trailRatings == null) {
+			trailRatings = new ArrayList<>();
+		}
+		
+		if (!trailRatings.contains(trailRating)) {
+			trailRatings.add(trailRating);
+			trailRating.setUser(this);
+		}
+	}
+	
+	public void removeTrailRating(TrailRating trailRating) {
+		if (trailRatings != null && trailRatings.contains(trailRating)) {
+			trailRatings.remove(trailRating);
+			trailRating.setUser(null);
+		}
+	}
+	
+	public void addParkVisit(ParkVisit parkVisit) {
+		if (parkVisits == null) {
+			parkVisits = new ArrayList<>();
+		}
+		
+		if (!parkVisits.contains(parkVisit)) {
+			parkVisits.add(parkVisit);
+			parkVisit.setUser(this);
+		}
+	}
+	
+	public void removeParkVist(ParkVisit parkVisit) {
+		if (parkVisits != null && parkVisits.contains(parkVisit)) {
+			parkVisits.remove(parkVisit);
+			parkVisit.setUser(null);
+		}
+	}
+	
+	public void addFriend(User friend) {
+		if (friends == null) {
+			friends = new ArrayList<>();
+		}
+		
+		if (!friends.contains(friend)) {
+			friends.add(friend);
+			friend.addFriend(this);
+		}
+	}
+	
+	public void removeFriend(User friend) {
+		if (friends != null && friends.contains(friend)) {
+			friends.remove(friend);
+			friend.removeFriend(this);
+		}
 	}
 	
 
@@ -230,14 +341,14 @@ public class User {
 	}
 
 
-	public List<MeetupComment> getMeetupComments() {
-		return meetupComments;
-	}
-
-
-	public void setMeetupComments(List<MeetupComment> meetupComments) {
-		this.meetupComments = meetupComments;
-	}
+//	public List<MeetupComment> getMeetupComments() {
+//		return meetupComments;
+//	}
+//
+//
+//	public void setMeetupComments(List<MeetupComment> meetupComments) {
+//		this.meetupComments = meetupComments;
+//	}
 
 
 	public List<ParkVisit> getParkVisits() {

@@ -41,6 +41,10 @@ public class ParkVisit {
 	@OneToMany(mappedBy = "parkVisit")
 	private List<VisitImage> visitImages;
 
+	@ManyToOne
+	@JoinColumn(name="park_id")
+	private Park park;
+
 	public ParkVisit() {
 
 	}
@@ -107,6 +111,14 @@ public class ParkVisit {
 
 	public void setVisitImages(List<VisitImage> visitImages) {
 		this.visitImages = visitImages;
+	}
+
+	public Park getPark() {
+		return park;
+	}
+
+	public void setPark(Park park) {
+		this.park = park;
 	}
 
 	@Override

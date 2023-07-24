@@ -27,8 +27,6 @@ public class Address {
 	@OneToOne(mappedBy ="address")
 	private Park park;
 
-	
-	
 	public Address() {
 		
 	}

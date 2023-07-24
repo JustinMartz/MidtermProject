@@ -67,4 +67,10 @@ class TrailTest {
 			assertTrue(trail.getTrailRatings().size() > 0);
 		}
 
+		@Test
+		void test_Trail_to_Park() {
+			assertNotNull(trail);
+			assertNotNull(trail.getPark());
+			assertEquals("Big Cypress", trail.getPark().getName());
+		}
 }

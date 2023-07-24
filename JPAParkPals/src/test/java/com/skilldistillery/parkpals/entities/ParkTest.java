@@ -66,5 +66,20 @@ class ParkTest {
 		assertTrue(park.getParkRatings().size() > 0);
 
 	}
+	
+	@Test
+	void test_Park_to_ParkVisit_list() {
+		assertNotNull(park);
+		assertNotNull(park.getParkVisits());
+		assertTrue(park.getParkVisits().size() > 0);
+		assertEquals("My first time", park.getParkVisits().get(0).getTitle());
+	}
+	
+	@Test
+	void test_Park_to_Trail_list() {
+		assertNotNull(park);
+		assertNotNull(park.getTrails());
+		assertTrue(park.getTrails().size() > 0);
+	}
 
 }

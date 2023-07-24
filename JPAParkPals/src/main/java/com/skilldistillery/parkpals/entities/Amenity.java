@@ -1,5 +1,6 @@
 package com.skilldistillery.parkpals.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +23,24 @@ public class Amenity {
 
 	public Amenity() {
 
+	}
+	
+	public void addTrail(Trail trail) {
+		if (trails == null) {
+			trails = new ArrayList<>();
+		}
+		
+		if (!trails.contains(trail)) {
+			trails.add(trail);
+			trail.addAmenity(this);
+		}
+	}
+	
+	public void removeTrail(Trail trail) {
+		if (trails != null && trails.contains(trail)) {
+			trails.remove(trail);
+			trail.removeAmenity(this);
+		}
 	}
 
 	public int getId() {
