@@ -38,7 +38,6 @@ public class MeetupComment {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
 
 	public MeetupComment() {
 		

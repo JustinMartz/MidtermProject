@@ -2,6 +2,7 @@ package com.skilldistillery.parkpals.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,7 +61,13 @@ class MeetupTest {
 		assertEquals("Cortnie",meetup.getCreator().getFirstName());
 		
 	}
-
+	@Test
+	void test_Meetup_mapping_to_meetupComments() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getMeetupComments());
+		assertTrue(meetup.getMeetupComments().size() > 0);
+		
+	}
 	
 
 }
