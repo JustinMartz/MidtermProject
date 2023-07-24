@@ -34,6 +34,8 @@ public class Park {
 	@OneToMany(mappedBy = "park")
 	private List<ParkRating> parkRatings;
 	
+	
+	
 	public Park() {
 		
 	}
