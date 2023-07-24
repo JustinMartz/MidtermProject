@@ -40,7 +40,6 @@ public class MeetupComment {
 	@JoinColumn(name = "user_id")
 	@MapsId(value = "userId")
 	private User user;
-	
 
 	public MeetupComment() {
 		

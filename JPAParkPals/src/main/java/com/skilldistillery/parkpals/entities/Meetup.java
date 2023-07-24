@@ -41,6 +41,9 @@ public class Meetup {
 	@OneToMany(mappedBy = "meetup")
 	private List<MeetupRating> meetupRatings;
 
+	@OneToMany(mappedBy = "meetup")
+	private List<MeetupComment> meetupComments;
+
 	public Meetup() {
 
 	}
@@ -117,13 +120,21 @@ public class Meetup {
 		this.creator = creator;
 	}
 
-//	public List<MeetupRating> getMeetupRatings() {
-//		return meetupRatings;
-//	}
-//
-//	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
-//		this.meetupRatings = meetupRatings;
-//	}
+	public List<MeetupRating> getMeetupRatings() {
+		return meetupRatings;
+	}
+
+	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
+		this.meetupRatings = meetupRatings;
+	}
+
+	public List<MeetupComment> getMeetupComments() {
+		return meetupComments;
+	}
+
+	public void setMeetupComments(List<MeetupComment> meetupComments) {
+		this.meetupComments = meetupComments;
+	}
 
 	@Override
 	public String toString() {
