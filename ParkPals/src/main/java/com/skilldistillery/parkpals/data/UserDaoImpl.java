@@ -62,13 +62,14 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User update(User user) {
-
-		User managedProfile = new User();
-		managedProfile.setId(user.getId());
-//		managedProfile.setAddress();
-		System.out.println(user.getAddress() + "****************************");	
-		managedProfile = em.merge(user);
+	public User update(User user, int id) {
+		User updatedUser = new User();
+		  updatedUser.setId(id);
+		  int addressId = findUserById(id).getAddress().getId();
+		  Address address = findAddressBy(id);
+		  updatedUser = em.merge(user);
+		  return updatedUser;
+		updatedUser.setAddress(findAddressById(findUserById(id).getAddress().getId()));
 
 		return managedProfile;
 	}
