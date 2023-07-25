@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.parkpals.data.ParkDAO;
 import com.skilldistillery.parkpals.data.UserDAO;
 import com.skilldistillery.parkpals.entities.Address;
 import com.skilldistillery.parkpals.entities.User;
@@ -17,9 +18,12 @@ public class RegisterUserController {
 	
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private ParkDAO parkDao; 
 	@RequestMapping(path= {"/", "home.do"})
 	public String home(Model model) {
 //		model.addAttribute("DELETEME", userDao.findByUsernameAndPassword("admin", "1234"));
+		model.addAttribute("parks", parkDao.findAllParks());
 		return "home";
 	}
 	
