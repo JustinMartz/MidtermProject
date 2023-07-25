@@ -33,7 +33,7 @@ class AddressTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		address = em.find(Address.class, 5);
 	}
 
 	@AfterEach
@@ -45,18 +45,18 @@ class AddressTest {
 	@Test
 	void test_Address_basic() {
 		assertNotNull(address);
-		assertEquals("123 Main st", address.getStreet());
-		assertEquals("Smith", address.getCity());
+		assertEquals("20 South Entrance Road Grand Canyon", address.getStreet());
+		assertEquals("Flagstaff", address.getCity());
 	}
 	@Test
 	void test_address_to_user_mapping() {
 		assertNotNull(address);
-		assertEquals(1,address.getId());
+		assertEquals(5,address.getId());
 	}
 	@Test
 	void test_address_to_park_mapping() {
 		assertNotNull(address);
-		assertEquals("Big Cypress",address.getPark().getName());
+		assertEquals("Grand Canyon National Park",address.getPark().getName());
 	}
 	
 

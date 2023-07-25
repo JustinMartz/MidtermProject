@@ -42,15 +42,19 @@ class ParkTest {
 	@Test
 	void test_Park_basic() {
 		assertNotNull(park);
-		assertEquals("Big Cypress", park.getName());
-		assertEquals("old growth cypress", park.getNotableFeatures());
+		assertEquals("Grand Canyon National Park", park.getName());
+		assertEquals("Unique Geological Layers: The exposed rock layers in the Grand Canyon offer a remarkable geological history, "
+				+ "displaying millions of years of Earth's history. "
+				+ "These layers consist of different colors, "
+				+ "textures, and compositions, providing valuable insights into the planet's geological evolution.", 
+				park.getNotableFeatures());
 	}
 
 	@Test
 	void test_Park_mapping_to_Address() {
 		assertNotNull(park);
 		assertNotNull(park.getAddress());
-		assertEquals("Smith", park.getAddress().getCity());
+		assertEquals("Flagstaff", park.getAddress().getCity());
 
 	}
 
