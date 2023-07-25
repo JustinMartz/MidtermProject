@@ -15,55 +15,68 @@ import com.skilldistillery.parkpals.entities.User;
 public class UserDaoImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
-	
+
 	@Override
 	public User findUserById(int id) {
 
 		return em.find(User.class, id);
 	}
-	
-	
 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
 		String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.active = true";
 		User user = null;
 		try {
-			user = em.createQuery(jpql, User.class)
-					.setParameter("un", username)
-					.setParameter("pw", password)
+			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
 					.getSingleResult();
 		} catch (Exception e) {
 //			e.printStackTrace();
 			System.err.println("Invalid username or password");
 		}
-		
+
 		return user;
 	}
 
 	@Override
 	public User addUser(User user) {
 		try {
-			   em.persist(user);
-			   
-			  } catch (EntityExistsException e) {
-			   System.err.print(e);
-			   return null;
-			  }
-			  return user;
+			em.persist(user);
+
+		} catch (EntityExistsException e) {
+			System.err.print(e);
+			return null;
+		}
+		return user;
 	}
 
 	@Override
-	public Address addAddress(Address address){
+	public Address addAddress(Address address) {
 		try {
-			   em.persist(address);
-			   
-			  } catch (EntityExistsException e) {
-			   System.err.print(e);
-			   return null;
-			  }
-			  return address;	}
-	
-	
+			em.persist(address);
+
+		} catch (EntityExistsException e) {
+			System.err.print(e);
+			return null;
+		}
+		return address;
+	}
+
+	@Override
+	public User update(User user) {
+
+		User managedProfile = new User();
+		managedProfile.setId(user.getId());
+		managedProfile = em.merge(user);
+
+		return managedProfile;
+	}
+
+	@Override
+	public Address updateAddress(Address address) {
+		Address managedAddress = new Address();
+		managedAddress.setId(address.getId());
+		managedAddress = em.merge(address);
+
+		return managedAddress;
+	}
 }

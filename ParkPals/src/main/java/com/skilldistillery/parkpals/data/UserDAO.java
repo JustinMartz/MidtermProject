@@ -9,6 +9,8 @@ public interface UserDAO {
 	User addUser(User user);
 	Address addAddress(Address address);
 	User findUserById(int id);
+	Address updateAddress(Address address);
+	User update(User user);
 	
 
 }
