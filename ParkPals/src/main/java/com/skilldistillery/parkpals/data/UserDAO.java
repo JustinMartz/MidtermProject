@@ -11,6 +11,7 @@ public interface UserDAO {
 	User findUserById(int id);
 	Address findAddressById(int id);
 	User update(User user, int userId, Address address);
+	Boolean deactivateUser(int id);
 	
 
 }
