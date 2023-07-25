@@ -7,13 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-${userName.username}
-${userName.firstName}
-${userName.lastName }
-${userName.aboutme }
+${loggedInUser.username}
+${loggedInUser.firstName}
+${loggedInUser.lastName}
+${loggedInUser.aboutme}
 
 
 
+
+
+<form action="editProfile.do" method=POST>
+<input type="hidden" name="id" value="${loggedInUser.id}"/>
+<input type="submit" value="EditProfile">
+</form>
 
 </body>
 </html>

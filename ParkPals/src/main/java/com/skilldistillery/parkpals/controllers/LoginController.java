@@ -32,7 +32,7 @@ public class LoginController {
 		if(user == null) {
 			return "home";
 		}else {
-			session.setAttribute("userName", user);
+			session.setAttribute("loggedInUser", user);
 			return "profile";
 		}
 		

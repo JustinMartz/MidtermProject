@@ -17,6 +17,13 @@ public class UserDaoImpl implements UserDAO {
 	private EntityManager em;
 	
 	
+	@Override
+	public User findUserById(int id) {
+
+		return em.find(User.class, id);
+	}
+	
+	
 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {

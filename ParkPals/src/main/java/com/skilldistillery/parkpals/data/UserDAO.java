@@ -8,6 +8,7 @@ public interface UserDAO {
 	User findByUsernameAndPassword(String username, String password);
 	User addUser(User user);
 	Address addAddress(Address address);
+	User findUserById(int id);
 	
 
 }
