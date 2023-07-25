@@ -62,28 +62,36 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public User update(User user, int id) {
-		User updatedUser = new User();
-		  updatedUser.setId(id);
-		  int addressId = findUserById(id).getAddress().getId();
-		  Address address = findAddressBy(id);
-		  updatedUser = em.merge(user);
-		  return updatedUser;
-		updatedUser.setAddress(findAddressById(findUserById(id).getAddress().getId()));
 
-		return managedProfile;
+	public User update(User user, int userId, Address address) {
+		User updatedUser = em.find(User.class, userId);
+		if (updatedUser != null) {
+			updatedUser.setAboutme(user.getAboutme());
+			updatedUser.setFirstName(user.getFirstName());
+			updatedUser.setLastName(user.getLastName());
+			updatedUser.setImageUrl(user.getImageUrl());
+			updatedUser.setUsername(user.getUsername());
+			updatedUser.setPassword(user.getPassword());
+			updatedUser.getAddress().setStreet(address.getStreet());
+			updatedUser.getAddress().setStreet2(address.getStreet2());
+			updatedUser.getAddress().setCity(address.getCity());
+			updatedUser.getAddress().setState(address.getState());
+			updatedUser.getAddress().setZipCode(address.getZipCode());
+
+			em.flush();
+		}
+
+		return updatedUser;
 	}
 
 	@Override
-	public Address updateAddress(Address address) {
-		Address managedAddress = new Address();
-		managedAddress.setId(address.getId());
-		managedAddress.setCity(address.getCity());
-		managedAddress = em.merge(address);
+	public Address updateAddress(Address newAddress, int id) {
+		Address oldAddress = em.find(Address.class, id);
+		newAddress = em.merge(oldAddress);
 
-		return managedAddress;
+		return newAddress;
 	}
-	
+
 	@Override
 	public Address findAddressById(int id) {
 
