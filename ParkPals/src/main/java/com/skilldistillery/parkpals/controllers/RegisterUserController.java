@@ -35,10 +35,7 @@ public class RegisterUserController {
 	}
 	@RequestMapping(path= "submitUser.do")
 	public String continueRegistration(Model model, User user, Address address, HttpSession session) {
-	// Add error checking for proper input fields to create user. 
 		model.addAttribute("user", user);
-		 System.out.println("**" + user);
-		System.out.println("**" + address);
 		userDao.addAddress(address);
 		user.setAddress(address);
 		userDao.addUser(user);
