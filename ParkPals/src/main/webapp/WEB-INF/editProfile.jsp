@@ -9,10 +9,19 @@
 <body>
 
 <form action="updateUserInfo.do" method=POST>
-User Name: <input type="text" value="${loggedInUser.username}"  name="userName" required><br>
-Password: <input type="text" value="${loggedInUser.password}" name="passWord" required><br>
-User Name: <input type="text" value="${loggedInUser.firstName}" name="userName" required><br>
-Password: <input type="text" value="${loggedInUser.lastName}" name="passWord" required><br>
+User Name: <input type="text" value="${loggedInUser.username}"  name="userame" required><br>
+Password: <input type="text" value="${loggedInUser.password}" name="passord" required><br>
+First Name: <input type="text" value="${loggedInUser.firstName}" name="firstName" required><br>
+Last Name: <input type="text" value="${loggedInUser.lastName}" name="lastName" required><br>
+About Me: <input type="text" value="${loggedInUser.aboutme}" name="aboutme"><br>
+Profile Image URL: <input type="text" value="${loggedInUser.imageUrl}" name="imageUrl"><br>
+Street: <input type="text" value="${loggedInUser.address.street}" name="address.street"><br>
+Unit/Suite/Apartment: <input type="text" value="${loggedInUser.address.street2}" name="address.street2"><br>
+City: <input type="text" value="${loggedInUser.address.city}" name="address.city"><br>
+State: <input type="text" value="${loggedInUser.address.state}" name="address.state"><br>
+Zip Code: <input type="text" value="${loggedInUser.address.zipCode}" name="address.zipCode"><br>
+Phone: <input type="text" value="${loggedInUser.address.phone}" name="address.phone"><br>
+<input type="submit" value="Save Changes">
 
 </form>
 </body>
