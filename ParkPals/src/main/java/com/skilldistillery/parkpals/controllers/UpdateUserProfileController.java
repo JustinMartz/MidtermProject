@@ -33,9 +33,6 @@ public class UpdateUserProfileController {
 	@RequestMapping(path = "updateUserInfo.do", method = RequestMethod.POST)
 	public String updateUserAndAddress(Model model, User user, HttpSession session, Address address,
 			@RequestParam int id) {
-		System.out.println(address + "******************");
-		System.out.println(user + "******************");
-		System.out.println(id + "******************");
 		User currentUser = (User) session.getAttribute("loggedInUser");
 		if (currentUser != null) {
 

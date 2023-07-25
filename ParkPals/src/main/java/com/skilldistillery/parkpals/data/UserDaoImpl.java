@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
 					.getSingleResult();
 		} catch (Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 			System.err.println("Invalid username or password");
 		}
 
@@ -83,13 +83,6 @@ public class UserDaoImpl implements UserDAO {
 		return updatedUser;
 	}
 
-	@Override
-	public Address updateAddress(Address newAddress, int id) {
-		Address oldAddress = em.find(Address.class, id);
-		newAddress = em.merge(oldAddress);
-
-		return newAddress;
-	}
 
 	@Override
 	public Address findAddressById(int id) {
