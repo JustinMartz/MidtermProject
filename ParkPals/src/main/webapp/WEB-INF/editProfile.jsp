@@ -9,8 +9,8 @@
 <body>
 
 <form action="updateUserInfo.do" method=POST>
-User Name: <input type="text" value="${loggedInUser.username}"  name="userame" required><br>
-Password: <input type="text" value="${loggedInUser.password}" name="passord" required><br>
+User Name: <input type="text" value="${loggedInUser.username}"  name="username" required><br>
+Password: <input type="text" value="${loggedInUser.password}" name="password" required><br>
 First Name: <input type="text" value="${loggedInUser.firstName}" name="firstName" required><br>
 Last Name: <input type="text" value="${loggedInUser.lastName}" name="lastName" required><br>
 About Me: <input type="text" value="${loggedInUser.aboutme}" name="aboutme"><br>
@@ -21,6 +21,7 @@ City: <input type="text" value="${loggedInUser.address.city}" name="address.city
 State: <input type="text" value="${loggedInUser.address.state}" name="address.state"><br>
 Zip Code: <input type="text" value="${loggedInUser.address.zipCode}" name="address.zipCode"><br>
 Phone: <input type="text" value="${loggedInUser.address.phone}" name="address.phone"><br>
+<input type="hidden" name="id" value="${loggedInUser.id}"/>
 <input type="submit" value="Save Changes">
 
 </form>
