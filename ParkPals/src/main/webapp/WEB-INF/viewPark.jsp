@@ -21,8 +21,10 @@ ${park.address.state }<br>
 ${park.address.zipCode }<br>
 ${park.address.phone }<br>
 <br>
+<c:forEach var="trail" items="${park.trails}">
+<h1><a href="displayTrail.do?id=${trail.id }">${trail.name}</a></h1><br>
+${trail.description }
 
-
-
+</c:forEach>
 </body>
 </html>
