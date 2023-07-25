@@ -70,7 +70,7 @@ class ParkVisitTest {
 	void test_ParkVisit_to_Park() {
 		assertNotNull(parkVisit);
 		assertNotNull(parkVisit.getPark());
-		assertEquals("Big Cypress", parkVisit.getPark().getName());
+		assertEquals("Grand Canyon National Park", parkVisit.getPark().getName());
 	}
 
 }

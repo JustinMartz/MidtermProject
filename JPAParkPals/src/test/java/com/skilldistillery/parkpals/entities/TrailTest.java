@@ -71,6 +71,6 @@ class TrailTest {
 		void test_Trail_to_Park() {
 			assertNotNull(trail);
 			assertNotNull(trail.getPark());
-			assertEquals("Big Cypress", trail.getPark().getName());
+			assertEquals("Grand Canyon National Park", trail.getPark().getName());
 		}
 }
