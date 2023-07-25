@@ -15,12 +15,12 @@ First Name: <input type="text" value="${loggedInUser.firstName}" name="firstName
 Last Name: <input type="text" value="${loggedInUser.lastName}" name="lastName" required><br>
 About Me: <input type="text" value="${loggedInUser.aboutme}" name="aboutme"><br>
 Profile Image URL: <input type="text" value="${loggedInUser.imageUrl}" name="imageUrl"><br>
-Street: <input type="text" value="${loggedInUser.address.street}" name="address.street"><br>
-Unit/Suite/Apartment: <input type="text" value="${loggedInUser.address.street2}" name="address.street2"><br>
-City: <input type="text" value="${loggedInUser.address.city}" name="address.city"><br>
-State: <input type="text" value="${loggedInUser.address.state}" name="address.state"><br>
-Zip Code: <input type="text" value="${loggedInUser.address.zipCode}" name="address.zipCode"><br>
-Phone: <input type="text" value="${loggedInUser.address.phone}" name="address.phone"><br>
+Street: <input type="text" value="${loggedInUser.address.street}" name="street"><br>
+Unit/Suite/Apartment: <input type="text" value="${loggedInUser.address.street2}" name="street2"><br>
+City: <input type="text" value="${loggedInUser.address.city}" name="city"><br>
+State: <input type="text" value="${loggedInUser.address.state}" name="state"><br>
+Zip Code: <input type="text" value="${loggedInUser.address.zipCode}" name="zipCode"><br>
+Phone: <input type="text" value="${loggedInUser.address.phone}" name="phone"><br>
 <input type="hidden" name="id" value="${loggedInUser.id}"/>
 <input type="submit" value="Save Changes">
 
