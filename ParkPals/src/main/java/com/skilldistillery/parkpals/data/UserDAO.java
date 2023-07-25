@@ -11,6 +11,7 @@ public interface UserDAO {
 	User findUserById(int id);
 	Address updateAddress(Address address);
 	User update(User user);
+	Address findAddressById(int id);
 	
 
 }

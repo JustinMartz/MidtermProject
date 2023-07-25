@@ -66,6 +66,8 @@ public class UserDaoImpl implements UserDAO {
 
 		User managedProfile = new User();
 		managedProfile.setId(user.getId());
+//		managedProfile.setAddress();
+		System.out.println(user.getAddress() + "****************************");	
 		managedProfile = em.merge(user);
 
 		return managedProfile;
@@ -75,8 +77,15 @@ public class UserDaoImpl implements UserDAO {
 	public Address updateAddress(Address address) {
 		Address managedAddress = new Address();
 		managedAddress.setId(address.getId());
+		managedAddress.setCity(address.getCity());
 		managedAddress = em.merge(address);
 
 		return managedAddress;
+	}
+	
+	@Override
+	public Address findAddressById(int id) {
+
+		return em.find(Address.class, id);
 	}
 }
