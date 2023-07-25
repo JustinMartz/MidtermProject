@@ -15,7 +15,7 @@
 	<h2>${DELETEME}</h2>
 	<br>
 	<c:forEach var="park" items="${parks }"  >
-<a href="displayPark.do?id=${park.id}"> ${park.name } </a>
+<a href="displayPark.do?id=${park.id}"> ${park.name } </a><br>
 </c:forEach>
 </body>
 </html>
