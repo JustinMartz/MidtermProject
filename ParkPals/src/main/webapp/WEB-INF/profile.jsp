@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-${user.username}
-${user.firstName}
-${user.lastName }
-${user.aboutme }
+${userName.username}
+${userName.firstName}
+${userName.lastName }
+${userName.aboutme }
 
 
 

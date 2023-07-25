@@ -34,7 +34,7 @@ public class Park {
 	
 	@OneToMany(mappedBy = "park")
 	private List<ParkRating> parkRatings;
-	
+
 	@OneToMany(mappedBy="park")
 	private List<ParkVisit> parkVisits;
 	
