@@ -40,6 +40,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User addUser(User user) {
 		try {
+			user.setActive(true);
 			em.persist(user);
 
 		} catch (EntityExistsException e) {
@@ -83,7 +84,15 @@ public class UserDaoImpl implements UserDAO {
 
 		return updatedUser;
 	}
-
+	@Override
+	public Boolean deactivateUser(int id) {
+		User userToDeactivate = em.find(User.class, id);
+		if(userToDeactivate != null) {
+			userToDeactivate.setActive(false);
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public Address findAddressById(int id) {

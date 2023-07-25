@@ -25,7 +25,7 @@ public class RegisterUserController {
 	
 	@RequestMapping(path = "register.do")
 	public String register(Model model, HttpSession session) {
-		User user = (User) session.getAttribute("user");
+		User user = (User) session.getAttribute("loggedInUser");
 		if(user == null) {
 			return "register";
 		}else {
@@ -39,7 +39,7 @@ public class RegisterUserController {
 		userDao.addAddress(address);
 		user.setAddress(address);
 		userDao.addUser(user);
-		
+		session.setAttribute("loggedInUser", user);
 		return "profile"; 
 		
 	}

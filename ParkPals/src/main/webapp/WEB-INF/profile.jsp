@@ -12,6 +12,10 @@ ${loggedInUser.firstName}
 ${loggedInUser.lastName}
 ${loggedInUser.aboutme}
 
+<form action="deactivateAccount.do" method=POST>
+<input type="hidden" name="id" value="${loggedInUser.id}"/>
+<input type="submit" value="Delete My Account Forever">
+</form>
 
 
 
