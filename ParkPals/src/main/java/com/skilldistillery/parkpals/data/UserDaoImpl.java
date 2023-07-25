@@ -15,10 +15,12 @@ import com.skilldistillery.parkpals.entities.User;
 public class UserDaoImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
+	
+	
 
 	@Override
 	public User findByUsernameAndPassword(String username, String password) {
-		String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
+		String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.active = true";
 		User user = null;
 		try {
 			user = em.createQuery(jpql, User.class)

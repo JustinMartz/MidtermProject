@@ -9,8 +9,8 @@
 <body>
 	<h1>Park Pals</h1>
 	<h2>A National Park Network</h2>
-<a href="register.do">   Click here to register a new user.</a>
-
+<a href="register.do">   Click here to register a new user.</a></br>
+<a href="login.do"> Login </a>
 	<h2>${DELETEME}</h2>
 </body>
 </html>

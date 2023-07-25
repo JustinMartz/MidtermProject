@@ -25,8 +25,13 @@ public class RegisterUserController {
 	
 	@RequestMapping(path = "register.do")
 	public String register(Model model, HttpSession session) {
-		
-		return "register";
+		User user = (User) session.getAttribute("user");
+		if(user == null) {
+			return "register";
+		}else {
+			return "profile";
+		}
+
 	}
 	@RequestMapping(path= "submitUser.do")
 	public String continueRegistration(Model model, User user, Address address, HttpSession session) {
