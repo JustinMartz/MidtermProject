@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.parkpals.data.MeetupDAO;
+import com.skilldistillery.parkpals.data.UserDAO;
 import com.skilldistillery.parkpals.entities.Meetup;
 import com.skilldistillery.parkpals.entities.User;
 
@@ -18,6 +19,8 @@ public class MeetupController {
 
 	@Autowired
 	private MeetupDAO meetupDao;
+	@Autowired
+	private UserDAO userDao;
 	
 	@RequestMapping(path = "displayMeetup.do")
 	public String displayMeetup(Model model, HttpSession session, int id) {
@@ -25,6 +28,9 @@ public class MeetupController {
 		Meetup meetup = meetupDao.findMeetupById(id);
 		if (meetup != null) {
 			User user = (User) session.getAttribute("loggedInUser");
+			user = userDao.findUserById(user.getId());
+			user.getMeetupRatings().size();
+			session.setAttribute("loggedInUser", user);
 			model.addAttribute("meetup", meetup);
 			List<Meetup> meetups = user.getMeetups();
 			session.setAttribute("userMeetups", meetups);

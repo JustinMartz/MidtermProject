@@ -20,9 +20,6 @@ public class MeetupDaoImpl implements MeetupDAO {
 
 	@Override
 	public Meetup findMeetupById(int id) {
-		System.out.println("*********************");
-		System.out.println("*********************");
-		System.out.println("*********************");
 		Meetup meetup = em.find(Meetup.class, id);
 		System.out.println(meetup);
 		return meetup;

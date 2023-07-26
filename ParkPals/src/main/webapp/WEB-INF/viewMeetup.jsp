@@ -34,10 +34,17 @@ ${meetup.creator.firstName}
 
 	<c:choose>
 	    <c:when test="${not empty sessionScope.loggedInUser }">
-	      <h2>Your Account Details</h2>
+	      <h2>Meet Ups:</h2>
 
-	        <c:forEach items="${sessionScope.loggedInUser.meetups }" var="usermeetup">
-	        	${usermeetup.name }
+			<c:if test="${sessionScope.loggedInUser.id eq meetup.creator.id}">
+	        	<p>You are the creator of this meet up!</p>
+	        	
+	        	</c:if>
+	        <c:forEach items="${sessionScope.loggedInUser.meetupRatings }" var="userMeetup">
+	        	<c:if test="${userMeetup.meetup.id eq meetup.id}">
+	        	<p>You are attending this meet up!</p>
+	        	
+	        	</c:if>
 	        </c:forEach>
 
 	   </c:when>

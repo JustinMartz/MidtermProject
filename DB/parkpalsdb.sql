@@ -447,6 +447,7 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `user_id`, `description`, `image_url`) VALUES (1, 'Meetup at Bright Angel Trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'Challenging route', 'https://www.alltrails.com/trail/us/arizona/bright-angel-trail--11');
+INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `user_id`, `description`, `image_url`) VALUES (2, 'Jessica\'s Birthday hike', '2023-07-26 10:06:10', '10:10:10', '10:10:10', 1, 4, 'Easy route, here to have fun! Bring H2O', 'http://fakeurl.com');
 
 COMMIT;
 
@@ -457,6 +458,7 @@ COMMIT;
 START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (1, 1, 'blah blah blah', 2, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
+INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (1, 2, 'blahblah blah', 5, NULL, NULL);
 
 COMMIT;
 
