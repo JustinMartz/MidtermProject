@@ -40,6 +40,7 @@ ${meetup.creator.firstName}
 	          <li>User Name: ${loggedInUser.username } </li>
 	          <li>${loggedInUser.firstName} ${loggedInUser.lastName }</li>
 	        </ul>
+	        <c:forEach var="usermeetup" items="${userMeetups }"> ${userMeetup.name }</c:forEach>
 	   </c:when>
 	<c:otherwise>
 	      <h1>Not logged in</h1>

@@ -1,15 +1,17 @@
 package com.skilldistillery.parkpals.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.skilldistillery.parkpals.data.MeetupDAO;
 import com.skilldistillery.parkpals.entities.Meetup;
+import com.skilldistillery.parkpals.entities.User;
 
 @Controller
 public class MeetupController {
@@ -22,7 +24,10 @@ public class MeetupController {
 		System.out.println(id);
 		Meetup meetup = meetupDao.findMeetupById(id);
 		if (meetup != null) {
+			User user = (User) session.getAttribute("loggedInUser");
 			model.addAttribute("meetup", meetup);
+			List<Meetup> meetups = user.getMeetups();
+			session.setAttribute("userMeetups", meetups);
 			return "viewMeetup";
 		}
 		
