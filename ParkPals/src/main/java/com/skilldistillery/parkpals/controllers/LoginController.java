@@ -5,11 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.skilldistillery.parkpals.data.ParkDAO;
 import com.skilldistillery.parkpals.data.UserDAO;
 import com.skilldistillery.parkpals.entities.User;
 
@@ -18,6 +17,9 @@ public class LoginController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private ParkDAO parkDao;
+	
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String showLoginPage(Model model) {
@@ -38,5 +40,22 @@ public class LoginController {
 		}
 		
 	}
+	@RequestMapping(path = "profile.do", method = RequestMethod.GET)
+	public String showProfile(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user == null) {
+			return "login";
+		}
+		return "profile";
+	}
 	
+	@RequestMapping(path = "logout.do")
+	 public String logout(Model model, HttpSession session) {
+	  String viewName = null;
+	  model.addAttribute("parks", parkDao.findAllParks());
+	  session.removeAttribute("loggedInUser");
+	  viewName = "home";
+	  return viewName;
+
+	 }
 }
