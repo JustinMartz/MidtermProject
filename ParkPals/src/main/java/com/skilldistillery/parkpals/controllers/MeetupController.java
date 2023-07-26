@@ -21,10 +21,11 @@ public class MeetupController {
 	private MeetupDAO meetupDao;
 	@Autowired
 	private UserDAO userDao;
-	
+
 	@RequestMapping(path = "displayMeetup.do")
 	public String displayMeetup(Model model, HttpSession session, int id) {
 		System.out.println(id);
+		boolean isAttending = false;
 		Meetup meetup = meetupDao.findMeetupById(id);
 		if (meetup != null) {
 			User user = (User) session.getAttribute("loggedInUser");
@@ -33,14 +34,20 @@ public class MeetupController {
 			session.setAttribute("loggedInUser", user);
 			model.addAttribute("meetup", meetup);
 			List<Meetup> meetups = user.getMeetups();
+			for (Meetup usermeetup : meetups) {
+				if (usermeetup.getId() == id) {
+					isAttending = true;
+					System.out.println("***********************");
+					System.out.println("USER IS ATTENDING MEETUP " + id);
+					System.out.println("***********************");
+
+				}
+			}
+			session.setAttribute("isAttending", isAttending);
 			session.setAttribute("userMeetups", meetups);
 			return "viewMeetup";
 		}
-		
-		
+
 		return "error";
 	}
-	
-	
-	
 }
