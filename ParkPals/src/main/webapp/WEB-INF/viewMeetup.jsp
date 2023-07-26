@@ -28,8 +28,8 @@ ${meetup.creator.firstName}
 
 
 <c:forEach var="rating" items="${meetup.meetupRatings }">
-<h2>${rating.rating }</h2>
-<h2>${rating.comment }</h2>
+<h2>Trail Rating: ${rating.rating }</h2>
+<h2>Comments about this trail: ${rating.comment }</h2>
 </c:forEach>
 
 	<c:choose>
