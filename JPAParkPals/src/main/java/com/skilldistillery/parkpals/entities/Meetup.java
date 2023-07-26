@@ -158,8 +158,7 @@ public class Meetup {
 	@Override
 	public String toString() {
 		return "Meetup [id=" + id + ", name=" + name + ", meetupDate=" + meetupDate + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl + ", trail="
-				+ trail + ", creator=" + creator + "]";
+				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl  + "]";
 	}
 
 	@Override
