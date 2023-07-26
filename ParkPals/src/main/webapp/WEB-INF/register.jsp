@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,35 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-success">
+	  <div class="container-fluid ">
+		<a class="navbar-brand " href="#">Park Pals</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+		  <ul class="navbar-nav ">
+			<c:choose>
+			<c:when test="${not empty sessionScope.loggedInUser }">
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="logout.do">Log Out</a>
+			</li>
+			 </c:when>
+			 <c:otherwise>
+			<li class="nav-item">
+			 <a class="nav-link" href="login.do">Log In</a>
+			</li>			
+			 </c:otherwise>
+			 </c:choose>
+		  </ul>		  
+		</div>
+	  </div>
+	</nav>
+
     <div class="container mt-5">
         <h1 class="text-center">Register Your New User HERE!</h1>
         <div class="row justify-content-center">
