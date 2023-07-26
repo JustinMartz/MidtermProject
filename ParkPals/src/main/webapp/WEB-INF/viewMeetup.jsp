@@ -41,10 +41,10 @@ ${meetup.creator.firstName}
 	        	
 	        	</c:if>
 	        <c:forEach items="${sessionScope.loggedInUser.meetupRatings }" var="userMeetup">
-	        	<c:if test="${userMeetup.meetup.id eq meetup.id}">
+	        	<c:when test="${userMeetup.meetup.id eq meetup.id}">
 	        	<p>You are attending this meet up!</p>
 	        	
-	        	</c:if>
+	        	</c:when>
 	        </c:forEach>
 
 	   </c:when>
