@@ -1,29 +1,89 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Update User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container mt-5">
+        <h1 class="text-center">Update User Profile</h1>
 
-<form action="updateUserInfo.do" method=POST>
-User Name: <input type="text" value="${loggedInUser.username}"  name="username" required><br>
-Password: <input type="text" value="${loggedInUser.password}" name="password" required><br>
-First Name: <input type="text" value="${loggedInUser.firstName}" name="firstName" required><br>
-Last Name: <input type="text" value="${loggedInUser.lastName}" name="lastName" required><br>
-About Me: <input type="text" value="${loggedInUser.aboutme}" name="aboutme"><br>
-Profile Image URL: <input type="text" value="${loggedInUser.imageUrl}" name="imageUrl"><br>
-Street: <input type="text" value="${loggedInUser.address.street}" name="street"><br>
-Unit/Suite/Apartment: <input type="text" value="${loggedInUser.address.street2}" name="street2"><br>
-City: <input type="text" value="${loggedInUser.address.city}" name="city"><br>
-State: <input type="text" value="${loggedInUser.address.state}" name="state"><br>
-Zip Code: <input type="text" value="${loggedInUser.address.zipCode}" name="zipCode"><br>
-Phone: <input type="text" value="${loggedInUser.address.phone}" name="phone"><br>
-<input type="hidden" name="id" value="${loggedInUser.id}"/>
-<input type="submit" value="Save Changes">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form action="updateUserInfo.do" method="POST">
+                    <div class="form-group">
+                        <label for="username">User Name:</label>
+                        <input type="text" class="form-control" id="username" name="username" value="${loggedInUser.username}" required>
+                    </div>
 
-</form>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" value="${loggedInUser.password}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="${loggedInUser.firstName}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="${loggedInUser.lastName}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aboutme">About Me:</label>
+                        <input type="text" class="form-control" id="aboutme" name="aboutme" value="${loggedInUser.aboutme}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl">Profile Image URL:</label>
+                        <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="${loggedInUser.imageUrl}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" class="form-control" id="street" name="street" value="${loggedInUser.address.street}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street2">Unit/Suite/Apartment:</label>
+                        <input type="text" class="form-control" id="street2" name="street2" value="${loggedInUser.address.street2}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city" value="${loggedInUser.address.city}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" id="state" name="state" value="${loggedInUser.address.state}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code:</label>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode" value="${loggedInUser.address.zipCode}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="${loggedInUser.address.phone}">
+                    </div>
+
+                    <input type="hidden" name="id" value="${loggedInUser.id}">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

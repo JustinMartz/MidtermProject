@@ -1,8 +1,108 @@
+/* main.css */
 
+/* Global Styles */
 body {
-	background-color: darkgray;
-	color: orange;
-	height: 100%;
-	width: 100%;
-	margin-left: 25px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2; /* Light Gray */
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+h1 {
+  text-align: center;
+  color: #007bff; /* Blue */
+}
+
+h2 {
+  text-align: center;
+  color: #28a745; /* Green */
+  margin-bottom: 30px;
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Blue */
+  border-color: #007bff; /* Blue */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker Blue */
+  border-color: #0056b3; /* Darker Blue */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Gray */
+  border-color: #6c757d; /* Gray */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker Gray */
+  border-color: #5a6268; /* Darker Gray */
+}
+
+/* Form Styles */
+form {
+  background-color: #fff; /* White */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+  color: #007bff; /* Blue */
+}
+
+.form-control {
+  border-color: #007bff; /* Blue */
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff; /* Blue */
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light Gray */
+}
+
+tr:hover {
+  background-color: #cce5ff; /* Light Blue */
+}
+
+/* Button Group Styles */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn-group .btn {
+  width: 150px;
 }
