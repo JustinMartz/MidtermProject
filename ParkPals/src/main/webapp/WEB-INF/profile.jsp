@@ -31,6 +31,7 @@
                     <input type="hidden" name="id" value="${loggedInUser.id}">
                     <button type="submit" class="btn btn-primary">Edit Profile</button>
                 </form>
+                <a href="home.do"> <button  class="btn btn-primary">Home</button></a>
             </div>
         </div>
     </div>

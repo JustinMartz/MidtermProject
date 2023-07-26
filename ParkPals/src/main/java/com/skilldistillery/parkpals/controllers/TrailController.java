@@ -1,5 +1,7 @@
 package com.skilldistillery.parkpals.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ public class TrailController {
 	private TrailDAO trailDao; 
 	
 	@RequestMapping(path = "displayTrail.do")
-	public String displayTrail(Model model, int id) {
+	public String displayTrail(Model model, HttpSession session, int id) {
 		
 		Trail trail = trailDao.findTrailById(id);
 		if (trail != null) {
