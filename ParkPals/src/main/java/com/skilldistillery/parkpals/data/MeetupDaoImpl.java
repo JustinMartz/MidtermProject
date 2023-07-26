@@ -29,5 +29,4 @@ public class MeetupDaoImpl implements MeetupDAO {
 
 	}
 
-
 }

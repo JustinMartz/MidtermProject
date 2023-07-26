@@ -35,12 +35,11 @@ ${meetup.creator.firstName}
 	<c:choose>
 	    <c:when test="${not empty sessionScope.loggedInUser }">
 	      <h2>Your Account Details</h2>
-	        <ul>
-	          <li>ID : ${loggedInUser.id } </li>
-	          <li>User Name: ${loggedInUser.username } </li>
-	          <li>${loggedInUser.firstName} ${loggedInUser.lastName }</li>
-	        </ul>
-	        <c:forEach var="usermeetup" items="${userMeetups }"> ${userMeetup.name }</c:forEach>
+
+	        <c:forEach items="${sessionScope.loggedInUser.meetups }" var="usermeetup">
+	        	${usermeetup.name }
+	        </c:forEach>
+
 	   </c:when>
 	<c:otherwise>
 	      <h1>Not logged in</h1>
