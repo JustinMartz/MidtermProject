@@ -436,7 +436,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (1, 'Gator hook trail', 'long trail, goes around a lake', '25.8315n', '81.1005w', 4.7, 1, 1, 'http://anotherfakeurl.com');
+INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (1, 'Bright Angel Trail', '15.3-mile out-and-back trail', '25.8315n', '81.1005w', 4.7, 1, 1, 'http://anotherfakeurl.com');
 
 COMMIT;
 
@@ -446,7 +446,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `parkpalsdb`;
-INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `user_id`, `description`, `image_url`) VALUES (1, 'hike at goldminors trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'long and rough, bring water', 'http://fakefakeurl.com');
+INSERT INTO `meetup` (`id`, `name`, `meetup_date`, `start_time`, `end_time`, `trail_id`, `user_id`, `description`, `image_url`) VALUES (1, 'Meetup at Bright Angel Trail', '2020-12-01 10:06:10', '10:10:10', '10:10:10', 1, 1, 'Challenging route', 'https://www.alltrails.com/trail/us/arizona/bright-angel-trail--11');
 
 COMMIT;
 
