@@ -26,8 +26,7 @@ public class MeetupDaoImpl implements MeetupDAO {
 
 	@Override
 	public User addMeetupToUser(User user, Meetup meetup) {
-		
-		if(user.getMeetups().add(meetup)) {
+			if(user.getMeetups().add(meetup)) {
 			em.flush();
 			return user;
 		}

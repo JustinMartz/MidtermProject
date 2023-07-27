@@ -59,6 +59,7 @@ public class MeetupController {
 		for (Meetup meetup : userToAddToMeetup.getMeetups()) {
 			System.out.println(meetup + "**********************************************");
 			
+			
 		}
 		if(updatedUser != null) {
 			updatedUser.getMeetupRatings().size();
@@ -70,4 +71,5 @@ public class MeetupController {
 		
 		return "error";
 	}
+
 }

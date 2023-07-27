@@ -71,8 +71,8 @@
 	<c:if test="${sessionScope.isAttending eq true }">
 		<h1>You are attending this meetup!</h1>
 		<form action="unattendMeetup.do">
-			<input type="hidden" name="meetupId" value="${meetup.id }"> <input
-				type="hidden" name="userId" value="${sessionScope.loggedInUser.id }">
+			<input type="hidden" name="meetupId" value="${meetup.id }">
+			 <input type="hidden" name="userId" value="${sessionScope.loggedInUser.id }">
 			<input type="submit" value="Flake on this meetup">
 
 		</form>
