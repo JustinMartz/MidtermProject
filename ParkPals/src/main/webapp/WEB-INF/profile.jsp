@@ -58,9 +58,9 @@
                     <c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
                     <strong><a href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong><br>
                     </c:forEach>
-              <c:forEach items="${loggedInUser.meetups }" var="meetup">
+              <%-- <c:forEach items="${loggedInUser.meetups }" var="meetup">
                     <strong><a href="displayMeetup.do?id=${meetup.id}">${meetup.name }</a></strong><br>
-                    </c:forEach>
+                    </c:forEach> --%>
                 </p>
 
                 <form action="deactivateAccount.do" method="POST" class="text-center">
