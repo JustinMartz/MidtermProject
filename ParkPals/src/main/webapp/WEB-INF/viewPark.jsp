@@ -84,6 +84,9 @@
 			</li>
 			 </c:when>
 			 <c:otherwise>
+			 <li class="nav-item">
+			 <a class="nav-link" href="register.do">Register</a>
+			</li>
 			<li class="nav-item">
 			 <a class="nav-link" href="login.do">Log In</a>
 			</li>			

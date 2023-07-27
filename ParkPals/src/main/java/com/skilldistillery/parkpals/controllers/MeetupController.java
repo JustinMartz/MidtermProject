@@ -25,6 +25,11 @@ public class MeetupController {
 
 	@RequestMapping(path = "displayMeetup.do")
 	public String displayMeetup(Model model, HttpSession session, int id) {
+		User userToCheck = (User) session.getAttribute("loggedInUser");
+		if (userToCheck == null) {
+			return "error";
+		}
+		
 		System.out.println(id);
 		boolean isAttending = false;
 		session.setAttribute("isAttending", isAttending);

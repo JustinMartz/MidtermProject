@@ -67,7 +67,7 @@ public class User {
 	@OneToMany(mappedBy = "creator", fetch = FetchType.EAGER)
 	private List<Meetup> meetups;
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user")
 	private List<MeetupRating> meetupRatings;
 	
 	@OneToMany(mappedBy = "user")
