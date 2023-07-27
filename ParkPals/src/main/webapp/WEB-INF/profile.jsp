@@ -80,12 +80,10 @@
     
     
     <div>
-    <h1>Friends List</h1>
-    <ul>
-    <c:forEach items="${friendsList }" var="friend">
-    <li>${friend.name }</li>
-    </c:forEach>
-    </ul>
+     <h2>Friends List</h2>
+                    <c:forEach items="${loggedInUser.friends }" var="viewFriends">
+                    ${friends.firstName }
+                    </c:forEach>
     
     </div>
     
