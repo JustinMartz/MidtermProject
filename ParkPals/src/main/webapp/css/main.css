@@ -8,6 +8,15 @@ body {
   line-height: 1.6;
 }
 
+img {
+	background-color: pink;
+	width: 250px;
+	height: 250px;
+	padding: 1em;
+	margin: 1em;
+}
+
+
 .container {
   max-width: 800px;
   margin: 0 auto;

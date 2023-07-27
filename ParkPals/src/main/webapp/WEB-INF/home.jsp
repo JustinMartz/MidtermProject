@@ -61,6 +61,7 @@
                 <c:forEach var="park" items="${parks}">
                     <tr>
                         <td><a href="displayPark.do?id=${park.id}">${park.name}</a></td>
+                        <img src="${park.imageUrl }">
                     </tr>
                 </c:forEach>
             </tbody>
