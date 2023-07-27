@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -66,7 +67,7 @@ public class User {
 	@OneToMany(mappedBy = "creator", fetch = FetchType.EAGER)
 	private List<Meetup> meetups;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<MeetupRating> meetupRatings;
 	
 	@OneToMany(mappedBy = "user")

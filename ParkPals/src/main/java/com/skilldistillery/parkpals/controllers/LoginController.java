@@ -46,6 +46,7 @@ public class LoginController {
 		if (user == null) {
 			return "login";
 		}
+		
 		return "profile";
 	}
 	

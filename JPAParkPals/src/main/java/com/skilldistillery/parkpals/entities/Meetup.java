@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class Meetup {
 	@JoinColumn(name = "user_id")
 	private User creator;
 
-	@OneToMany(mappedBy = "meetup")
+	@OneToMany(mappedBy = "meetup", cascade = CascadeType.ALL)
 	private List<MeetupRating> meetupRatings;
 
 	@OneToMany(mappedBy = "meetup")

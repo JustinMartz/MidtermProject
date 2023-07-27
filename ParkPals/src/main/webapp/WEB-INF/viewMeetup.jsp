@@ -57,7 +57,7 @@
 	<br> ${meetup.description }
 	<br> ${meetup.imageUrl }
 	<br> ${meetup.trail.description}
-	<br> ${meetup.creator.firstName}
+	<br> <h3>Created by: </h3>${meetup.creator.firstName}
 
 
 	<c:forEach var="rating" items="${meetup.meetupRatings }">

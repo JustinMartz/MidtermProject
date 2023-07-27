@@ -51,6 +51,10 @@
                     First Name: ${loggedInUser.firstName}<br>
                     Last Name: ${loggedInUser.lastName}<br>
                     About Me: ${loggedInUser.aboutme}
+                    <h2>Meetups Attending:</h2>
+                    <c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
+                    <strong>${meetupRating.meetup.name }</strong><br>
+                    </c:forEach>
                 </p>
 
                 <form action="deactivateAccount.do" method="POST" class="text-center">
