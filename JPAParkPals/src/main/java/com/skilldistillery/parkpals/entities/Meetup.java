@@ -31,6 +31,8 @@ public class Meetup {
 	private String description;
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	private Boolean active;
 
 	@ManyToOne
 	@JoinColumn(name = "trail_id")
@@ -124,6 +126,14 @@ public class Meetup {
 		this.imageUrl = imageUrl;
 	}
 
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
 	public Trail getTrail() {
 		return trail;
 	}
@@ -159,7 +169,8 @@ public class Meetup {
 	@Override
 	public String toString() {
 		return "Meetup [id=" + id + ", name=" + name + ", meetupDate=" + meetupDate + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl  + "]";
+				+ ", endTime=" + endTime + ", description=" + description + ", imageUrl=" + imageUrl + ", active="
+				+ active + "]";
 	}
 
 	@Override

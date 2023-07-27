@@ -22,6 +22,9 @@
 			<c:choose>
 			<c:when test="${not empty sessionScope.loggedInUser }">
 			<li class="nav-item">
+			 <a class="nav-link" href="profile.do">Welcome! ${loggedInUser.firstName}</a>
+			 </li>
+			<li class="nav-item">
 			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
 			</li>
 			<li class="nav-item">
@@ -54,7 +57,9 @@
                 <p>Image URL: ${trail.imageUrl}</p>
             </div>
             <div class="col-md-6">
-                <h2>Meetups</h2>
+                <div class="row">
+                <div class="col-md-12  text-right">
+                <h2>Meetups</h2><button type="button" class="btn btn-warning ml-2">Create meetup at this trail!</button></div></div>
                 <ul class="list-group">
                     <c:forEach var="meetup" items="${trail.meetups}">
                         <li class="list-group-item">
