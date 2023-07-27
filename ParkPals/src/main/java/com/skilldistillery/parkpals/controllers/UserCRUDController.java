@@ -36,23 +36,7 @@ public class UserCRUDController {
 		return "login";
 	}
 	
-	@RequestMapping (path = "viewFriends.do", method = RequestMethod.GET)
-	public String viewFreinds(Model model, HttpSession session) {
-		User loggedInUser = (User) session.getAttribute("loggedInUser");
-		System.out.println(loggedInUser + "************************************************");
-		
-		if(loggedInUser != null) {
-			List<User> friends = userDao.findFriendsByUserId(loggedInUser.getId());
-			System.out.println(friends + "****************************************************");
-			model.addAttribute("friends", friends);
-			session.setAttribute("friends", friends);
-			session.setAttribute("loggedInUser", loggedInUser);
-			return "profile";
-			
-		}
-		return "error";
-		
-	}
+	
 	
 
 }
