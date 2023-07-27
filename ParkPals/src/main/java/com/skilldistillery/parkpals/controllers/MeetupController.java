@@ -89,20 +89,20 @@ public class MeetupController {
 		return "error";
 	}
 
-//	@RequestMapping(path = "unattendMeetup.do")
-//	public String unattendMeetup(Model model, HttpSession session, int meetupId) {
-//		Meetup meetupToRemoveThyselfFrom = meetupDao.findMeetupById(meetupId);
-//		User userToRemoveFromMeetup = (User) session.getAttribute("loggedInUser");
-//
-//		if (meetupDao.removeUserFromMeetup(userToRemoveFromMeetup, meetupToRemoveThyselfFrom)) {
-//			session.setAttribute("isAttending", false);
-//			session.setAttribute("loggedInUser", userToRemoveFromMeetup);
-//			model.addAttribute("meetup", meetupToRemoveThyselfFrom);
-//			return "viewMeetup";
-//
-//		}
-//
-//		return "error";
-//	}
+	@RequestMapping(path = "unattendMeetup.do")
+	public String unattendMeetup(Model model, HttpSession session, int meetupId) {
+		Meetup meetupToRemoveThyselfFrom = meetupDao.findMeetupById(meetupId);
+		User userToRemoveFromMeetup = (User) session.getAttribute("loggedInUser");
+
+		if (meetupDao.removeUserFromMeetup(userToRemoveFromMeetup, meetupToRemoveThyselfFrom)) {
+			session.setAttribute("isAttending", false);
+			session.setAttribute("loggedInUser", userToRemoveFromMeetup);
+			model.addAttribute("meetup", meetupToRemoveThyselfFrom);
+			return "viewMeetup";
+
+		}
+
+		return "error";
+	}
 
 }

@@ -59,33 +59,33 @@ public class User {
 																	 */
 	)
 	private List<User> friends;
-	
+
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
+
 	@OneToMany(mappedBy = "creator", fetch = FetchType.EAGER)
 	private List<Meetup> meetups;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<MeetupRating> meetupRatings;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<ParkRating> parkRatings;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<TrailRating> trailRatings;
-	
+
 //	@OneToMany(mappedBy = "user")
 //	private List<MeetupComment> meetupComments;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<ParkVisit> parkVisits;
 
 	public User() {
 
 	}
-	
+
 //	public void addMeetupComment(MeetupComment meetupComment) {
 // FIXME
 //		if (meetupComments == null) {
@@ -105,107 +105,122 @@ public class User {
 //			meetupComment.setMeetup(null);
 //		}
 //	}
-	
+
+	public void removeMeetup(Meetup meetup) {
+		if (meetups != null && meetups.contains(meetup)) {
+			meetups.remove(meetup);
+			meetup.setCreator(null);
+		}
+
+	}
+
+	public void addMeetup(Meetup meetup) {
+		if (meetups == null) {
+			meetups = new ArrayList<>();
+		}
+		if (!meetups.contains(meetup)) {
+			meetups.add(meetup);
+			meetup.setCreator(this);
+		}
+	}
+
 	public void addMeetupRating(MeetupRating meetupRating) {
 		if (meetupRatings == null) {
 			meetupRatings = new ArrayList<>();
 		}
-		
+
 		if (!meetupRatings.contains(meetupRating)) {
 			meetupRatings.add(meetupRating);
 			meetupRating.setUser(this);
 		}
 	}
-	
+
 	public void removeMeetupRating(MeetupRating meetupRating) {
 		if (meetupRatings != null && meetupRatings.contains(meetupRating)) {
 			meetupRatings.remove(meetupRating);
 			meetupRating.setUser(null);
 		}
 	}
-	
+
 	public void addParkRating(ParkRating parkRating) {
 		if (parkRatings == null) {
 			parkRatings = new ArrayList<>();
 		}
-		
+
 		if (!parkRatings.contains(parkRating)) {
 			parkRatings.add(parkRating);
 			parkRating.setUser(this);
 		}
 	}
-	
+
 	public void removeParkRating(ParkRating parkRating) {
 		if (parkRatings != null && parkRatings.contains(parkRating)) {
 			parkRatings.remove(parkRating);
 			parkRating.setUser(null);
 		}
 	}
-	
+
 	public void addTrailRating(TrailRating trailRating) {
 		if (trailRatings == null) {
 			trailRatings = new ArrayList<>();
 		}
-		
+
 		if (!trailRatings.contains(trailRating)) {
 			trailRatings.add(trailRating);
 			trailRating.setUser(this);
 		}
 	}
-	
+
 	public void removeTrailRating(TrailRating trailRating) {
 		if (trailRatings != null && trailRatings.contains(trailRating)) {
 			trailRatings.remove(trailRating);
 			trailRating.setUser(null);
 		}
 	}
-	
+
 	public void addParkVisit(ParkVisit parkVisit) {
 		if (parkVisits == null) {
 			parkVisits = new ArrayList<>();
 		}
-		
+
 		if (!parkVisits.contains(parkVisit)) {
 			parkVisits.add(parkVisit);
 			parkVisit.setUser(this);
 		}
 	}
-	
+
 	public void removeParkVist(ParkVisit parkVisit) {
 		if (parkVisits != null && parkVisits.contains(parkVisit)) {
 			parkVisits.remove(parkVisit);
 			parkVisit.setUser(null);
 		}
 	}
-	
+
 	public void addFriend(User friend) {
 		if (friends == null) {
 			friends = new ArrayList<>();
 		}
-		
+
 		if (!friends.contains(friend)) {
 			friends.add(friend);
 			friend.addFriend(this);
 		}
 	}
-	
+
 	public void removeFriend(User friend) {
 		if (friends != null && friends.contains(friend)) {
 			friends.remove(friend);
 			friend.removeFriend(this);
 		}
 	}
-	
 
 	public Address getAddress() {
 		return address;
 	}
 
-
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
 
 	public int getId() {
 		return id;
@@ -307,41 +322,33 @@ public class User {
 		return meetups;
 	}
 
-
 	public void setMeetups(List<Meetup> meetups) {
 		this.meetups = meetups;
 	}
-
 
 	public List<MeetupRating> getMeetupRatings() {
 		return meetupRatings;
 	}
 
-
 	public void setMeetupRatings(List<MeetupRating> meetupRatings) {
 		this.meetupRatings = meetupRatings;
 	}
-
 
 	public List<ParkRating> getParkRatings() {
 		return parkRatings;
 	}
 
-
 	public void setParkRatings(List<ParkRating> parkRatings) {
 		this.parkRatings = parkRatings;
 	}
-
 
 	public List<TrailRating> getTrailRatings() {
 		return trailRatings;
 	}
 
-
 	public void setTrailRatings(List<TrailRating> trailRatings) {
 		this.trailRatings = trailRatings;
 	}
-
 
 //	public List<MeetupComment> getMeetupComments() {
 //		return meetupComments;
@@ -352,16 +359,13 @@ public class User {
 //		this.meetupComments = meetupComments;
 //	}
 
-
 	public List<ParkVisit> getParkVisits() {
 		return parkVisits;
 	}
 
-
 	public void setParkVisits(List<ParkVisit> parkVisits) {
 		this.parkVisits = parkVisits;
 	}
-
 
 	@Override
 	public String toString() {
