@@ -1,7 +1,5 @@
 package com.skilldistillery.parkpals.data;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -9,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.parkpals.entities.Meetup;
-import com.skilldistillery.parkpals.entities.Park;
+import com.skilldistillery.parkpals.entities.User;
 
 @Service
 @Transactional
@@ -24,6 +22,17 @@ public class MeetupDaoImpl implements MeetupDAO {
 		System.out.println(meetup);
 		return meetup;
 
+	}
+
+	@Override
+	public User addMeetupToUser(User user, Meetup meetup) {
+		
+		if(user.getMeetups().add(meetup)) {
+			em.flush();
+			return user;
+		}
+
+		return null;
 	}
 
 }

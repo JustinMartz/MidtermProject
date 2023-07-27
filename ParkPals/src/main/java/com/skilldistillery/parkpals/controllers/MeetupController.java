@@ -50,4 +50,24 @@ public class MeetupController {
 
 		return "error";
 	}
+	
+	@RequestMapping(path = "joinMeetup.do")
+	public String joinMeetup(Model model, HttpSession session, int meetupId) {
+		Meetup meetupToAdd = meetupDao.findMeetupById(meetupId);
+		User userToAddToMeetup = (User) session.getAttribute("loggedInUser");
+		User updatedUser = meetupDao.addMeetupToUser(userToAddToMeetup, meetupToAdd);
+		for (Meetup meetup : userToAddToMeetup.getMeetups()) {
+			System.out.println(meetup + "**********************************************");
+			
+		}
+		if(updatedUser != null) {
+			updatedUser.getMeetupRatings().size();
+			session.setAttribute("loggedInUser", updatedUser);
+			model.addAttribute("meetup", meetupToAdd);
+			return "viewMeetup";
+		}
+		
+		
+		return "error";
+	}
 }
