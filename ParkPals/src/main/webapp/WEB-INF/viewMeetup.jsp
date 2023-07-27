@@ -76,13 +76,12 @@
 			<input type="submit" value="Flake on this meetup">
 
 		</form>
-		
+
 	</c:if>
 
 	<c:if test="${sessionScope.isAttending eq false }">
 		<form action="joinMeetup.do">
-			<input type="hidden" name="meetupId" value="${meetup.id }"> <input
-				type="hidden" name="userId" value="${sessionScope.loggedInUser.id }">
+			<input type="hidden" name="meetupId" value="${meetup.id }">
 			<input type="submit" value="Join this meet up!">
 
 		</form>
