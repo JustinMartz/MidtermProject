@@ -614,7 +614,7 @@ START TRANSACTION;
 USE `parkpalsdb`;
 INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (1, 1, 'blah blah blah', 2, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
 INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (1, 2, 'blahblah blah', 5, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
-INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (4, 4, 'blah ', 3, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
+INSERT INTO `meetup_rating` (`user_id`, `meetup_id`, `comment`, `rating`, `create_date`, `last_update`) VALUES (4, 2, 'blah ', 3, '2020-01-01 10:10:10', '2020-02-01 10:10:10');
 
 COMMIT;
 
