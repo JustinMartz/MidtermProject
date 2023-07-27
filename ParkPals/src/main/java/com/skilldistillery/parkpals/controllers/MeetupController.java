@@ -74,7 +74,7 @@ public class MeetupController {
 		
 		if (meetupDao.addMeetupToUser(userToAddToMeetup, meetupToAdd)) {
 			session.setAttribute("isAttending", true);
-			session.setAttribute("loggedInUser", userToAddToMeetup);
+			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToAddToMeetup.getUsername(), userToAddToMeetup.getPassword()));
 			model.addAttribute("meetup", meetupToAdd);
 			return "viewMeetup";
 		}
@@ -95,12 +95,22 @@ public class MeetupController {
 		
 		if (meetupDao.removeUserFromMeetup(userToRemoveFromMeetup, meetupToRemoveThyselfFrom)) {
 			session.setAttribute("isAttending", false);
-			session.setAttribute("loggedInUser", userToRemoveFromMeetup);
+			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToRemoveFromMeetup.getUsername(), userToRemoveFromMeetup.getPassword()));
 			model.addAttribute("meetup", meetupToRemoveThyselfFrom);
 			return "viewMeetup";
 
 		}
 		
 		return "error";
+	}
+	
+	@RequestMapping(path="deleteMeetup.do")
+	public String deleteMeetup(Model model, HttpSession session, int id) {
+		Meetup meetupToDelete = meetupDao.findMeetupById(id);
+		
+		if(meetupDao.deleteMeetup((User)session.getAttribute("loggedInUser"), meetupToDelete)) {
+			return "profile";
+		}
+		return "profile";
 	}
 }
