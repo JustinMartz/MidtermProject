@@ -7,6 +7,8 @@ public interface MeetupDAO {
 
 	public Meetup findMeetupById(int id);
 	public boolean addMeetupToUser(User user, Meetup meetup);
+	public boolean removeUserFromMeetup(User user, Meetup meetup);
+	boolean deleteMeetup(User user, Meetup meetup);
 
 
 	

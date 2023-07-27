@@ -30,7 +30,10 @@ public class MeetupDaoImpl implements MeetupDAO {
 	public boolean addMeetupToUser(User user, Meetup meetup) {
 		boolean added = false;
 		User curUser = em.find(User.class, user.getId());
-		
+//		if (! curUser.getActive() ) {
+//			return false; 
+//		}
+//		DELETE THIS COMMENT LATER THIS IS JUST A REFERENCE TO REMEMBER!
 		System.out.println("********************************************");
 		System.out.println("********************************************");
 		System.out.println("********************************************");
@@ -61,4 +64,35 @@ public class MeetupDaoImpl implements MeetupDAO {
 
 	}
 
+	@Override
+	public boolean removeUserFromMeetup(User user, Meetup meetup) {
+		User curUser = em.find(User.class, user.getId());
+		
+		for (MeetupRating rating : user.getMeetupRatings()) {
+			if (rating.getMeetup().getId() == meetup.getId()) {
+				MeetupRating ratingToRemove = em.find(MeetupRating.class, rating.getId());
+				
+				curUser.removeMeetupRating(ratingToRemove);
+				em.remove(ratingToRemove);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	@Override 
+	public boolean deleteMeetup(User user, Meetup meetup) {
+		User creator = em.find(User.class, user.getId());	
+		Meetup meetupToDelete = em.find(Meetup.class, meetup.getId());
+		
+		creator.removeMeetup(meetupToDelete);
+		em.remove(meetupToDelete);
+		em.flush();
+		if (em.find(Meetup.class, meetup.getId()) == null) {
+			return false;
+		}
+		return true; 
+		
+	}
 }

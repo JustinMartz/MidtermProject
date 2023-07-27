@@ -79,7 +79,6 @@
 			<input type="submit" value="Flake on this meetup">
 
 		</form>
-
 	</c:if>
 
 	<c:if test="${sessionScope.isAttending eq false }">
@@ -90,7 +89,12 @@
 		</form>
 	</c:if>
 
+	<c:if test="${sessionScope.loggedInUser.id eq meetup.creator.id}">
+	
+	<h1><a href="deleteMeetup.do?id=${meetup.id }"> DELETE THIS MEETUP </a></h1>
 
+		
+	</c:if>
 
 
 

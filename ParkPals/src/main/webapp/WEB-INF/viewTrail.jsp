@@ -59,6 +59,10 @@
                     <c:forEach var="meetup" items="${trail.meetups}">
                         <li class="list-group-item">
                             <a href="displayMeetup.do?id=${meetup.id}">${meetup.name}</a>
+                            <c:if test="${notLoggedIn }"><div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong>Must be logged in to view this meetup.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div></c:if>
                             <br>
                             ${meetup.description}
                         </li>
