@@ -46,6 +46,8 @@ public class LoginController {
 		if (user == null) {
 			return "login";
 		}
+		
+		session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword()));
 		return "profile";
 	}
 	

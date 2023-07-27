@@ -39,6 +39,9 @@
 									Out</a></li>
 						</c:when>
 						<c:otherwise>
+						<li class="nav-item">
+			 <a class="nav-link" href="register.do">Register</a>
+			</li>
 							<li class="nav-item"><a class="nav-link" href="login.do">Log
 									In</a></li>
 						</c:otherwise>
@@ -57,7 +60,7 @@
 	<br> ${meetup.description }
 	<br> ${meetup.imageUrl }
 	<br> ${meetup.trail.description}
-	<br> ${meetup.creator.firstName}
+	<br> <h3>Created by: </h3>${meetup.creator.firstName}
 
 
 	<c:forEach var="rating" items="${meetup.meetupRatings }">
@@ -86,6 +89,7 @@
 
 		</form>
 	</c:if>
+
 
 
 
