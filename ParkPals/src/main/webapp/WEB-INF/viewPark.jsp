@@ -12,13 +12,12 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<!-- Custom CSS -->
 
 <link href="../css/main.css" rel="stylesheet">
 <style>
 body {
-  background-color: rgba(0, 0, 0, 0.5); 
- background-image: url("https://cdn.5280.com/2021/08/Cliff_Palace_Seth_K_Hughes_Mesa-Verde-1280x720.jpg");
+  background-color: rgba (10, 10, 10, 0.2); 
+  background-image: url("../images/verdebackground.png");
   background-size: cover;
   background-position: center;
 }
@@ -59,6 +58,8 @@ a:hover {
 	padding: 20px;
 	border-radius: 5px;
 	background-color: #f9f9f9;
+	max-height: 800px;
+	overflow: auto;
 }
 
 .image-container {

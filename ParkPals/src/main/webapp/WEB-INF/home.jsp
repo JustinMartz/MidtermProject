@@ -53,6 +53,7 @@
 
     <h2 class="text-center">${DELETEME}</h2>
 
+<<<<<<< HEAD
     <div class="row">
         <c:forEach var="park" items="${parks}">
             <div class="col-md-3 mb-4">
@@ -62,6 +63,23 @@
                 <p class="text-center">${park.name}</p>
             </div>
         </c:forEach>
+=======
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>Park Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="park" items="${parks}">
+                    <tr>
+                        <td><a href="displayPark.do?id=${park.id}">${park.name}</a></td>
+                        <img src="${park.imageUrl }">
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+>>>>>>> 49fb375b793fcf9161ff5aa360b1f6c5b59241ed
     </div>
 </div>
 <div class="colored-box-container">

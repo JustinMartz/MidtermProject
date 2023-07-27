@@ -99,6 +99,7 @@
                     First Name: ${loggedInUser.firstName}<br>
                     Last Name: ${loggedInUser.lastName}<br>
                     About Me: ${loggedInUser.aboutme}
+
                 </p>
                 <h2>Meetups Attending:</h2>
                 <c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
