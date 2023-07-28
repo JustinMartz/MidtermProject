@@ -16,6 +16,7 @@ public interface UserDAO {
 	Boolean deactivateUser(int id);
 	List<User> findFriendsByUserId(int userId);
 	User addFriend(User user, User friend);
+	User removeFriend(User user, User friend);
 	
 	
 

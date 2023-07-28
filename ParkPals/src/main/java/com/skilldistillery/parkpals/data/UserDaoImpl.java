@@ -87,10 +87,11 @@ public class UserDaoImpl implements UserDAO {
 
 		return updatedUser;
 	}
+
 	@Override
 	public Boolean deactivateUser(int id) {
 		User userToDeactivate = em.find(User.class, id);
-		if(userToDeactivate != null) {
+		if (userToDeactivate != null) {
 			userToDeactivate.setActive(false);
 			return true;
 		}
@@ -108,7 +109,7 @@ public class UserDaoImpl implements UserDAO {
 		String jpql = "SELECT f FROM User u JOIN u.friends f WHERE u.id = :userId";
 		return em.createQuery(jpql, User.class).setParameter("userId", userId).getResultList();
 	}
-	
+
 	@Override
 	public User addFriend(User user, User friend) {
 		if (user.getFriends() == null) {
@@ -117,14 +118,24 @@ public class UserDaoImpl implements UserDAO {
 		if (!user.getFriends().contains(friend)) {
 			user.getFriends().add(friend);
 			friend.getFriends().add(user);
-
+			
 			em.merge(user);
 			em.merge(friend);
+
 		}
-		return null;
+		return user;
 	}
-	
-	
-	
-	
+
+	@Override
+	public User removeFriend(User user, User friend) {
+		if (user.getFriends() != null && user.getFriends().contains(friend)) {
+			user.getFriends().remove(friend);
+			friend.getFriends().remove(user);
+			
+			em.merge(user);
+			em.merge(friend);
+			
+		}
+		return user;
+	}
 }
