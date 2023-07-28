@@ -37,6 +37,8 @@ public class LoginController {
 			return "home";
 		}else {
 			session.setAttribute("loggedInUser", user);
+			model.addAttribute("parks", parkDao.findAllParks());
+
 			return "profile";
 		}
 		
@@ -49,6 +51,7 @@ public class LoginController {
 		}
 		
 		session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword()));
+		model.addAttribute("parks", parkDao.findAllParks());
 		return "profile";
 	}
 	

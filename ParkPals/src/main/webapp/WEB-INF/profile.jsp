@@ -143,21 +143,22 @@
 			</div>
 		</div>
 
-		<!-- Right block -->
-		<div class="right-block">
-			Parks List: ${park.name }
-			<c:forEach var="park" items="${parks}">
-				<a href="displayPark.do?id=${park.id}"> {park.name} </a>
+		 <!-- Right block -->
+    <div class="right-block">
+		 <h4>Click on a park to view details.</h4>
+    <c:forEach var="park" items="${parks}">
+      <a href="displayPark.do?id=${park.id}">${park.name}</a><br>
+       
+    </c:forEach>
+</div>
+  
+    
 
-			</c:forEach>
-		</div>
 
-
-
-
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-			crossorigin="anonymous"></script>
-</body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+		
+		</body>
 </html>
