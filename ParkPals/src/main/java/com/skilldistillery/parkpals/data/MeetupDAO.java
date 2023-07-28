@@ -3,6 +3,7 @@ package com.skilldistillery.parkpals.data;
 import java.util.List;
 
 import com.skilldistillery.parkpals.entities.Meetup;
+import com.skilldistillery.parkpals.entities.MeetupComment;
 import com.skilldistillery.parkpals.entities.MeetupRating;
 import com.skilldistillery.parkpals.entities.User;
 
@@ -14,5 +15,6 @@ public interface MeetupDAO {
 	public boolean deleteMeetup(User user, Meetup meetup);
 	public List<Meetup> findAllMeetups();
 	public List<MeetupRating> findAllMeetupRatingsForMeetup(Meetup meetup);
+	List<MeetupComment> findAllMeetupCommentsForMeetup(int meetupId);
 
 }

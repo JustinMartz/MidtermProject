@@ -148,3 +148,9 @@ tr:hover {
 .btn-group .btn {
   width: 150px;
 }
+
+.comment-box {
+	border:1px solid black;
+	width: 500px;
+	height: 250px;
+}
