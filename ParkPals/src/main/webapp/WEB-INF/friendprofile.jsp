@@ -74,7 +74,6 @@
 				<button type="submit">Remove Friend</button>
 			</form>
 		</c:if>
-		<h1>Friend status: ${isFriend }</h1>
 		<c:if test="${isFriend ne true }">
 			<form action="addFriend.do" method="post">
 				<input type="hidden" name="friendId" value="${friend.id }">

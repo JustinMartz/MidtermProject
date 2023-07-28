@@ -95,16 +95,16 @@
 				<h2>Friends List</h2>
 				<p>Hello ${loggedInUser.firstName } ${loggedInUser.lastName }</p>
 
+				<form action="searchFriends.do" method="get">
+					<input type="text" name="searchQuery"
+						placeholder="Search for friends...">
+					<button type="submit">Search</button>
+				</form>
+				<c:if test="${not empty error }">
+				${error }
+				</c:if>
+					
 				<c:if test="${loggedInUser.id ne user.id}">
-					<form action="addFriend.do" method="post">
-						<input type="hidden" name="friendId" value="${friend.id }">
-						<button type="submit">Let's Be Friends</button>
-					</form>
-					<br>
-					<form action="removeFriend.do" method="post">
-						<input type="hidden" name="friendId" value="${friend.id }">
-						<button type="submit">Remove Friend</button>
-					</form>
 				</c:if>
 
 				<c:forEach items="${loggedInUser.friends}" var="viewFriend">
@@ -113,6 +113,7 @@
 							${viewFriend.lastName}</a>
 					</p>
 				</c:forEach>
+
 			</div>
 		</div>
 
@@ -143,22 +144,22 @@
 			</div>
 		</div>
 
-		 <!-- Right block -->
-    <div class="right-block">
-		 <h4>Click on a park to view details.</h4>
-    <c:forEach var="park" items="${parks}">
-      <a href="displayPark.do?id=${park.id}">${park.name}</a><br>
-       
-    </c:forEach>
-</div>
-  
-    
+		<!-- Right block -->
+		<div class="right-block">
+			<h4>Click on a park to view details.</h4>
+			<c:forEach var="park" items="${parks}">
+				<a href="displayPark.do?id=${park.id}">${park.name}</a>
+				<br>
+
+			</c:forEach>
+		</div>
 
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
-		
-		</body>
+
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+			crossorigin="anonymous"></script>
+</body>
 </html>

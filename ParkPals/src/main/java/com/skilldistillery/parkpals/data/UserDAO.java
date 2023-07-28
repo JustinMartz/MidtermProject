@@ -17,6 +17,7 @@ public interface UserDAO {
 	List<User> findFriendsByUserId(int userId);
 	User addFriend(User user, User friend);
 	User removeFriend(User user, User friend);
+	List<User> searchForUserByName(String searchTerm);
 	
 	
 

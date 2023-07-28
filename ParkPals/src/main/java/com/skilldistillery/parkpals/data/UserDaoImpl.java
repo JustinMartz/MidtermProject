@@ -118,7 +118,7 @@ public class UserDaoImpl implements UserDAO {
 		if (!user.getFriends().contains(friend)) {
 			user.getFriends().add(friend);
 			friend.getFriends().add(user);
-			
+
 			em.merge(user);
 			em.merge(friend);
 
@@ -131,11 +131,20 @@ public class UserDaoImpl implements UserDAO {
 		if (user.getFriends() != null && user.getFriends().contains(friend)) {
 			user.getFriends().remove(friend);
 			friend.getFriends().remove(user);
-			
+
 			em.merge(user);
 			em.merge(friend);
-			
+
 		}
 		return user;
 	}
+	
+    @Override
+    public List<User> searchForUserByName(String searchTerm) {
+        String jpql = "SELECT u FROM User u WHERE u.firstName = :fn AND u.active = true";
+        List<User> foundUsers = em.createQuery(jpql, User.class).setParameter("fn", searchTerm).getResultList();
+        
+        
+        return foundUsers;
+    }
 }
