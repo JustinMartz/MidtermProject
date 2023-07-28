@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<link href="../css/main.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
 
 <style>
 body {
@@ -89,7 +89,7 @@ body {
 			<c:forEach var="park" items="${parks}">
 				<div class="text-center">
 					<a href="displayPark.do?id=${park.id}"> <img
-						src="http://localhost:8084/images/${park.imageUrl }" class="img-fluid rounded">
+						src="images/${park.imageUrl}" class="img-fluid rounded">
 					</a>
 					<p>${park.name}</p>
 				</div>
