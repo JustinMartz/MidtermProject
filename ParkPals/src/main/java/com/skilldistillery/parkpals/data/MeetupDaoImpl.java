@@ -157,7 +157,7 @@ public class MeetupDaoImpl implements MeetupDAO {
 	}
 
 	@Override
-	public Meetup create(User user, Meetup meetup, Trail trailId) {
+	public Meetup createMeetup(User user, Meetup meetup, Trail trailId) {
 		Meetup meetupToCreate = new Meetup();
 		User userWhoCreatesMeetup = em.find(User.class, user.getId());
 		Trail trailForMeetupCreation = em.find(Trail.class, trailId);
@@ -170,9 +170,11 @@ public class MeetupDaoImpl implements MeetupDAO {
 		meetupToCreate.setImageUrl(meetup.getImageUrl());
 		meetupToCreate.setCreator(userWhoCreatesMeetup);
 		meetupToCreate.setTrail(trailForMeetupCreation);
-//		trailForMeetupCreation.add
-//
-//		em.persist(meetup);
+		trailForMeetupCreation.addMeetup(meetupToCreate);
+		addMeetupToUser(userWhoCreatesMeetup,meetupToCreate);
+		userWhoCreatesMeetup.addMeetup(meetupToCreate);
+		em.persist(meetupToCreate);
+		em.flush();
 		return meetup;
 	}
 

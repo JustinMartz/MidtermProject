@@ -59,7 +59,11 @@
             <div class="col-md-6">
                 <div class="row">
                 <div class="col-md-12  text-right">
-                <h2>Meetups</h2><a href="createMeetup.do"><button type="button" class="btn btn-warning ml-2">Create meetup at this trail!</button></a></div></div>
+                <h2>Meetups</h2>
+                <form action="createMeetup.do">
+                <input type="hidden" name="id" value="${trail.id }">
+                <input type="submit" value="Create meetup at this trail">
+                </form></div></div>
                 <ul class="list-group">
                     <c:forEach var="meetup" items="${trail.meetups}">
                         <li class="list-group-item">

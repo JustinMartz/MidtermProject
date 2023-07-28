@@ -68,20 +68,20 @@ public class UserCRUDController {
 
 	}
 
-	@RequestMapping(path = "removeFriend.do", method = RequestMethod.POST)
-	public String removeFriend(@RequestParam("friendId") int friendId, HttpSession session) {
-		User loggedInUser = (User) session.getAttribute("loggedInUser");
-
-		if (loggedInUser != null) {
-			User friend = userDao.findUserById(friendId);
-			if (friend != null) {
-				userDao.removeFriend(loggedInUser, friend);
-				return "profile";
-			}
-		}
-
-		return "login";
-	}
+//	@RequestMapping(path = "removeFriend.do", method = RequestMethod.POST)
+//	public String removeFriend(@RequestParam("friendId") int friendId, HttpSession session) {
+//		User loggedInUser = (User) session.getAttribute("loggedInUser");
+//
+//		if (loggedInUser != null) {
+//			User friend = userDao.findUserById(friendId);
+//			if (friend != null) {
+//				userDao.removeFriend(loggedInUser, friend);
+//				return "profile";
+//			}
+//		}
+//
+//		return "login";
+//	}
 
 	
 
