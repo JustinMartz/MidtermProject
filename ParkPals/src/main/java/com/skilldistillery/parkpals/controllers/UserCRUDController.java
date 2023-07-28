@@ -35,23 +35,6 @@ public class UserCRUDController {
 		return "login";
 	}
 
-	@RequestMapping(path = "viewFriends.do", method = RequestMethod.GET)
-	public String viewFreinds(Model model, HttpSession session) {
-		User loggedInUser = (User) session.getAttribute("loggedInUser");
-
-		if (loggedInUser != null) {
-			List<User> friends = userDao.findFriendsByUserId(loggedInUser.getId());
-			model.addAttribute("friends", friends);
-			session.setAttribute("loggedInUser", loggedInUser);
-			return "profile";
-
-		} else {
-
-			return "error";
-		}
-
-	}
-
 	@RequestMapping(path = "addFriend.do", method = RequestMethod.POST)
 	public String addFriend(@RequestParam("friendId") int friendId, HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
@@ -60,29 +43,43 @@ public class UserCRUDController {
 			User friend = userDao.findUserById(friendId);
 			if (friend != null) {
 				userDao.addFriend(loggedInUser, friend);
-				return "profile";
 			}
 		}
 
-		return "login";
+		return "redirect:/friendprofile.do?userId=" + friendId;
 
 	}
 
-//	@RequestMapping(path = "removeFriend.do", method = RequestMethod.POST)
-//	public String removeFriend(@RequestParam("friendId") int friendId, HttpSession session) {
-//		User loggedInUser = (User) session.getAttribute("loggedInUser");
-//
-//		if (loggedInUser != null) {
-//			User friend = userDao.findUserById(friendId);
-//			if (friend != null) {
-//				userDao.removeFriend(loggedInUser, friend);
-//				return "profile";
-//			}
-//		}
-//
-//		return "login";
-//	}
+	@RequestMapping(path = "removeFriend.do", method = RequestMethod.POST)
+	public String removeFriend(@RequestParam("friendId") int friendId, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
 
-	
+		if (loggedInUser != null) {
+			User friend = userDao.findUserById(friendId);
+			if (friend != null) {
+				userDao.removeFriend(loggedInUser, friend);
+
+			}
+		}
+
+		return "redirect:/friendprofile.do?userId=" + friendId;
+	}
+
+	@RequestMapping(path = "friendprofile.do", method = RequestMethod.GET)
+	public String viewFriendProfile(@RequestParam("userId") int userId, Model model, HttpSession session) {
+		User friendProfile = userDao.findUserById(userId);
+		User user = (User) session.getAttribute("loggedInUser");
+		if (friendProfile != null) {
+			model.addAttribute("friend", friendProfile);
+			if (user.getFriends().contains(friendProfile)) {
+				model.addAttribute("isFriend", true);
+				System.out.println("**********************IS FRIEND********************");
+			} else {
+				model.addAttribute("isFriend", false);
+			}
+			return "friendprofile";
+		}
+		return "error";
+	}
 
 }

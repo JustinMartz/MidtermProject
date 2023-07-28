@@ -93,24 +93,26 @@
 			<!-- Left block -->
 			<div>
 				<h2>Friends List</h2>
-				<c:forEach items="${loggedInUser.friends }" var="viewFriends">
-					<ul>
-					${viewFriends.firstName } ${viewFriends.lastName }
-					</ul>
+				<p>Hello ${loggedInUser.firstName } ${loggedInUser.lastName }</p>
+
+				<c:if test="${loggedInUser.id ne user.id}">
+					<form action="addFriend.do" method="post">
+						<input type="hidden" name="friendId" value="${friend.id }">
+						<button type="submit">Let's Be Friends</button>
+					</form>
+					<br>
+					<form action="removeFriend.do" method="post">
+						<input type="hidden" name="friendId" value="${friend.id }">
+						<button type="submit">Remove Friend</button>
+					</form>
+				</c:if>
+
+				<c:forEach items="${loggedInUser.friends}" var="viewFriend">
+					<p>
+						<a href="friendprofile.do?userId=${viewFriend.id}">${viewFriend.firstName}
+							${viewFriend.lastName}</a>
+					</p>
 				</c:forEach>
-
-				<form action="addFriend.do" method="post">
-					<input type="text" name="friendId"
-						placeholder="Enter friend's ID or username">
-					<button type="submit">Let's Be Friends</button>
-				</form>
-
-				<form action="removeFriend.do" method="post">
-					<input type="text" name="friendId"
-						placeholder="Enter friend's ID or username">
-					<button type="submit">Remove Friend</button>
-				</form>
-
 			</div>
 		</div>
 
@@ -141,24 +143,21 @@
 			</div>
 		</div>
 
-		 <!-- Right block -->
-    <div class="right-block">
-    Parks List:
-    ${park.name }
-    <c:forEach var="park" items="${parks}">
-      <a href="displayPark.do?id=${park.id}"> 
-            {park.name}
-					</a>
-       
-    </c:forEach>
-</div>
-  
-    
+		<!-- Right block -->
+		<div class="right-block">
+			Parks List: ${park.name }
+			<c:forEach var="park" items="${parks}">
+				<a href="displayPark.do?id=${park.id}"> {park.name} </a>
+
+			</c:forEach>
+		</div>
 
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
+
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+			crossorigin="anonymous"></script>
 </body>
 </html>
