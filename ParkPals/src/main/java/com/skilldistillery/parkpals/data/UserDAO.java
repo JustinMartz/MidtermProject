@@ -1,5 +1,7 @@
 package com.skilldistillery.parkpals.data;
 
+import java.util.List;
+
 import com.skilldistillery.parkpals.entities.Address;
 import com.skilldistillery.parkpals.entities.User;
 
@@ -12,6 +14,9 @@ public interface UserDAO {
 	Address findAddressById(int id);
 	User update(User user, int userId, Address address);
 	Boolean deactivateUser(int id);
+	User addFriend(User user, User friend);
+	User removeFriend(User user, User friend);
+	List<User> findFriendsByUserId(int userId);
 	
 
 }

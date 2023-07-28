@@ -1,5 +1,8 @@
 package com.skilldistillery.parkpals.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -99,4 +102,6 @@ public class UserDaoImpl implements UserDAO {
 
 		return em.find(Address.class, id);
 	}
+	
+	
 }

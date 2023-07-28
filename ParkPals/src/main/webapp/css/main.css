@@ -21,7 +21,6 @@ img {
   max-width: 800px;
   margin: 0 auto;
 }
-
 /* Header Styles */
 h1 {
   text-align: center;
@@ -66,7 +65,20 @@ form {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.colored-box {
+	display: inline-block;
+	padding: 10px;
+	background-color: rgba(200,200,200,0.3);
+	border: 2px solid #333;
+	border-radius: 10px;
+	box-align: center;
+	
+	
+}
 
+.colored-box p {
+	margin: 0;
+}
 .form-group label {
   color: #007bff; /* Blue */
 }
@@ -84,6 +96,17 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 30px;
+   background-color: rgba(255, 255, 255, 0.9); 
+}
+img {
+	width: 500px;
+	height: auto;
+	border-radius: 30px;
+	padding: 10px;
+		
+}
+img:hover{
+	opacity: 0.5;
 }
 
 th,
@@ -94,7 +117,17 @@ td {
 
 th {
   background-color: #007bff; /* Blue */
-  color: #fff;
+   background-color: rgba(255, 255, 255, 0.9); 
+}
+.colored-box-container{
+	text-align: center;
+}
+.block.text{
+	font-size:  x-large; 
+	text-shadow: 2px 2px 4px #888;
+	text-align: center;
+	
+	
 }
 
 tr:nth-child(even) {
