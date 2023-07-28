@@ -131,6 +131,7 @@ public class MeetupController {
 	public String createMeetup(Model model, HttpSession session, int id) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
+			model.addAttribute("trailId", id);
 			return "createMeetup";
 
 		}
@@ -140,10 +141,10 @@ public class MeetupController {
 	}
 
 	@RequestMapping(path = "saveMeetup.do")
-	public String saveMeetup(Model model, HttpSession session, Integer id, Meetup meetup) {
-		meetupDao.createMeetup((User) session.getAttribute("loggedInUser"), meetup, trailDao.findTrailById(id));
+	public String saveMeetup(Model model, HttpSession session, Meetup meetup) {
+		meetupDao.createMeetup((User) session.getAttribute("loggedInUser"), meetup);
 
-		return null;
+		return "redirect:displayMeetup.do?id=" + meetup.getId();
 
 	}
 

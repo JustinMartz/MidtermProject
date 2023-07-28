@@ -56,7 +56,7 @@
 	<h3>End time: </h3><input type="time" name="endTime" min="09:00" max="18:00">
 	<h3>Image URL: </h3><input type="text" name="imageUrl">
 	<br>
-	<input type="hidden" name="trailId" value="${trail.id}">
+	<input type="hidden" name="trail.id" value="${trailId}">
 	<input type="submit" value="Create meetup!">
 	</form>
 

@@ -37,11 +37,12 @@ public class CommentController {
 				session.setAttribute("loggedInUser",
 						userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword()));
 				session.setAttribute("meetupComments", meetupDao.findAllMeetupCommentsForMeetup(id));
-				return "viewMeetup";
+				return "redirect:displayMeetup.do?id=" + id;
 			}
 
 		}
 		return "error";
 	}
+	
 
 }
