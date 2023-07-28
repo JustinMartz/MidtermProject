@@ -79,7 +79,7 @@ body {
 		<div class="colored-box-container">
 			<div class="colored-box">
 				<div class="block text">
-					Welcome to ParkPals, the ultimate web program for National Park enthusiasts. Join our vibrant community to create meetups, <br>make
+					Welcome to ParkPals, the ultimate web program for National Park enthusiasts. Join our vibrant community to create meetups, make
 					friends, and explore the best-rated trails. Unleash the beauty of nature with like-minded adventurers at ParkPals!
 				</div>
 			</div>

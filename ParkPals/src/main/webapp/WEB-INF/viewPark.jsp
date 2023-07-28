@@ -62,15 +62,9 @@ a:hover {
 }
 
 .main-content {
-  overflow-y: auto;
    height: 800px; 
   overflow-y: auto;
 }
-.main-content {
-  height: 800px; 
-  overflow-y: auto;
-}
-
 
 }
 .image-container {
@@ -137,8 +131,7 @@ a:hover {
 	<div class="container">
 		<div class="main-content">
 			<h1>${park.name}</h1>
-			<p>Welcome to ${park.name} - a breathtaking national park with a
-				mix of natural wonders and thrilling adventures!</p>
+			Welcome to ${park.name} - a breathtaking national park with a mix of natural wonders and thrilling adventures!
 
 			<div class="image-container">
 				<img src="../images/${park.imageUrl}" alt="${park.name}">
@@ -161,12 +154,12 @@ a:hover {
 		</div>
 
 		<div class="trails-column">
-			<h2>Explore Trails:</h2>
+			<h4>Explore Trails:</h4>
 			<c:forEach var="trail" items="${park.trails}">
 				<div class="trail">
-					<h3>
+					<h5>
 						<a href="displayTrail.do?id=${trail.id}">${trail.name}</a>
-					</h3>
+					</h5>
 					<p>${trail.description}</p>
 				</div>
 			</c:forEach>
