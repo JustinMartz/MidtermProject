@@ -48,6 +48,24 @@ public class Trail {
 
 	}
 	
+	public void addMeetup(Meetup meetup) {
+		if (meetups == null) {
+			meetups = new ArrayList<>();
+		}
+		
+		if (!meetups.contains(meetup)) {
+			meetups.add(meetup);
+			meetup.setTrail(this);
+		}
+	}
+	
+	public void removeMeetup(Meetup meetup) {
+		if (meetups != null && meetups.contains(meetup)) {
+			meetups.remove(meetup);
+			meetup.setTrail(null);
+		}
+	}
+	
 	public void addAmenity(Amenity amenity) {
 		// FIXME
 		if (amenities == null) {
