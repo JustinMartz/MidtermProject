@@ -83,10 +83,21 @@
     <div class="console-container">
         <div class="left-block">
             <!-- Left block -->
-            <p>Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.</p>
-       			Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.
-       			Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.
-       
+    <div>
+     <h2>Friends List</h2>
+         <c:forEach items="${loggedInUser.friends }" var="viewFriends">
+        	<li>
+             ${viewFriends.firstName }
+             </li>
+         </c:forEach>
+         
+         <form action="addFriend.do" method="post">
+            <input type="text" name="friendId" placeholder="Enter friend's ID or username">
+            <button type="submit">Let's Be Friends</button>
+         </form>
+    
+    </div>
+           
        
         </div>
 
@@ -126,13 +137,6 @@
     
     
     
-    <div>
-     <h2>Friends List</h2>
-                    <c:forEach items="${loggedInUser.friends }" var="viewFriends">
-                    ${friends.firstName }
-                    </c:forEach>
-    
-    </div>
     
     
     

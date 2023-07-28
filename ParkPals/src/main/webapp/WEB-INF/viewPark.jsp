@@ -16,12 +16,11 @@
 <link href="../css/main.css" rel="stylesheet">
 <style>
 body {
-  background-color: rgba (10, 10, 10, 0.2); 
+  background-color: rgba(10, 10, 10, 0.2);
   background-image: url("../images/verdebackground.png");
   background-size: cover;
   background-position: center;
 }
-
 
 h1 {
 	font-size: 36px;
@@ -58,27 +57,40 @@ a:hover {
 	padding: 20px;
 	border-radius: 5px;
 	background-color: #f9f9f9;
-	max-height: 800px;
-	overflow: auto;
+	display: grid;
+  grid-template-columns: 75% 25%;
 }
 
+.main-content {
+   height: 800px; 
+  overflow-y: auto;
+}
+
+}
 .image-container {
-	text-align: center;
-	margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .image-container img {
-	max-width: 100%;
-	max-height: 300px;
-	border-radius: 5px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trails-column {
+  padding-left: 20px;
+  overflow-y: auto;
+   height: 700px; 
+  overflow-y: auto;
 }
 
 .trail {
-	border: 1px solid #ccc;
-	padding: 10px;
-	border-radius: 5px;
-	margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -117,38 +129,41 @@ a:hover {
 	</nav>
 
 	<div class="container">
-		<h1>${park.name}</h1>
-		<p>Welcome to ${park.name} - a breathtaking national park with a
-			mix of natural wonders and thrilling adventures!</p>
+		<div class="main-content">
+			<h1>${park.name}</h1>
+			Welcome to ${park.name} - a breathtaking national park with a mix of natural wonders and thrilling adventures!
 
-		<h2>Highlights:</h2>
-		<ul>
-			<li>${park.notableFeatures}</li>
-		</ul>
+			<div class="image-container">
+				<img src="../images/${park.imageUrl}" alt="${park.name}">
+			</div>
 
-		<h2>Overview:</h2>
-		<p>${park.description}</p>
+			<h2>Highlights:</h2>
+			<ul>
+				<li>${park.notableFeatures}</li>
+			</ul>
 
-		<h2>Location:</h2>
-		<p>${park.address.street}</p>
-		<p>${park.address.street2}</p>
-		<p>${park.address.city},${park.address.state}
-			${park.address.zipCode}</p>
-		<p>Phone: ${park.address.phone}</p>
+			<h2>Overview:</h2>
+			<p>${park.description}</p>
 
-		<div class="image-container">
-			<img src="${park.imageUrl}" alt="${park.name}">
+			<h2>Location:</h2>
+			<p>${park.address.street}</p>
+			<p>${park.address.street2}</p>
+			<p>${park.address.city},${park.address.state}
+				${park.address.zipCode}</p>
+			<p>Phone: ${park.address.phone}</p>
 		</div>
 
-		<h2>Explore Trails:</h2>
-		<c:forEach var="trail" items="${park.trails}">
-			<div class="trail">
-				<h3>
-					<a href="displayTrail.do?id=${trail.id}">${trail.name}</a>
-				</h3>
-				<p>${trail.description}</p>
-			</div>
-		</c:forEach>
+		<div class="trails-column">
+			<h4>Explore Trails:</h4>
+			<c:forEach var="trail" items="${park.trails}">
+				<div class="trail">
+					<h5>
+						<a href="displayTrail.do?id=${trail.id}">${trail.name}</a>
+					</h5>
+					<p>${trail.description}</p>
+				</div>
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>

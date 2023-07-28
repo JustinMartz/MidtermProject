@@ -67,10 +67,10 @@ form {
 }
 .colored-box {
 	display: inline-block;
-	padding: 10px;
+	padding: 5px;
 	background-color: rgba(200,200,200,0.3);
 	border: 2px solid #333;
-	border-radius: 10px;
+	border-radius: 15px;
 	box-align: center;
 	
 	
@@ -123,9 +123,9 @@ th {
 	text-align: center;
 }
 .block.text{
-	font-size:  x-large; 
+	font-size: large; 
 	text-shadow: 2px 2px 4px #888;
-	text-align: center;
+	text-align: justify;
 	
 	
 }
