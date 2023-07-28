@@ -58,7 +58,7 @@ class TrailRatingTest {
 	@Test
 	void test_mapping_trailrating_to_trail() {
 		assertNotNull(trailRating);
-		assertEquals("25.8315n",trailRating.getTrail().getLongitude());
+		assertEquals("111.8427W",trailRating.getTrail().getLongitude());
 
 		
 	}

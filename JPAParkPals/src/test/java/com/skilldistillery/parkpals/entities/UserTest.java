@@ -54,7 +54,7 @@ class UserTest {
 		assertNotNull(user);
 		assertNotNull(user.getFriends());
 		assertTrue(user.getFriends().size() > 0);
-		assertEquals("Sam", user.getFriends().get(1).getFirstName());
+		assertEquals("Justin ", user.getFriends().get(1).getFirstName());
 	}
 
 	@Test

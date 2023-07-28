@@ -44,8 +44,8 @@ class TrailTest {
 		@Test
 		void test_Trail_basic() {
 			assertNotNull(trail);
-			assertEquals("25.8315n", trail.getLongitude());
-			assertEquals("Gator hook trail", trail.getName());
+			assertEquals("111.8427W", trail.getLongitude());
+			assertEquals("Tanner Trail", trail.getName());
 		}
 		@Test
 		void test_Trail_to_Amenity_mapping() {

@@ -96,7 +96,7 @@
 				<p>Hello ${loggedInUser.firstName } ${loggedInUser.lastName }</p>
 
 				<form action="searchFriends.do" method="get">
-					<input type="text" name="searchQuery"
+					<input type="text" name="name"
 						placeholder="Search for friends...">
 					<button type="submit">Search</button>
 				</form>
