@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,50 +13,42 @@
           crossorigin="anonymous">
     <!-- Custom CSS -->
     <link href="../css/main.css" rel="stylesheet">
-    <style>
-        /* Add any additional custom styles here */
-
-        .comment-box {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-    </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-light bg-success">
-    <div class="container-fluid ">
-        <a class="navbar-brand " href="home.do">Park Pals</a>
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end"
-             id="navbarSupportedContent">
-            <ul class="navbar-nav ">
-                <c:choose>
-                    <c:when test="${not empty sessionScope.loggedInUser }">
-                        <li class="nav-item"><a class="nav-link active"
-                                                aria-current="page" href="profile.do">View My Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logout.do">Log Out</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.do">Register</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="login.do">Log In</a></li>
-                    </c:otherwise>
-                </c:choose>
-            </ul>
-        </div>
-    </div>
-</nav>
+	  <div class="container-fluid ">
+		<a class="navbar-brand " href="home.do">Park Pals</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+		  <ul class="navbar-nav ">
+			<c:choose>
+			<c:when test="${not empty sessionScope.loggedInUser }">
+			<li class="nav-item">
+			 <a class="nav-item">Welcome! ${loggedInUser.firstName}</a>
+			 </li>
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="logout.do">Log Out</a>
+			</li>
+			 </c:when>
+			 <c:otherwise>
+			 <li class="nav-item">
+			 <a class="nav-link" href="register.do">Register</a>
+			</li>
+			<li class="nav-item">
+			 <a class="nav-link" href="login.do">Log In</a>
+			</li>			
+			 </c:otherwise>
+			 </c:choose>
+		  </ul>		  
+		</div>
+	  </div>
+	</nav>
 
 <div class="container mt-3">
     <h1>${meetup.name}</h1>
@@ -73,8 +68,9 @@
     <div class="comment-box">
         <c:forEach var="meetupComment" items="${sessionScope.meetupComments}">
             <h2>${meetupComment.comment}</h2>
-            <h3>${meetupComment.user.username}</h3>
-            <h4>${meetupComment.commentDate}</h4>
+            <h3 style="display: inline;">Posted by: </h3>${meetupComment.user.username}<br>
+            <span>${meetupComment.commentDate}</span>
+            <hr>
         </c:forEach>
     </div>
 
