@@ -128,9 +128,16 @@
     
     <div>
      <h2>Friends List</h2>
-                    <c:forEach items="${loggedInUser.friends }" var="viewFriends">
-                    ${friends.firstName }
-                    </c:forEach>
+         <c:forEach items="${loggedInUser.friends }" var="viewFriends">
+        	<li>
+             ${viewFriends.firstName }
+             </li>
+         </c:forEach>
+         
+         <form action="addFriend.do" method="post">
+            <input type="text" name="friendId" placeholder="Enter friend's ID or username">
+            <button type="submit">Let's Be Friends</button>
+         </form>
     
     </div>
     

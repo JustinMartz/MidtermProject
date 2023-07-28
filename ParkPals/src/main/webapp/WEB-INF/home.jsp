@@ -85,6 +85,51 @@ body {
 			</div>
 		</div>
 
+<<<<<<< HEAD
+<div class="container mt-5">
+    <h1 class="text-center">Park Pals</h1>
+    <h2 class="text-center">A National Park Network</h2>
+
+    <h2 class="text-center">${DELETEME}</h2>
+
+<%-- <<<<<<< HEAD
+    <div class="row">
+        <c:forEach var="park" items="${parks}">
+            <div class="col-md-3 mb-4">
+                <a href="displayPark.do?id=${park.id}">
+                    <img src="${park.imageUrl}" class="img-fluid rounded">
+                </a>
+                <p class="text-center">${park.name}</p>
+            </div>
+        </c:forEach>
+======= --%>
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>Park Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="park" items="${parks}">
+                    <tr>
+                        <td><a href="displayPark.do?id=${park.id}">${park.name}</a></td>
+                        <img src="${park.imageUrl }">
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="colored-box-container">
+<div class="colored-box">
+<div class="block text">
+Welcome to ParkPals, the ultimate web program for National Park enthusiasts. Join our vibrant community to create meetups, <br>make friends, and explore the best-rated trails. Unleash the beauty of nature with like-minded adventurers at ParkPals!
+</div>
+</div>
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+=======
 		<div class="image-container">
 			<c:forEach var="park" items="${parks}">
 				<div class="text-center">
@@ -97,5 +142,6 @@ body {
 		</div>
 	</div>
 	
+>>>>>>> 7acffced0a9a7d8fc1ef2e322efec3410f06144e
 </body>
 </html>
