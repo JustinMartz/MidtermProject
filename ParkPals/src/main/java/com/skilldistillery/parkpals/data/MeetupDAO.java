@@ -5,6 +5,7 @@ import java.util.List;
 import com.skilldistillery.parkpals.entities.Meetup;
 import com.skilldistillery.parkpals.entities.MeetupComment;
 import com.skilldistillery.parkpals.entities.MeetupRating;
+import com.skilldistillery.parkpals.entities.Trail;
 import com.skilldistillery.parkpals.entities.User;
 
 public interface MeetupDAO {
@@ -16,6 +17,6 @@ public interface MeetupDAO {
 	public List<Meetup> findAllMeetups();
 	public List<MeetupRating> findAllMeetupRatingsForMeetup(Meetup meetup);
 	List<MeetupComment> findAllMeetupCommentsForMeetup(int meetupId);
-	Meetup create(User user, Meetup meetup);
+	Meetup create(User user, Meetup meetup, Trail trailId);
 
 }
