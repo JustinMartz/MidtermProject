@@ -103,7 +103,12 @@
 				<c:if test="${not empty error }">
 				${error }
 				</c:if>
-					
+				<c:if test="${not empty searchResults }">
+				<c:forEach items="${searchResults }" var="user">
+				<a href="friendprofile.do?userId=${user.id}">${user.firstName}
+							${user.lastName}</a>
+				</c:forEach>
+				</c:if>
 				<c:if test="${loggedInUser.id ne user.id}">
 				</c:if>
 

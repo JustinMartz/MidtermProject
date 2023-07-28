@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.parkpals.data.ParkDAO;
 import com.skilldistillery.parkpals.data.UserDAO;
 import com.skilldistillery.parkpals.entities.User;
 
@@ -19,6 +20,8 @@ public class UserCRUDController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private ParkDAO parkDao;
 
 	@RequestMapping(path = "deactivateAccount.do", method = RequestMethod.POST)
 	public String deactivateAccount(Model model, HttpSession session) {
@@ -91,10 +94,11 @@ public class UserCRUDController {
 	        		searchResults.remove(loggedInUser);
 	        	}
 	        	model.addAttribute("searchResults", searchResults);
-	        }
+	        } else {
 	        model.addAttribute("error", "No User Found");
 	    }
-
+	    }
+	    model.addAttribute("parks", parkDao.findAllParks());
 	   	    return "profile";
 	}
 
