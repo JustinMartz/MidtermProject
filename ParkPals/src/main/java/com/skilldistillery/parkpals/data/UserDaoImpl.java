@@ -102,6 +102,7 @@ public class UserDaoImpl implements UserDAO {
 
 		return em.find(Address.class, id);
 	}
+
 	@Override
 	public List<User> findFriendsByUserId(int userId) {
 		String jpql = "SELECT f FROM User u JOIN u.friends f WHERE u.id = :userId";
@@ -123,17 +124,7 @@ public class UserDaoImpl implements UserDAO {
 		return null;
 	}
 	
-	@Override
-	public User removeFriend(User user, User friend) {
-		if (user.getFriends() != null && user.getFriends().contains(friend)) {
-			user.getFriends().remove(friend);
-			friend.getFriends().remove(user);
-
-			em.merge(user);
-			em.merge(friend);
-		}
-		return null;
-	}
+	
 	
 	
 }

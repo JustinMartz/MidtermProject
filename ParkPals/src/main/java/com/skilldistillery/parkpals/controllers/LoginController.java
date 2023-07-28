@@ -23,6 +23,7 @@ public class LoginController {
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String showLoginPage(Model model) {
+	
 		return "login";
 		
 	}

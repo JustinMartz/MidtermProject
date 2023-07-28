@@ -4,38 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Park Pals - National Park Network</title>
-<!-- Bootstrap CSS -->
+<title>Create your own meetup!</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 <link href="../css/main.css" rel="stylesheet">
-
-<style>
-body {
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	background-attachment: fixed;
-	background-color: #ffffff;
-}
-
-.image-container {
-  display: grid;
-  grid-template-columns: repeat(4, 350px);
-  gap: 5px;
-  justify-content: center;
-}
-
-.image-container img {
-  width: 350px;
-  height: auto;
-  display: block;
-  border: 1px solid #ccc;
-}
-</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-light bg-success">
@@ -71,31 +46,19 @@ body {
 		</div>
 	  </div>
 	</nav>
-
-	<div class="container mt-5">
-		<h1 class="text-center">Park Pals</h1>
-		<h2 class="text-center">A National Park Network</h2>
-
-		<div class="colored-box-container">
-			<div class="colored-box">
-				<div class="block text">
-					Welcome to ParkPals, the ultimate web program for National Park enthusiasts. Join our vibrant community to create meetups, make
-					friends, and explore the best-rated trails. Unleash the beauty of nature with like-minded adventurers at ParkPals!
-				</div>
-			</div>
-		</div>
-
-		<div class="image-container">
-			<c:forEach var="park" items="${parks}">
-				<div class="text-center">
-					<a href="displayPark.do?id=${park.id}"> <img
-						src="http://localhost:8084/images/${park.imageUrl }" class="img-fluid rounded">
-					</a>
-					<p>${park.name}</p>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
 	
+	<h1>Create your own meetup at ${trail.name}!</h1>
+	<form action="saveMeetup.do" method=POST>
+	<h3>Name of meetup: </h3><input type="text" name="name" required>
+	<h3>Description: </h3><input type="text" name="description" required>
+	<h3>Date of meetup: </h3><input type="datetime-local" name="meetupDate" value="2018-06-12T19:30" min="2023-06-07T00:00" max="2024-06-14T00:00">
+	<h3>Start time: </h3><input type="time" name="startTime" min="09:00" max="18:00" required>
+	<h3>End time: </h3><input type="time" name="endTime" min="09:00" max="18:00">
+	<h3>Image URL: </h3><input type="text" name="imageUrl">
+	<br>
+	<input type="hidden" name="trailId" value="${trail.id}">
+	<input type="submit" value="Create meetup!">
+	</form>
+
 </body>
 </html>

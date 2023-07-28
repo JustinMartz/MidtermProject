@@ -36,7 +36,7 @@ public class CommentController {
 			if (addedComment) {
 				session.setAttribute("loggedInUser",
 						userDao.findByUsernameAndPassword(user.getUsername(), user.getPassword()));
-				model.addAttribute("meetupComments", meetupDao.findAllMeetupCommentsForMeetup(id));
+				session.setAttribute("meetupComments", meetupDao.findAllMeetupCommentsForMeetup(id));
 				return "viewMeetup";
 			}
 
