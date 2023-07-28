@@ -61,6 +61,7 @@ public class MeetupController {
 					session.setAttribute("loggedInUser", user);
 				}
 			}
+			session.setAttribute("meetupComments", meetupDao.findAllMeetupCommentsForMeetup(id));
 			return "viewMeetup";
 		}
 
@@ -102,6 +103,26 @@ public class MeetupController {
 
 		}
 
+		return "error";
+	}
+	
+	@RequestMapping(path="deleteMeetup.do")
+	public String deleteMeetup(Model model, HttpSession session, int id) {
+		Meetup meetupToDelete = meetupDao.findMeetupById(id);
+		User curUser = (User) session.getAttribute("loggedInUser");
+		
+		// if meetup was created by loggedInUser
+		if (meetupToDelete.getCreator().getId() == curUser.getId()) {
+			// "delete" (deactivate) the meetup
+			if (meetupDao.deleteMeetup(curUser, meetupToDelete)) {
+				// if successful, return to profile page
+				session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(curUser.getUsername(), curUser.getPassword()));
+				return "profile";
+			}
+		}
+		
+		// if not successful, return to error page
+		
 		return "error";
 	}
 

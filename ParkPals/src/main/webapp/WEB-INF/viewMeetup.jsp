@@ -67,7 +67,17 @@
 		<h2>Trail Rating: ${rating.rating }</h2>
 		<h2>Comments about this trail: ${rating.comment }</h2>
 	</c:forEach>
-
+	
+	<div class="comment-box">
+	<c:forEach var="meetupComment" items="${sessionScope.meetupComments }">
+	<h2>${meetupComment.comment }</h2>
+	<h3>${meetupComment.user.username }</h3>
+	<h4>${meetupComment.commentDate }</h4>
+	
+	</c:forEach>
+	</div>
+	
+	
 
 
 
@@ -78,6 +88,14 @@
 			 <input type="hidden" name="userId" value="${sessionScope.loggedInUser.id }">
 			<input type="submit" value="Flake on this meetup">
 
+		</form>
+		<form action="addCommentToMeetup.do">
+		<input type="text" name="commentText" maxlength=400>
+		<input type="hidden" name="id" value="${meetup.id }">
+		<input type="submit" value="Submit comment">
+		
+		
+		
 		</form>
 	</c:if>
 

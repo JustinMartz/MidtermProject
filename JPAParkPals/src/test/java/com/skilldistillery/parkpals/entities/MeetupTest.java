@@ -44,14 +44,14 @@ class MeetupTest {
 	@Test
 	void test_Meetup_basic() {
 		assertNotNull(meetup);
-		assertEquals("long and rough, bring water", meetup.getDescription());
+		assertEquals("Challenging route", meetup.getDescription());
 		
 	}
 	@Test
 	void test_Meetup_mapping_to_trail_ManyToOne() {
 		assertNotNull(meetup);
 		assertNotNull(meetup.getTrail());
-		assertEquals("25.8315n", meetup.getTrail().getLongitude());
+		assertEquals("111.8427W", meetup.getTrail().getLongitude());
 		
 	}
 	@Test
@@ -67,6 +67,13 @@ class MeetupTest {
 		assertNotNull(meetup.getMeetupComments());
 		assertTrue(meetup.getMeetupComments().size() > 0);
 		
+	}
+	
+	@Test
+	void test_active_returns_true() {
+		assertNotNull(meetup);
+		assertNotNull(meetup.getActive());
+		assertTrue(meetup.getActive());
 	}
 	
 
