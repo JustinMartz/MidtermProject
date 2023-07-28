@@ -1,6 +1,7 @@
 package com.skilldistillery.parkpals.entities;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,9 +26,9 @@ public class Meetup {
 	@Column(name = "meetup_date")
 	private LocalDateTime meetupDate;
 	@Column(name = "start_time")
-	private LocalDateTime startTime;
+	private LocalTime startTime;
 	@Column(name = "end_time")
-	private LocalDateTime endTime;
+	private LocalTime endTime;
 	private String description;
 	@Column(name = "image_url")
 	private String imageUrl;
@@ -94,19 +95,21 @@ public class Meetup {
 		this.meetupDate = meetupDate;
 	}
 
-	public LocalDateTime getStartTime() {
+	
+
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 

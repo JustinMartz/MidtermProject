@@ -12,7 +12,6 @@ import com.skilldistillery.parkpals.entities.Meetup;
 import com.skilldistillery.parkpals.entities.MeetupComment;
 import com.skilldistillery.parkpals.entities.MeetupRating;
 import com.skilldistillery.parkpals.entities.MeetupRatingId;
-import com.skilldistillery.parkpals.entities.Trail;
 import com.skilldistillery.parkpals.entities.User;
 
 @Service
@@ -157,24 +156,20 @@ public class MeetupDaoImpl implements MeetupDAO {
 	}
 
 	@Override
-	public Meetup createMeetup(User user, Meetup meetup, Trail trailId) {
-		Meetup meetupToCreate = new Meetup();
+	public Meetup createMeetup(User user, Meetup meetup) {
 		User userWhoCreatesMeetup = em.find(User.class, user.getId());
-		Trail trailForMeetupCreation = em.find(Trail.class, trailId);
-		meetupToCreate.setActive(true);
-		meetupToCreate.setName(meetup.getName());
-		meetupToCreate.setMeetupDate(meetup.getMeetupDate());
-		meetupToCreate.setStartTime(meetup.getStartTime());
-		meetupToCreate.setEndTime(meetup.getEndTime());
-		meetupToCreate.setDescription(meetup.getDescription());
-		meetupToCreate.setImageUrl(meetup.getImageUrl());
-		meetupToCreate.setCreator(userWhoCreatesMeetup);
-		meetupToCreate.setTrail(trailForMeetupCreation);
-		trailForMeetupCreation.addMeetup(meetupToCreate);
-		addMeetupToUser(userWhoCreatesMeetup,meetupToCreate);
-		userWhoCreatesMeetup.addMeetup(meetupToCreate);
-		em.persist(meetupToCreate);
+		meetup.setActive(true);
+		meetup.setCreator(userWhoCreatesMeetup);
+		em.persist(meetup);
 		em.flush();
+		MeetupRating meetupRating = new MeetupRating();
+		MeetupRatingId meetupRatingId = new MeetupRatingId();
+		meetupRatingId.setUserId(user.getId());
+		meetupRatingId.setMeetupId(meetup.getId());
+		meetupRating.setId(meetupRatingId);
+		meetupRating.setMeetup(meetup);
+		meetupRating.setUser(userWhoCreatesMeetup);
+		em.persist(meetupRating);
 		return meetup;
 	}
 
