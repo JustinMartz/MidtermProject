@@ -143,12 +143,9 @@
 
 		 <!-- Right block -->
     <div class="right-block">
-    Parks List:
-    ${park.name }
+		 <h4>Click on a park to view details.</h4>
     <c:forEach var="park" items="${parks}">
-      <a href="displayPark.do?id=${park.id}"> 
-            {park.name}
-					</a>
+      <a href="displayPark.do?id=${park.id}">${park.name}</a><br>
        
     </c:forEach>
 </div>
