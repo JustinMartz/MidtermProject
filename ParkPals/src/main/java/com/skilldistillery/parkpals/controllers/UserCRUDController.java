@@ -73,13 +73,29 @@ public class UserCRUDController {
 			model.addAttribute("friend", friendProfile);
 			if (user.getFriends().contains(friendProfile)) {
 				model.addAttribute("isFriend", true);
-				System.out.println("**********************IS FRIEND********************");
 			} else {
 				model.addAttribute("isFriend", false);
 			}
 			return "friendprofile";
 		}
 		return "error";
+	}
+	@RequestMapping(path = "searchFriends.do", method = RequestMethod.GET)
+	public String searchFriends(@RequestParam("name") String name, Model model, HttpSession session) {
+	    User loggedInUser = (User) session.getAttribute("loggedInUser");
+
+	    if (loggedInUser != null) {
+	        List<User> searchResults = userDao.searchForUserByName(name);
+	        if(searchResults != null) {
+	        	if(searchResults.contains(loggedInUser)) {
+	        		searchResults.remove(loggedInUser);
+	        	}
+	        	model.addAttribute("searchResults", searchResults);
+	        }
+	        model.addAttribute("error", "No User Found");
+	    }
+
+	   	    return "profile";
 	}
 
 }
