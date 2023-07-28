@@ -89,7 +89,7 @@ body {
 			<c:forEach var="park" items="${parks}">
 				<div class="text-center">
 					<a href="displayPark.do?id=${park.id}"> <img
-						src="../images/${park.imageUrl}" class="img-fluid rounded">
+						src="http://localhost:8084/images/${park.imageUrl }" class="img-fluid rounded">
 					</a>
 					<p>${park.name}</p>
 				</div>
