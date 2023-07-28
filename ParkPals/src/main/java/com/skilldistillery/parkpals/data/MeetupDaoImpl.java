@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.parkpals.entities.Meetup;
+import com.skilldistillery.parkpals.entities.MeetupComment;
 import com.skilldistillery.parkpals.entities.MeetupRating;
 import com.skilldistillery.parkpals.entities.MeetupRatingId;
 import com.skilldistillery.parkpals.entities.User;
@@ -48,6 +49,7 @@ public class MeetupDaoImpl implements MeetupDAO {
 		
 	}
 
+
 	@Override
 	public boolean addMeetupToUser(User user, Meetup meetup) {
 		boolean added = false;
@@ -67,6 +69,7 @@ public class MeetupDaoImpl implements MeetupDAO {
 				System.out.println("USER ALREADY PARTICIPANT OF MEETUP");
 				return added;
 			}
+
 		}
 		
 			MeetupRatingId id = new MeetupRatingId(user.getId(), meetup.getId());
@@ -141,5 +144,13 @@ public class MeetupDaoImpl implements MeetupDAO {
 		em.merge(creator);
 		
 		return true;
+	}
+	@Override
+	public List<MeetupComment> findAllMeetupCommentsForMeetup(int meetupId) {
+		String query = "SELECT mc FROM MeetupComment mc JOIN Meetup m ON m.id = mc.meetup.id WHERE m.id = :id";
+		List<MeetupComment> comments = em.createQuery(query, MeetupComment.class).setParameter("id", meetupId).getResultList(); 
+		
+		
+		return comments;
 	}
 }

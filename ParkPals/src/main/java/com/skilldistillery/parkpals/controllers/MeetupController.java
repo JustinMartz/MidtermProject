@@ -24,7 +24,7 @@ public class MeetupController {
 	private MeetupDAO meetupDao;
 	@Autowired
 	private UserDAO userDao;
-	
+
 	@Autowired
 	private TrailDAO trailDao;
 
@@ -38,18 +38,18 @@ public class MeetupController {
 			model.addAttribute("trail", trail);
 			return "viewTrail";
 		}
-		
+
 		System.out.println(id);
 		boolean isAttending = false;
 		session.setAttribute("isAttending", isAttending);
-		
+
 		if (meetup != null) {
 			User user = (User) session.getAttribute("loggedInUser");
 			user = userDao.findUserById(user.getId());
 			user.getMeetupRatings().size();
 			session.setAttribute("loggedInUser", user);
 			model.addAttribute("meetup", meetup);
-			
+
 			List<MeetupRating> meetupRatings = user.getMeetupRatings();
 			for (MeetupRating meetupRating : meetupRatings) {
 				if (meetupRating.getMeetup().getId() == id) {
@@ -61,6 +61,7 @@ public class MeetupController {
 					session.setAttribute("loggedInUser", user);
 				}
 			}
+			session.setAttribute("meetupComments", meetupDao.findAllMeetupCommentsForMeetup(id));
 			return "viewMeetup";
 		}
 
@@ -71,10 +72,11 @@ public class MeetupController {
 	public String joinMeetup(Model model, HttpSession session, int meetupId) {
 		Meetup meetupToAdd = meetupDao.findMeetupById(meetupId);
 		User userToAddToMeetup = (User) session.getAttribute("loggedInUser");
-		
+
 		if (meetupDao.addMeetupToUser(userToAddToMeetup, meetupToAdd)) {
 			session.setAttribute("isAttending", true);
-			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToAddToMeetup.getUsername(), userToAddToMeetup.getPassword()));
+			session.setAttribute("loggedInUser", userToAddToMeetup);
+
 			model.addAttribute("meetup", meetupToAdd);
 			return "viewMeetup";
 		}
@@ -87,20 +89,20 @@ public class MeetupController {
 
 		return "error";
 	}
-	
-	@RequestMapping(path="unattendMeetup.do")
+
+	@RequestMapping(path = "unattendMeetup.do")
 	public String unattendMeetup(Model model, HttpSession session, int meetupId) {
 		Meetup meetupToRemoveThyselfFrom = meetupDao.findMeetupById(meetupId);
 		User userToRemoveFromMeetup = (User) session.getAttribute("loggedInUser");
-		
+
 		if (meetupDao.removeUserFromMeetup(userToRemoveFromMeetup, meetupToRemoveThyselfFrom)) {
 			session.setAttribute("isAttending", false);
-			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToRemoveFromMeetup.getUsername(), userToRemoveFromMeetup.getPassword()));
+			session.setAttribute("loggedInUser", userToRemoveFromMeetup);
 			model.addAttribute("meetup", meetupToRemoveThyselfFrom);
 			return "viewMeetup";
 
 		}
-		
+
 		return "error";
 	}
 	
@@ -123,4 +125,5 @@ public class MeetupController {
 		
 		return "error";
 	}
+
 }
