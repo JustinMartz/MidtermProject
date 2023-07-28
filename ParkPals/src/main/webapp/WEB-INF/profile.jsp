@@ -112,17 +112,16 @@
                     About Me: ${loggedInUser.aboutme}
 
                 </p>
-                <h2>Meetups Attending:</h2>
-                <c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
-                    <strong><a href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong><br>
-                </c:forEach>
                 <!-- Middle Block Bottom-->
             </div>
 
             <div class="middle-block">
                 <!-- Middle block -->
-                <h2>Another Block</h2>
-                <p>Content here... (scrollable)</p>
+                <h2>Meetups Attending:</h2>
+                <c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
+                    <strong><a href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong><br>
+                </c:forEach>
+              
             </div>
         </div>
 
