@@ -66,8 +66,8 @@
 				<ul class="navbar-nav ">
 					<c:choose>
 						<c:when test="${not empty sessionScope.loggedInUser }">
-							<li class="nav-item"><a class="nav-link" href="profile.do">Welcome!
-									${loggedInUser.firstName}</a></li>
+							<li class="nav-item">Welcome!
+									${loggedInUser.firstName}</li>
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="profile.do">View My Profile</a></li>
 							<li class="nav-item"><a class="nav-link" href="logout.do">Log
@@ -91,10 +91,9 @@
 	<div class="console-container">
 		<div class="left-block">
 			<!-- Left block -->
+			<!--  Search Block -->
 			<div>
-				<h2>Friends List</h2>
-				<p>Hello ${loggedInUser.firstName } ${loggedInUser.lastName }</p>
-
+			<div class="colored-box">
 				<form action="searchFriends.do" method="get">
 					<input type="text" name="name"
 						placeholder="Search for friends...">
@@ -109,16 +108,22 @@
 							${user.lastName}</a>
 				</c:forEach>
 				</c:if>
-				<c:if test="${loggedInUser.id ne user.id}">
-				</c:if>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<h2>Friends List</h2>
 
+			
 				<c:forEach items="${loggedInUser.friends}" var="viewFriend">
 					<p>
 						<a href="friendprofile.do?userId=${viewFriend.id}">${viewFriend.firstName}
 							${viewFriend.lastName}</a>
 					</p>
 				</c:forEach>
-
+	
 			</div>
 		</div>
 

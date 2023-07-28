@@ -33,6 +33,7 @@ public class RegisterUserController {
 		if(user == null) {
 			return "register";
 		}else {
+			model.addAttribute("parks", parkDao.findAllParks());
 			return "profile";
 		}
 
@@ -44,6 +45,7 @@ public class RegisterUserController {
 		user.setAddress(address);
 		userDao.addUser(user);
 		session.setAttribute("loggedInUser", user);
+		model.addAttribute("parks", parkDao.findAllParks());
 		return "profile"; 
 		
 	}

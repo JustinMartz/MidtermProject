@@ -92,8 +92,8 @@ public class MeetupDaoImpl implements MeetupDAO {
 	@Override
 	public boolean removeUserFromMeetup(User user, Meetup meetup) {
 		User curUser = em.find(User.class, user.getId());
-
-		for (MeetupRating rating : user.getMeetupRatings()) {
+		
+		for (MeetupRating rating : curUser.getMeetupRatings()) {
 			if (rating.getMeetup().getId() == meetup.getId()) {
 				MeetupRating ratingToRemove = em.find(MeetupRating.class, rating.getId());
 

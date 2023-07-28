@@ -118,7 +118,9 @@ public class MeetupController {
 				// if successful, return to profile page
 				session.setAttribute("loggedInUser",
 						userDao.findByUsernameAndPassword(curUser.getUsername(), curUser.getPassword()));
-				return "profile";
+//				model.addAttribute("parks", parkDao.findAllParks());
+//				return "profile";
+				return "redirect:profile.do";
 			}
 		}
 

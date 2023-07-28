@@ -79,6 +79,7 @@ public class UserCRUDController {
 			} else {
 				model.addAttribute("isFriend", false);
 			}
+			model.addAttribute("parks", parkDao.findAllParks());
 			return "friendprofile";
 		}
 		return "error";
