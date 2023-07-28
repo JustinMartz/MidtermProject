@@ -14,6 +14,8 @@ public interface UserDAO {
 	Address findAddressById(int id);
 	User update(User user, int userId, Address address);
 	Boolean deactivateUser(int id);
+	List<User> findFriendsByUserId(int userId);
+	User addFriend(User user, User friend);
 	
 	
 

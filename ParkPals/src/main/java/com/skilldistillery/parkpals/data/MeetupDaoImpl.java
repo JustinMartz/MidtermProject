@@ -153,4 +153,14 @@ public class MeetupDaoImpl implements MeetupDAO {
 		
 		return comments;
 	}
+	
+	
+	@Override
+	public Meetup create(User user, Meetup meetup) {
+		Meetup meetupToCreate = em.find(Meetup.class, meetup);
+		meetup.
+		
+		em.persist(meetup);
+		return meetup;
+	}
 }

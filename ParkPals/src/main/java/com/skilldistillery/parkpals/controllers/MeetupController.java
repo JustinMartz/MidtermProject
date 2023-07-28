@@ -126,4 +126,5 @@ public class MeetupController {
 		return "error";
 	}
 
+	//automatically set active to true
 }

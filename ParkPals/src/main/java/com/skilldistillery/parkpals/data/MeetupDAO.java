@@ -16,5 +16,6 @@ public interface MeetupDAO {
 	public List<Meetup> findAllMeetups();
 	public List<MeetupRating> findAllMeetupRatingsForMeetup(Meetup meetup);
 	List<MeetupComment> findAllMeetupCommentsForMeetup(int meetupId);
+	Meetup create(User user, Meetup meetup);
 
 }
