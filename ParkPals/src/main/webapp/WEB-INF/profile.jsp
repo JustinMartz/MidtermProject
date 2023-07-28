@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,6 +113,7 @@
 
                 </p>
                 <!-- Middle Block Bottom-->
+         
             </div>
 
             <div class="middle-block">
@@ -125,14 +126,19 @@
             </div>
         </div>
 
-        <div class="right-block">
-            <!-- Right block -->
-              <p>Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.</p>
-       			Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.
-       			Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed at magna quis justo ultricies placerat. Nulla facilisi. In venenatis augue ut risus pharetra, eget eleifend sapien bibendum. Etiam eu lacus nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget nisl eu mi vestibulum viverra. Quisque at ante eu nibh posuere congue vel a elit. Integer et nunc vitae odio laoreet interdum a vel dui. Suspendisse potenti. Sed finibus euismod lectus, eget efficitur eros congue at. Vivamus ac turpis nec arcu hendrerit fringilla.
+      <div class="right-block">
+    <!-- Right block -->
+    
+    Parks List:
+    ${park.name }
+    <c:forEach var="park" items="${parks}">
+      <a href="displayPark.do?id=${park.id}"> 
+            {park.name}
+					</a>
        
-        </div>
-    </div>
+    </c:forEach>
+</div>
+  
     
     
     
