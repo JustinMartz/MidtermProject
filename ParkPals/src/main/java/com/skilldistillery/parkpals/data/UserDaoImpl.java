@@ -102,6 +102,8 @@ public class UserDaoImpl implements UserDAO {
 
 		return em.find(Address.class, id);
 	}
+
+	
 	
 	
 }
