@@ -51,9 +51,9 @@
 	<form action="saveMeetup.do" method=POST>
 	<h3>Name of meetup: </h3><input type="text" name="name" required>
 	<h3>Description: </h3><input type="text" name="description" required>
-	<h3>Date of meetup: </h3><input type="datetime-local" name="meetupDate" value="2018-06-12T19:30" min="2023-06-07T00:00" max="2024-06-14T00:00">
-	<h3>Start time: </h3><input type="time" name="startTime" min="09:00" max="18:00" required>
-	<h3>End time: </h3><input type="time" name="endTime" min="09:00" max="18:00">
+	<h3>Date of meetup: </h3><input type="datetime-local" name="meetupDate">
+	<h3>Start time: </h3><input type="time" name="startTime" required>
+	<h3>End time: </h3><input type="time" name="endTime">
 	<h3>Image URL: </h3><input type="text" name="imageUrl">
 	<br>
 	<input type="hidden" name="trail.id" value="${trailId}">

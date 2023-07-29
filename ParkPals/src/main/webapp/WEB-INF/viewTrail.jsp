@@ -66,6 +66,7 @@
                 </form></div></div>
                 <ul class="list-group">
                     <c:forEach var="meetup" items="${trail.meetups}">
+                       <c:if test="${meetup.active }">
                         <li class="list-group-item">
                             <a href="displayMeetup.do?id=${meetup.id}">${meetup.name}</a>
                             <c:if test="${notLoggedIn }"><div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -75,6 +76,7 @@
                             <br>
                             ${meetup.description}
                         </li>
+                        </c:if>
                     </c:forEach>
                 </ul>
                 <h2 class="mt-4">Amenities</h2>

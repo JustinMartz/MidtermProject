@@ -142,9 +142,14 @@ public class UserDaoImpl implements UserDAO {
     @Override
     public List<User> searchForUserByName(String searchTerm) {
         String jpql = "SELECT u FROM User u WHERE u.firstName = :fn AND u.active = true";
+        try {
         List<User> foundUsers = em.createQuery(jpql, User.class).setParameter("fn", searchTerm).getResultList();
         
-        
         return foundUsers;
+    } catch (Exception e) {
+		e.printStackTrace();
+		System.err.println("No user found with that name");
+	}
+        return null;
     }
 }
