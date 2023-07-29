@@ -502,14 +502,14 @@ INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `ac
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (2, 'Sam2', '4567', 'Sam', 'Fath', 1, 'user', 2, 'Environmental advocate and tree hugger. Passionate about sustainability and eco-conscious living. Join me in making a difference for our planet.\n\n', 'sam.jpg', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (3, 'Justin3', '8910', 'Justin ', 'Martz', 1, 'user', 3, 'Birdwatcher and wildlife lover. Excited to spot rare species and document the wonders of nature. Let\'s embark on birdwatching adventures!\n\n', 'justin.jpg', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (4, 'Dean4', '1112', 'Dean', 'Coffman', 1, 'user', 4, 'Nature artist and painter. Inspired by the colors of the wilderness, I express my creativity through art. Let\'s share our nature-inspired masterpieces.\n\n\n', 'deanjpg', '2023-02-02 10-10-10', '2023-02-02 10-10-10');
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (13, 'kim24', '_4*a&Otpiw', 'Richard', 'Johnson', 0, 'user', 14, 'Gardening enthusiast with a green thumb. My happy place is in the garden, nurturing plants and cultivating a mini-Eden. Let\'s swap gardening tips!\n\n', 'mprofile4.jpeg', '2023-08-01 00:00:00', '2023-08-02 00:00:00');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (13, 'kim24', '_4*a&Otpiw', 'Richard', 'Johnson', 1, 'user', 14, 'Gardening enthusiast with a green thumb. My happy place is in the garden, nurturing plants and cultivating a mini-Eden. Let\'s swap gardening tips!\n\n', 'mprofile4.jpeg', '2023-08-01 00:00:00', '2023-08-02 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (11, 'masonmatthew', '6_142QjVyf', 'Micheal', 'Russell', 1, 'user', 12, 'Stargazer and night sky observer. Fascinated by the cosmos and celestial events. Join me for stargazing under the vast night sky.\n\n', 'mprofile3.jpeg', '2023-08-06 00:00:00', '2023-08-09 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (12, 'leonardmichael', 'j6WU%ax(_W', 'Rickey', 'Davis', 0, 'user', 13, 'Forest bathing advocate and mindfulness seeker. Nature is my sanctuary, and I believe in the healing power of the woods. Let\'s find peace in nature together.\n\n', 'mprofile7.jpeg', '2023-08-11 00:00:00', '2023-08-13 00:00:00');
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (17, 'kaitlynhughes', 'l$0Egmqtq7', 'Brandy', 'Smith', 0, 'user', 19, 'Mountain lover and summit chaser. Conquering peaks and embracing the majesty of mountains. Let\'s climb to new heights together!\n\n', 'profile1.jpeg', '2023-08-16 00:00:00', '2023-08-19 00:00:00');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (17, 'kaitlynhughes', 'l$0Egmqtq7', 'Brandy', 'Smith', 1, 'user', 19, 'Mountain lover and summit chaser. Conquering peaks and embracing the majesty of mountains. Let\'s climb to new heights together!\n\n', 'profile1.jpeg', '2023-08-16 00:00:00', '2023-08-19 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (5, 'gabriel10', '4cOOyaC0@J', 'Christopher', 'Lewis', 0, 'user', 5, 'Ocean lover and beachcomber. Drawn to the rhythm of the waves and the mysteries of the deep sea. Let\'s explore coastal wonders.\n\n', 'profile9.jpeg', '2023-08-21 00:00:00', '2023-08-22 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (18, 'jordanandrew', 'E4cCy0$p+f', 'Jacob', 'Mercado', 1, 'user', 18, 'Botany enthusiast and plant collector. Fascinated by the diversity of flora and eager to learn more about botany. Let\'s delve into the world of plants!\n\n', 'mprofile6.jpeg', '2023-08-26 00:00:00', '2023-08-28 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (16, 'dawsonjessica', '*1H!Db%j$%', 'Kristen', 'Smith', 1, 'user', 17, 'Adventure seeker and adrenaline junkie. Whether it\'s kayaking, zip-lining, or rock climbing, I\'m up for the thrill. Let\'s push our limits!\n\n', 'profile1.jpeg', '2023-08-31 00:00:00', '2023-09-01 00:00:00');
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (8, 'nespinoza', '#7CRmVBa56', 'Shelly', 'Cooley', 0, 'user', 9, 'Campfire storyteller and s\'mores lover. Camping is my favorite way to bond with nature and friends. Let\'s share campfire tales and laughter.\n\n', 'profile4.jpeg', '2023-09-05 00:00:00', '2023-09-09 00:00:00');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (8, 'nespinoza', '#7CRmVBa56', 'Shelly', 'Cooley', 1, 'user', 9, 'Campfire storyteller and s\'mores lover. Camping is my favorite way to bond with nature and friends. Let\'s share campfire tales and laughter.\n\n', 'profile4.jpeg', '2023-09-05 00:00:00', '2023-09-09 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (15, 'medinabilly', 'bx03H$hLt&', 'Jesse', 'Summers', 1, 'user', 16, 'Photographer capturing nature\'s beauty. Through my lens, I aim to preserve nature\'s splendor forever. Let\'s embark on photo expeditions.\n\n', 'profile6.jpeg', '2023-09-10 00:00:00', '2023-09-12 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (14, 'jjohnson', 'df(6z%Mb7^', 'Stephanie', 'Lee', 0, 'user', 15, 'Nature writer and poet. Finding inspiration in the wilderness and expressing it through words. Let\'s connect through poetry and prose.\n\n', 'profile10.jpeg', '2023-09-15 00:00:00', '2023-09-17 00:00:00');
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `active`, `role`, `address_id`, `aboutme`, `image_url`, `date_created`, `last_update`) VALUES (9, 'ssmith', 'lS*0Kojubc', 'Patrick', 'Miller', 1, 'user', 10, 'Starfish collector and beach cleanup enthusiast. I believe in keeping our oceans clean and protecting marine life. Let\'s clean up beaches together!\n\n', 'mprofile5.jpeg', '2023-09-20 00:00:00', '2023-09-23 00:00:00');
@@ -753,6 +753,15 @@ INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (2, 'food station', '
 INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (3, 'campground', 'many camping stations');
 INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (4, 'playgrounds', 'play station for all ages ');
 INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (5, 'pinic tables', 'pinic tables in many areas');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (6, 'visitor center', 'visitor center');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (7, 'scenic overlook', 'multiple areas to overlook the park');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (8, 'cabins', '1-3 bedrooms, kitchen, and common area');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (9, 'interpretive signs', 'educational signs along trails');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (10, 'gift shop', 'buy gifts, snacks, and park merch at our gift shop');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (11, 'shuttle service', 'transportation within the park');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (12, 'accessibility features', 'facilities for visitors with disabilities');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (13, 'ranger programs', 'guided tours and educational activities');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (14, 'biking ', 'trails designed for biking');
 
 COMMIT;
 
@@ -767,6 +776,18 @@ INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 1);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (3, 1);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (4, 1);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (5, 1);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (5, 2);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (6, 2);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (3, 2);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 2);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (7, 3);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (8, 3);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (11, 3);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (12, 4);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (9, 5);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 5);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 5);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (4, 6);
 
 COMMIT;
 
