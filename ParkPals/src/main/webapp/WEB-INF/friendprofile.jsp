@@ -99,6 +99,19 @@
         <div class="middle-container">
             <div class="middle-block">
                 <!-- Middle block Top -->
+                <div class="image-container">
+					<img src="images/${loggedInUser.imageUrl}" alt="Profile Photo"
+						class="profile-image">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+				</div>
                 <h1 class="text-center">Friend's Profile</h1>
                 <p class="text-center">
                     Username: ${friend.username}<br> First Name:
