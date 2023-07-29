@@ -576,6 +576,7 @@ INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `leng
 INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (18, 'Skull Rock Trai', 'This short loop trail, around 1.7 miles, takes you to the unique Skull Rock, a rock formation resembling a skull, perfect for photo opportunities.', '-97.54667', '30.5427', 14.76, 15, 1, '');
 INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (19, 'Mist Trail', 'The Mist Trail is one of the park\'s most popular hikes, offering stunning views of two majestic waterfalls: Vernal Fall and Nevada Fall. As you ascend, the mist from the cascading water creates a refreshing and invigorating experience.', '-120.93549', '37.73604', 24.99, 18, 1, '');
 INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (20, 'Emerald Pools Trail', 'A family-friendly hike that leads to three beautiful emerald pools. The Lower Emerald Pool is an easy walk, while the Middle and Upper pools require a bit more effort. The waterfalls and lush greenery create a serene atmosphere.', '-86.77917', '36.02506', 12.25, 20, 1, '');
+INSERT INTO `trail` (`id`, `name`, `description`, `longitude`, `latitude`, `length_in_miles`, `park_id`, `active`, `image_url`) VALUES (21, 'another trail', 'testing', '1234', '5678', 1.2, 20, 1, NULL);
 
 COMMIT;
 
