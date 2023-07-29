@@ -27,9 +27,8 @@
 	border: 2px solid #ccc;
 	border-radius: 10px;
 	margin: 5px;
-	overflow-y: auto; /* Enable vertical scrolling */
+	overflow-y: auto;
 	max-height: calc(100vh - 20px);
-	/* Maximum height to fit the viewport */
 }
 
 .middle-container {
@@ -39,15 +38,22 @@
 	margin: 5px;
 }
 
-.middle-block {
+.middle-block-top {
+	flex: 2;
+	padding: 20px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	overflow-y: auto;
+}
+
+.middle-block-bottom {
 	flex: 1;
 	padding: 20px;
 	border: 2px solid #ccc;
 	border-radius: 10px;
 	margin-bottom: 10px;
-	overflow-y: auto; /* Enable vertical scrolling */
-	max-height: calc(( 100vh - 40px)/2);
-	/* Maximum height to fit half the viewport */
+	overflow-y: auto;
 }
 </style>
 </head>
@@ -66,8 +72,7 @@
 				<ul class="navbar-nav ">
 					<c:choose>
 						<c:when test="${not empty sessionScope.loggedInUser }">
-							<li class="nav-item">Welcome!
-									${loggedInUser.firstName}</li>
+							<li class="nav-item">Welcome! ${loggedInUser.firstName}</li>
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="profile.do">View My Profile</a></li>
 							<li class="nav-item"><a class="nav-link" href="logout.do">Log
@@ -93,56 +98,77 @@
 			<!-- Left block -->
 			<!--  Search Block -->
 			<div>
-			<div class="colored-box">
-				<form action="searchFriends.do" method="get">
-					<input type="text" name="name"
-						placeholder="Search for friends...">
-					<button type="submit">Search</button>
-				</form>
-				<c:if test="${not empty error }">
+				<div class="colored-box">
+					<form action="searchFriends.do" method="get">
+						<input type="text" name="name" placeholder="Search for friends...">
+						<button type="submit">Search</button>
+					</form>
+					<c:if test="${not empty error }">
 				${error }
 				</c:if>
-				<c:if test="${not empty searchResults }">
-				<c:forEach items="${searchResults }" var="user">
-				<a href="friendprofile.do?userId=${user.id}">${user.firstName}
-							${user.lastName}</a>
-				</c:forEach>
-				</c:if>
+					<c:if test="${not empty searchResults }">
+						<c:forEach items="${searchResults }" var="user">
+							<a href="friendprofile.do?userId=${user.id}">${user.firstName}
+								${user.lastName}</a>
+						</c:forEach>
+					</c:if>
 				</div>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br> <br>
 				<h2>Friends List</h2>
 
-			
+
 				<c:forEach items="${loggedInUser.friends}" var="viewFriend">
 					<p>
 						<a href="friendprofile.do?userId=${viewFriend.id}">${viewFriend.firstName}
 							${viewFriend.lastName}</a>
 					</p>
 				</c:forEach>
-	
+
 			</div>
 		</div>
 
 
+
 		<div class="middle-container">
-			<div class="middle-block">
+			<div class="middle-block-top">
 				<!-- Middle block Top -->
+				<table>
+			<td>
+				<div class="image-container">
+					<img src="images/${loggedInUser.imageUrl}" alt="Profile Photo"
+						class="profile-image">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+				</div>
+						</td>
+						<td>
 				<h1 class="text-center">User Profile</h1>
 				<p class="text-center">
-					<img src="${loggedInUser.imageUrl}">
-					Username: ${loggedInUser.username}<br> First Name:
-					${loggedInUser.firstName}<br> Last Name:
-					${loggedInUser.lastName}<br> About Me: ${loggedInUser.aboutme}
+				Username: ${loggedInUser.username}<br> First Name:
+				${loggedInUser.firstName}<br> Last Name:
+				${loggedInUser.lastName}<br> About Me: ${loggedInUser.aboutme}
 
 				</p>
+				</td>
+				</table>
 				<!-- Middle Block Bottom-->
 			</div>
 
-			<div class="middle-block">
+			<div class="middle-block-bottom">
 				<!-- Middle block -->
 				<h2>Meetups Attending:</h2>
 				<c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
@@ -150,7 +176,7 @@
 						href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong>
 					<br>
 				</c:forEach>
-				
+	
 			</div>
 		</div>
 

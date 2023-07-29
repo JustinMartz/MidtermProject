@@ -8,10 +8,14 @@ body {
   line-height: 1.6;
 }
 
+	
+	.profile-image {
+    max-width: 80%;
+    height: auto;
+
+}
 img {
 	background-color: forestgreen;
-	width: 250px;
-	height: 250px;
 	padding: 1em;
 	margin: 1em;
 }
