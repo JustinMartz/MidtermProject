@@ -72,8 +72,13 @@ public class UserCRUDController {
 	public String viewFriendProfile(@RequestParam("userId") int userId, Model model, HttpSession session) {
 		User friendProfile = userDao.findUserById(userId);
 		User user = (User) session.getAttribute("loggedInUser");
+		
 		if (friendProfile != null) {
 			model.addAttribute("friend", friendProfile);
+			System.out.println("******************** ******************* ******************** **************");
+			System.out.println("friendProfile: " + friendProfile);
+			System.out.println("******************** ******************* ******************** **************");
+			
 			if (user.getFriends().contains(friendProfile)) {
 				model.addAttribute("isFriend", true);
 			} else {

@@ -87,8 +87,8 @@
     <div class="console-container">
         <div class="left-block">
             <!-- Friends List -->
-            <h2>Friends List</h2>
-            <c:forEach items="${loggedInUser.friends}" var="viewFriend">
+            <h2>${friend.username}'s Friends</h2>
+            <c:forEach items="${friend.friends}" var="viewFriend">
                 <p>
                     <a href="friendprofile.do?userId=${viewFriend.id}">${viewFriend.firstName}
                         ${viewFriend.lastName}</a>
@@ -99,7 +99,7 @@
         <div class="middle-container">
             <div class="middle-block">
                 <!-- Middle block Top -->
-                <h1 class="text-center">Friend's Profile</h1>
+                <h1 class="text-center">${friend.username}'s Profile</h1>
                 <p class="text-center">
                     Username: ${friend.username}<br> First Name:
                     ${friend.firstName}<br> Last Name: ${friend.lastName}<br>
