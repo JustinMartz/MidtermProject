@@ -54,9 +54,6 @@ public class MeetupController {
 			for (MeetupRating meetupRating : meetupRatings) {
 				if (meetupRating.getMeetup().getId() == id) {
 					isAttending = true;
-					System.out.println("***********************");
-					System.out.println("USER IS ATTENDING MEETUP " + id);
-					System.out.println("***********************");
 					session.setAttribute("isAttending", isAttending);
 					session.setAttribute("loggedInUser", user);
 				}
