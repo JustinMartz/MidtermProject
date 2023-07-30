@@ -72,9 +72,9 @@ public class MeetupController {
 
 		if (meetupDao.addMeetupToUser(userToAddToMeetup, meetupToAdd)) {
 			session.setAttribute("isAttending", true);
-			session.setAttribute("loggedInUser", userToAddToMeetup);
 
 			model.addAttribute("meetup", meetupToAdd);
+			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToAddToMeetup.getUsername(), userToAddToMeetup.getPassword()));
 			return "viewMeetup";
 		}
 
@@ -94,7 +94,8 @@ public class MeetupController {
 
 		if (meetupDao.removeUserFromMeetup(userToRemoveFromMeetup, meetupToRemoveThyselfFrom)) {
 			session.setAttribute("isAttending", false);
-			session.setAttribute("loggedInUser", userToRemoveFromMeetup);
+			session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(userToRemoveFromMeetup.getUsername(), userToRemoveFromMeetup.getPassword()));
+
 			model.addAttribute("meetup", meetupToRemoveThyselfFrom);
 			return "viewMeetup";
 
