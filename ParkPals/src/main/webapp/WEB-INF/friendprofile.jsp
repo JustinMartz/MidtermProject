@@ -99,9 +99,8 @@
         <div class="middle-container">
             <div class="middle-block">
                 <!-- Middle block Top -->
-<<<<<<< HEAD
                 <div class="image-container">
-					<img src="images/${loggedInUser.imageUrl}" alt="Profile Photo"
+					<img src="images/${friend.imageUrl}" alt="Profile Photo"
 						class="profile-image">
 <br>
 <br>
@@ -114,9 +113,8 @@
 
 				</div>
                 <h1 class="text-center">Friend's Profile</h1>
-=======
+
                 <h1 class="text-center">${friend.username}'s Profile</h1>
->>>>>>> 9d2620f61d7ec2a3e491d1545ae23f4c8bf85191
                 <p class="text-center">
                     Username: ${friend.username}<br> First Name:
                     ${friend.firstName}<br> Last Name: ${friend.lastName}<br>
