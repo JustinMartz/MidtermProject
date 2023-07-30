@@ -133,43 +133,55 @@
 			<div class="middle-block-top">
 				<!-- Middle block Top -->
 				<table>
-			<td>
-				<div class="image-container">
-					<img src="images/${loggedInUser.imageUrl}" alt="Profile Photo"
-						class="profile-image">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+					<td>
+						<div class="image-container">
+							<img src="images/${loggedInUser.imageUrl}" alt="Profile Photo"
+								class="profile-image"> <br> <br> <br> <br>
+							<br> <br> <br>
 
 
-				</div>
-						</td>
-						<td>
-				<h1 class="text-center">User Profile</h1>
-				<p class="text-center">
-				Username: ${loggedInUser.username}<br> First Name:
-				${loggedInUser.firstName}<br> Last Name:
-				${loggedInUser.lastName}<br> About Me: ${loggedInUser.aboutme}
+						</div>
+					</td>
+					<td>
+						<h1 class="text-center">User Profile</h1>
+						<p class="text-center">
+							Username: ${loggedInUser.username}<br> First Name:
+							${loggedInUser.firstName}<br> Last Name:
+							${loggedInUser.lastName}<br> About Me:
+							${loggedInUser.aboutme}
 
-				</p>
-				</td>
+						</p>
+					</td>
 				</table>
 				<!-- Middle Block Bottom-->
 			</div>
 
 			<div class="middle-block-bottom">
-				<!-- Middle block -->
-				<h2>Meetups Attending:</h2>
-				<c:forEach items="${loggedInUser.meetupRatings }" var="meetupRating">
-					<strong><a
-						href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong>
-					<br>
-				</c:forEach>
-	
+				<div class="list-group">
+
+					<!-- Middle block -->
+					<h2>Meetups Attending:</h2>
+					<c:forEach items="${loggedInUser.meetupRatings }"
+						var="meetupRating">
+						<strong><a
+							href="displayMeetup.do?id=${meetupRating.meetup.id}"
+							class="list-group-item list-group-item-action active"
+							aria-current="true">${meetupRating.meetup.name }
+								<div class="d-flex w-100 justify-content-between">
+
+
+									<h5 class="mb-1">List group item heading</h5>
+									${meetupRating.meetup.name }
+								</div>
+
+
+
+
+						</a></strong>
+						<br>
+					</c:forEach>
+
+				</div>
 			</div>
 		</div>
 
