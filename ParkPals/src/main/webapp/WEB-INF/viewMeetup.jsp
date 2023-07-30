@@ -56,7 +56,7 @@
     <p>Start Time: ${meetup.startTime}</p>
     <p>End Time: ${meetup.endTime}</p>
     <p>Description: ${meetup.description}</p>
-    <p>Image URL: ${meetup.imageUrl}</p>
+    <p><img src="${meetup.imageUrl}"></p>
     <p>Trail Description: ${meetup.trail.description}</p>
     <h3>Created by: ${meetup.creator.firstName}</h3>
 

@@ -168,10 +168,8 @@
 							class="list-group-item list-group-item-action active"
 							aria-current="true">${meetupRating.meetup.name }
 								<div class="d-flex w-100 justify-content-between">
-
-
-									<h5 class="mb-1">List group item heading</h5>
-									${meetupRating.meetup.name }
+									<h5 class="mb-1">${meetupRating.meetup.description }</h5>
+									<img src="${meetupRating.meetup.imageUrl }" style="height: 100px; width: auto;">
 								</div>
 
 
