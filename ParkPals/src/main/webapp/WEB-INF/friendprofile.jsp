@@ -153,7 +153,7 @@
         <div class="right-block">
         <div class="list-group">
         
-            <h4>Click on a park to view details.</h4>
+            <h4>Explore The Parks</h4>
             <c:forEach var="park" items="${parks}">
                 <a href="displayPark.do?id=${park.id}" class="list-group-item list-group-item-action">${park.name}</a>
                 <br>
