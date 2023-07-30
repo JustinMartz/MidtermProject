@@ -30,11 +30,10 @@ public class LoginController {
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String showLoginPage(Model model, String userName, String passWord, HttpSession session) {
 		User user = userDao.findByUsernameAndPassword(userName, passWord);
-		System.out.println("****************************");
-		System.out.println(" " + userName + passWord);
-		System.out.println("****************************");
+		
 		if(user == null) {
-			return "home";
+			model.addAttribute("errorMessage", "Bad username or password, or both.");
+			return "error";
 		}else {
 			session.setAttribute("loggedInUser", user);
 			model.addAttribute("parks", parkDao.findAllParks());
