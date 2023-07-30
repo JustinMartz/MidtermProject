@@ -28,7 +28,6 @@
     margin: 5px;
     overflow-y: auto; /* Enable vertical scrolling */
     max-height: calc(100vh - 20px);
-    /* Maximum height to fit the viewport */
 }
 
 .middle-container {
@@ -45,8 +44,7 @@
     border-radius: 10px;
     margin-bottom: 10px;
     overflow-y: auto; /* Enable vertical scrolling */
-    max-height: calc(( 100vh - 40px)/2);
-    /* Maximum height to fit half the viewport */
+  
 }
 </style>
 </head>
@@ -94,43 +92,7 @@
                         ${viewFriend.lastName}</a>
                 </p>
             </c:forEach>
-        </div>
-
-        <div class="middle-container">
-            <div class="middle-block">
-                <!-- Middle block Top -->
-                <div class="image-container">
-					<img src="images/${friend.imageUrl}" alt="Profile Photo"
-						class="profile-image">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-				</div>
-                <h1 class="text-center">Friend's Profile</h1>
-
-                <h1 class="text-center">${friend.username}'s Profile</h1>
-                <p class="text-center">
-                    Username: ${friend.username}<br> First Name:
-                    ${friend.firstName}<br> Last Name: ${friend.lastName}<br>
-                    About Me: ${friend.aboutme}
-                </p>
-                <h2>Meetups Attending:</h2>
-                <c:forEach items="${friend.meetupRatings }" var="meetupRating">
-                    <strong><a
-                        href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong>
-                    <br>
-                </c:forEach>
-                <!-- Middle Block Bottom-->
-            </div>
-
-            <div class="middle-block">
-                <c:if test="${isFriend eq true }">
+              <c:if test="${isFriend eq true }">
                     <form action="removeFriend.do" method="post">
                         <input type="hidden" name="friendId" value="${friend.id }">
                         <button type="submit">Remove Friend</button>
@@ -142,18 +104,54 @@
                         <button type="submit">Let's Be Friends</button>
                     </form>
                 </c:if>
+        </div>
+
+        <div class="middle-container">
+            <div class="middle-block">
+                <!-- Middle block Top -->
+              <table>
+              		<tr>
+              		<td>
+                <div class="image-container">
+					<img src="images/${friend.imageUrl}" alt="Profile Photo"
+						class="profile-image" style="width:250px; height:auto;" align="left" >
+						</td>
+						<td width="40%">
+<br>
+				</div>
+
+                <h1 class="text-center">${friend.username}'s Profile</h1>
+                <p class="text-center">
+                    Username: ${friend.username}<br> First Name:
+                    ${friend.firstName}<br> Last Name: ${friend.lastName}<br>
+                    About Me: ${friend.aboutme}
+                </p>
+                </td>
+                </tr>
+                </table>
+                <h2>Meetups Attending:</h2>
+                <c:forEach items="${friend.meetupRatings }" var="meetupRating">
+                    <strong><a
+                        href="displayMeetup.do?id=${meetupRating.meetup.id}">${meetupRating.meetup.name }</a></strong>
+                    <br>
+                </c:forEach>
+                <!-- Middle Block Bottom-->
             </div>
+
+           
         </div>
 
         <div class="right-block">
+        <div class="list-group">
+        
             <h4>Click on a park to view details.</h4>
             <c:forEach var="park" items="${parks}">
-                <a href="displayPark.do?id=${park.id}">${park.name}</a>
+                <a href="displayPark.do?id=${park.id}" class="list-group-item list-group-item-action">${park.name}</a>
                 <br>
             </c:forEach>
         </div>
     </div>
-
+</div>
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
