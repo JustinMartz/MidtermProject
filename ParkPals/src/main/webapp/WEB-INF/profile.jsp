@@ -187,12 +187,14 @@
 
 		<!-- Right block -->
 		<div class="right-block">
-			<h4>Click on a park to view details.</h4>
-			<c:forEach var="park" items="${parks}">
-				<a href="displayPark.do?id=${park.id}">${park.name}</a>
-				<br>
-
-			</c:forEach>
+			 <div class="list-group">
+        
+            <h4>Click on a park to view details.</h4>
+            <c:forEach var="park" items="${parks}">
+                <a href="displayPark.do?id=${park.id}" class="list-group-item list-group-item-action">${park.name}</a>
+                <br>
+            </c:forEach>
+        </div>
 		</div>
 
 
