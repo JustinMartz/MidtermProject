@@ -54,7 +54,7 @@
                 <p>Latitude: ${trail.latitude}</p>
                 <p>Longitude: ${trail.longitude}</p>
                 <p>Length: ${trail.lengthInMiles} miles</p>
-                <p>Image URL: ${trail.imageUrl}</p>
+                <p><img src="${trail.imageUrl}"></p>
             </div>
             <div class="col-md-6">
                 <div class="row">
