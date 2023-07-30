@@ -74,7 +74,7 @@
     </div>
 
     <c:if test="${sessionScope.isAttending eq true}">
-        <h1>You are attending this meetup!</h1>
+        <h3>You are attending this meetup!</h3>
         <form action="unattendMeetup.do">
             <input type="hidden" name="meetupId" value="${meetup.id}">
             <input type="hidden" name="userId" value="${sessionScope.loggedInUser.id}">
@@ -96,7 +96,8 @@
     </c:if>
 
     <c:if test="${sessionScope.loggedInUser.id eq meetup.creator.id}">
-        <h1><a href="deleteMeetup.do?id=${meetup.id}">DELETE THIS MEETUP</a></h1>
+        <a href="deleteMeetup.do?id=${meetup.id}">
+        <button type="button" class="btn btn-danger">DELETE THIS MEETUP</button></a>
     </c:if>
 
 </div>
