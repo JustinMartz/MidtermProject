@@ -56,13 +56,12 @@
     <p>Start Time: ${meetup.startTime}</p>
     <p>End Time: ${meetup.endTime}</p>
     <p>Description: ${meetup.description}</p>
-    <p><img src="${meetup.imageUrl}"></p>
+    <p><img src="images/${meetup.imageUrl}"></p>
     <p>Trail Description: ${meetup.trail.description}</p>
     <h3>Created by: ${meetup.creator.firstName}</h3>
 
     <c:forEach var="rating" items="${meetup.meetupRatings}">
-        <h2>Trail Rating: ${rating.rating}</h2>
-        <h2>Comments about this trail: ${rating.comment}</h2>
+        <h5>Trail Rating: ${rating.rating}</h5>
     </c:forEach>
 
     <div class="comment-box">
