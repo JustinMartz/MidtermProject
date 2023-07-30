@@ -47,7 +47,7 @@
 
     <div class="container mt-5">
         <h1 class="text-center">${trail.name}</h1>
-        <p class="lead text-center">Welcome to this amazing kick frog trail!</p>
+        <p class="lead text-center">Welcome!</p>
         <div class="row mt-4">
             <div class="col-md-6">
                 <p>${trail.description}</p>
