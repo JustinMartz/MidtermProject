@@ -13,6 +13,21 @@
           crossorigin="anonymous">
     <!-- Custom CSS -->
     <link href="../css/main.css" rel="stylesheet">
+    <style>
+    body {
+    background-image: url("images/meetupbackground.jpeg");
+    background-size: cover;
+    background-position: center;
+    
+    }
+    .container {
+	border: 1px solid #ccc;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: rgba(241,236,228, 0.8);
+	display: grid;
+}
+    </style>
 </head>
 <body>
 
@@ -49,8 +64,8 @@
 		</div>
 	  </div>
 	</nav>
+<div class="container">
 
-<div class="container mt-3">
     <h1>${meetup.name}</h1>
     <p>Date: ${meetup.meetupDate}</p>
     <p>Start Time: ${meetup.startTime}</p>
@@ -66,9 +81,8 @@
 
     <div class="comment-box">
         <c:forEach var="meetupComment" items="${sessionScope.meetupComments}">
-            <h2>${meetupComment.comment}</h2>
-            <h3 style="display: inline;">Posted by: </h3>${meetupComment.user.username}<br>
-            <span>${meetupComment.commentDate}</span>
+            <h6 style="display: inline;">Posted by: ${meetupComment.user.username} , ${meetupComment.commentDate} </h6>
+            <h4 style="text-color:black; text-align:left;">${meetupComment.comment}</h4>
             <hr>
         </c:forEach>
     </div>
@@ -82,7 +96,7 @@
         </form>
 
         <form action="addCommentToMeetup.do">
-            <input type="text" name="commentText" maxlength="400">
+            <input type="text" name="commentText" maxlength="400" >
             <input type="hidden" name="id" value="${meetup.id}">
             <input type="submit" value="Submit comment">
         </form>
