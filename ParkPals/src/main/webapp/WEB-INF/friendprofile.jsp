@@ -137,7 +137,7 @@
 						<div class="d-flex w-100 justify-content-between">
 							<a href="displayMeetup.do?id=${meetupRating.meetup.id}" class="list-group-item list-group-item-action active" aria-current="true"><h4>${meetupRating.meetup.name}</h4>
 							<h5 class="mb-1">${meetupRating.meetup.description }</h5>
-							<img src="${meetupRating.meetup.imageUrl }" style="height: 100px; width: auto;">
+							<img src="images/${meetupRating.meetup.imageUrl }" style="height: 100px; width: auto;">
 						</div>
 						<br>
 						</a>
