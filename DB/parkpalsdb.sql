@@ -788,6 +788,15 @@ INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (9, 5);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 5);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 5);
 INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (4, 6);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 7);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 7);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 8);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (2, 8);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 9);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 10);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 11);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 12);
+INSERT INTO `amenity_has_trail` (`amenity_id`, `trail_id`) VALUES (1, 13);
 
 COMMIT;
 
