@@ -55,6 +55,9 @@ body {
 			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
 			</li>
 			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="editProfile.do">Edit My Profile</a>
+			</li>
+			<li class="nav-item">
 			<a class="nav-link" href="logout.do">Log Out</a>
 			</li>
 			 </c:when>

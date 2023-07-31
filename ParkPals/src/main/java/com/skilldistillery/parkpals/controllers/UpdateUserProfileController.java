@@ -19,12 +19,14 @@ public class UpdateUserProfileController {
 	private UserDAO userDao;
 
 	@RequestMapping(path = "editProfile.do")
-	public String editUserProfile(Model model, HttpSession session, int id) {
-		User user = userDao.findUserById(id);
+	public String editUserProfile(Model model, HttpSession session) {
+//		User user = userDao.findUserById(id);
+		User user = (User) session.getAttribute("loggedInUser");
 		if (user == null) {
 			return "home";
 			// FIXME Work on redirecting this to an error page
 		}
+		
 		session.setAttribute("loggedInUser", user);
 
 		return "editProfile";
