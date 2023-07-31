@@ -17,7 +17,7 @@
 <style>
 body {
   background-color: rgba(10, 10, 10, 0.2);
-  background-image: url("../images/verdebackground.png");
+  background-image: url("images/verdebackground.png");
   background-size: cover;
   background-position: center;
 }
@@ -138,7 +138,7 @@ a:hover {
 			Welcome to ${park.name} - a breathtaking national park with a mix of natural wonders and thrilling adventures!
 
 			<div class="image-container">
-				<img src="../images/${park.imageUrl}" alt="${park.name}">
+				<img src="images/${park.imageUrl}" alt="${park.name}">
 			</div>
 
 			<h2>Highlights:</h2>
