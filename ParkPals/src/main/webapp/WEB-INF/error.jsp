@@ -10,6 +10,43 @@
     <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
+<nav class="navbar navbar-expand-sm navbar-light bg-success">
+	  <div class="container-fluid ">
+		<a class="navbar-brand " href="home.do">Park Pals</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+		  <ul class="navbar-nav ">
+			<c:choose>
+			<c:when test="${not empty sessionScope.loggedInUser }">
+			<li class="nav-item">
+			 Welcome! ${loggedInUser.firstName}
+			 </li>
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="editProfile.do">Edit My Profile</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="logout.do">Log Out</a>
+			</li>
+			 </c:when>
+			 <c:otherwise>
+			 <li class="nav-item">
+			 <a class="nav-link" href="register.do">Register</a>
+			</li>
+			<li class="nav-item">
+			 <a class="nav-link" href="login.do">Log In</a>
+			</li>			
+			 </c:otherwise>
+			 </c:choose>
+		  </ul>		  
+		</div>
+	  </div>
+	</nav>
+	
     <div class="container mt-5">
         <h1 class="text-center">Uh oh!</h1>
 

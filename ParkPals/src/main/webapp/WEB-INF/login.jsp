@@ -23,10 +23,13 @@
 			<c:choose>
 			<c:when test="${not empty sessionScope.loggedInUser }">
 			<li class="nav-item">
-			 <a class="nav-link" href="profile.do">Welcome! ${loggedInUser.firstName}</a>
+			 Welcome! ${loggedInUser.firstName}
 			 </li>
 			<li class="nav-item">
 			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="editProfile.do">Edit My Profile</a>
 			</li>
 			<li class="nav-item">
 			<a class="nav-link" href="logout.do">Log Out</a>
