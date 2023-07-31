@@ -34,7 +34,15 @@ body {
   height: auto;
   display: block;
   border: 1px solid #ccc;
+  background-color: #28a745;
 }
+
+.logo {
+  text-align=center;
+  image-shadow: 2px 2px 4px #888;
+  
+}
+
 </style>
 </head>
 <body>
@@ -76,6 +84,13 @@ body {
 	</nav>
 
 	<div class="container mt-5">
+	<table>
+	<td>
+	
+	
+	<img src="images/pplogo.png" class="logo">
+	</td>
+	<td>
 		<h1 class="text-center">Park Pals</h1>
 		<h2 class="text-center">A National Park Network</h2>
 
@@ -87,7 +102,8 @@ body {
 				</div>
 			</div>
 		</div>
-
+		</td>
+</table>
 		<div class="image-container">
 			<c:forEach var="park" items="${parks}">
 				<div class="text-center">

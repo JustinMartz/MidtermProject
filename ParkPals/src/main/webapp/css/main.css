@@ -15,7 +15,6 @@ body {
 
 }
 img {
-	background-color: forestgreen;
 	padding: 1em;
 	margin: 1em;
 }
@@ -29,7 +28,10 @@ img {
 h1 {
   text-align: center;
   color: #007bff; /* Blue */
+  text-shadow: 2px 2px 4px #888;
 }
+
+
 
 h2 {
   text-align:center ;
@@ -125,6 +127,7 @@ th {
 }
 .colored-box-container{
 	text-align: center;
+	
 }
 .block.text{
 	font-size: large; 
