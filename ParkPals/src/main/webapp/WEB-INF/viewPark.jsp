@@ -13,7 +13,7 @@
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
 
-<link href="../css/main.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
 <style>
 body {
   background-color: rgba(10, 10, 10, 0.2);
