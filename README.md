@@ -15,6 +15,8 @@ We created this web site to turn our love of national parks into a useful meetin
 
 ## Description
 
+![](parkpals.png)
+
 [ParkPals](http://3.13.216.67:8080/ParkPals) allows registered users to create, join, unattend, or delete meetups with other users. Meetups allow users to display start and end times, descriptions, and a photo of the meetup. Users can also leave comments on meetups! 
 
 See a user who isn't your friend? Add them to your friends list!
@@ -37,10 +39,17 @@ Visit [ParkPals](http://3.13.216.67:8080/ParkPals) and register for an account t
 * Java
 * Maven
 * Agile workflow
+* Git
 
 ## Lessons Learned
 
-This project really 
+Working on this project taught us how to apply technologies we've learned up until now into a real working application. It wasn't until we stumbled and hit a brick wall several times with several things that things started to make sense.
+
+* Building a database from scratch and then using the Data Access Object design pattern to build methods to read and alter the database.
+
+* Carrying data across different web pages with <code>HttpSession</code>, using the <code>Java String Tag Library</code> to display that data.
+
+* Using <code>git</code> to manage our codebase and allow team members to quickly update changes to everyone's local repository.
 
 On the frontend, we all learned much more about designing a web page's layout and functionality. The size and placement of text really makes a difference not when just trying to view data, but to make it visually appealing.
 
