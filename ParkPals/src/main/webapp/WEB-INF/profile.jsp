@@ -143,7 +143,7 @@
 						</div>
 					</td>
 					<td>
-						<h1 class="text-center">User Profile</h1>
+						<h1 class="text-center">${loggedInUser.username}'s Profile</h1>
 						<p class="text-center">
 							Username: ${loggedInUser.username}<br> First Name:
 							${loggedInUser.firstName}<br> Last Name:
