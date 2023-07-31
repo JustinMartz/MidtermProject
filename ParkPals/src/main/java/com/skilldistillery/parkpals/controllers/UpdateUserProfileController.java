@@ -18,7 +18,7 @@ import com.skilldistillery.parkpals.entities.User;
 public class UpdateUserProfileController {
 	@Autowired
 	private UserDAO userDao;
-	
+
 	@Autowired
 	private ParkDAO parkDao;
 
@@ -30,7 +30,7 @@ public class UpdateUserProfileController {
 			return "home";
 			// FIXME Work on redirecting this to an error page
 		}
-		
+
 		session.setAttribute("loggedInUser", user);
 
 		return "editProfile";
@@ -39,14 +39,15 @@ public class UpdateUserProfileController {
 	@RequestMapping(path = "updateUserInfo.do", method = RequestMethod.POST)
 	public String updateUserAndAddress(Model model, User user, HttpSession session, Address address,
 			@RequestParam int id) {
-		User currentUser = (User) session.getAttribute("loggedInUser");
+//		User currentUser = (User) session.getAttribute("loggedInUser");
+		User currentUser = userDao.findUserById(user.getId());
 		if (currentUser != null) {
 
-			
 			User updateUser = userDao.update(user, currentUser.getId(), address);
 			if (updateUser != null) {
 				model.addAttribute("parks", parkDao.findAllParks());
-				session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(currentUser.getUsername(), currentUser.getPassword()));
+				session.setAttribute("loggedInUser",
+						userDao.findByUsernameAndPassword(currentUser.getUsername(), currentUser.getPassword()));
 				return "profile";
 
 			}
