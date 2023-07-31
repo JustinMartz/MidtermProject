@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.parkpals.data.ParkDAO;
 import com.skilldistillery.parkpals.data.UserDAO;
 import com.skilldistillery.parkpals.entities.Address;
 import com.skilldistillery.parkpals.entities.User;
@@ -17,6 +18,9 @@ import com.skilldistillery.parkpals.entities.User;
 public class UpdateUserProfileController {
 	@Autowired
 	private UserDAO userDao;
+	
+	@Autowired
+	private ParkDAO parkDao;
 
 	@RequestMapping(path = "editProfile.do")
 	public String editUserProfile(Model model, HttpSession session) {
@@ -41,7 +45,8 @@ public class UpdateUserProfileController {
 			
 			User updateUser = userDao.update(user, currentUser.getId(), address);
 			if (updateUser != null) {
-				session.setAttribute("loggedInUser", updateUser);
+				model.addAttribute("parks", parkDao.findAllParks());
+				session.setAttribute("loggedInUser", userDao.findByUsernameAndPassword(currentUser.getUsername(), currentUser.getPassword()));
 				return "profile";
 
 			}
