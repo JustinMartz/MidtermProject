@@ -57,7 +57,7 @@ body {
 			<c:choose>
 			<c:when test="${not empty sessionScope.loggedInUser }">
 			<li class="nav-item">
-			 <a class="nav-item">Welcome! ${loggedInUser.firstName}</a>
+			 Welcome! ${loggedInUser.firstName}
 			 </li>
 			<li class="nav-item">
 			  <a class="nav-link active" aria-current="page" href="profile.do">View My Profile</a>
